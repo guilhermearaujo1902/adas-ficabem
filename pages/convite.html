@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fica Bem - Convidar Amigas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body class="app-body" data-page="convite">
+  <div class="phone-device" aria-label="Simulador de aplicativo mobile">
+    <div class="phone-notch" aria-hidden="true"></div>
+    <div class="phone-screen">
+      <div class="phone-screen-inner h-full w-full m-0 p-0 bg-brand-dark text-white flex flex-col selection:bg-white selection:text-brand-dark overflow-hidden">
+      <main id="convidar-amigas-main"
+            class="w-full h-full max-w-[430px] mx-auto flex flex-col relative sm:shadow-2xl sm:border-x sm:border-white/10 bg-brand-dark overflow-y-auto overflow-x-hidden pb-24 no-scrollbar">
+            <!-- Header Overlay -->
+            <header id="route-header"
+              class="sticky top-0 left-0 w-full pt-6 px-4 pb-4 z-30 flex justify-between items-center bg-brand-dark/95 backdrop-blur-md border-b border-white/10">
+              <button
+                class="w-10 h-10 rounded-full glass-effect flex items-center justify-center text-white/80 hover:text-white transition-colors shadow-lg"><i
+                  class="fa-solid fa-arrow-left"></i></button>
+              <div class="flex flex-col items-center">
+                <h1 class="font-serif text-lg font-bold text-white drop-shadow-md">
+                  Convidar Amigas</h1>
+              </div>
+              <div class="w-10 h-10"></div> <!-- Spacer for centering -->
+            </header><!-- Hero Section: Invite via QR/Link -->
+            <section id="hero-invite" class="px-4 pt-6 pb-4 flex flex-col gap-6">
+              <div class="text-center">
+                <h2 class="font-serif text-2xl font-bold text-white mb-2">Juntas somos
+                  mais fortes</h2>
+                <p class="font-sans text-sm text-white/70 px-4">Convide suas amigas
+                  para o Fica Bem e construa uma rede de segurança compartilhada.</p>
+              </div><!-- QR Code Card -->
+              <div
+                class="glass-card rounded-[24px] p-6 flex flex-col items-center gap-5 relative overflow-hidden">
+                <!-- Decorative background elements -->
+                <div
+                  class="absolute -top-10 -right-10 w-32 h-32 bg-brand-accent/20 rounded-full blur-2xl">
+                </div>
+                <div
+                  class="absolute -bottom-10 -left-10 w-32 h-32 bg-white/5 rounded-full blur-2xl">
+                </div>
+                <div class="bg-white p-4 rounded-[16px] shadow-lg relative z-10"><img
+                    src="https://storage.googleapis.com/uxpilot-auth.appspot.com/2d94809668-578610c2d176147075c1.png"
+                    alt="A clean, high-contrast QR code design, black on white background, minimalist, sharp edges, suitable for scanning"
+                    class="w-40 h-40 object-cover rounded-[8px]"></div>
+                <div class="w-full">
+                  <p class="font-sans text-xs text-white/60 text-center mb-2">Ou
+                    compartilhe seu link exclusivo:</p>
+                  <div
+                    class="flex items-center gap-2 bg-black/20 rounded-[12px] p-1 pl-4 border border-white/10">
+                    <span
+                      class="font-sans text-sm text-white/80 truncate flex-1">ficabem.app/invite/MARIA92</span><button
+                      class="bg-brand-accent text-white px-4 py-2 rounded-[8px] font-sans text-xs font-semibold hover:bg-brand-accent/90 transition-colors shadow-sm">
+                      Copiar
+                    </button></div>
+                </div>
+              </div><!-- Social Sharing Actions -->
+              <div class="grid grid-cols-3 gap-3"></div>
+            </section><!-- Divider -->
+            <div class="w-full px-4 py-2">
+              <div class="h-px w-full bg-white/10"></div>
+            </div><!-- Referral Code Entry -->
+            <section id="have-code-section" class="px-4 py-4">
+              <div class="glass-card rounded-[16px] p-5 border-brand-accent/30">
+                <div class="flex items-start gap-4">
+                  <div
+                    class="w-10 h-10 rounded-full bg-brand-accent/20 flex items-center justify-center text-brand-accent shrink-0 mt-1">
+                    <i class="fa-solid fa-ticket text-lg"></i></div>
+                  <div class="flex flex-col gap-3 w-full">
+                    <div>
+                      <h3 class="font-sans text-sm font-semibold text-white">Recebi um
+                        convite</h3>
+                      <p class="font-sans text-xs text-white/60 mt-1">Insira o código
+                        que sua amiga compartilhou com você.</p>
+                    </div>
+                    <div class="flex gap-2"><input type="text"
+                        placeholder="Ex: MARIA92"
+                        class="flex-1 bg-black/20 border border-white/10 rounded-[12px] px-4 py-3 font-sans text-sm text-white placeholder-white/40 transition-all uppercase tracking-wider"><button
+                        class="bg-brand-accent text-white px-5 py-3 rounded-[12px] font-sans text-sm font-semibold hover:bg-brand-accent/90 transition-colors shadow-sm">
+                        Validar
+                      </button></div>
+                  </div>
+                </div>
+              </div>
+            </section><!-- Pending Invitations List -->
+            <section id="pending-invites" class="px-4 py-4 flex flex-col gap-4">
+              <div class="flex justify-between items-end px-1">
+                <h3 class="font-sans text-base font-semibold text-white">Convites
+                  Pendentes</h3><span class="font-sans text-xs text-white/50">2
+                  aguardando</span>
+              </div>
+              <div class="flex flex-col gap-3">
+                <!-- Invite Item 1 -->
+                <div
+                  class="glass-effect rounded-[16px] p-4 flex items-center justify-between border-white/5">
+                  <div class="flex items-center gap-3">
+                    <div
+                      class="w-12 h-12 rounded-full bg-black/20 flex items-center justify-center text-white/40 border border-white/10">
+                      <i class="fa-solid fa-user text-lg"></i></div>
+                    <div class="flex flex-col"><span
+                        class="font-sans text-sm font-medium text-white">+55 11
+                        98765-4321</span><span
+                        class="font-sans text-[10px] text-white/50">Enviado há 2
+                        dias</span></div>
+                  </div><button
+                    class="px-3 py-1.5 rounded-[8px] bg-white/10 hover:bg-white/20 transition-colors border border-white/10 font-sans text-xs font-medium text-white">
+                    Lembrar
+                  </button>
+                </div><!-- Invite Item 2 -->
+                <div
+                  class="glass-effect rounded-[16px] p-4 flex items-center justify-between border-white/5">
+                  <div class="flex items-center gap-3">
+                    <div
+                      class="w-12 h-12 rounded-full bg-black/20 flex items-center justify-center text-white/40 border border-white/10 overflow-hidden">
+                      <img
+                        src="https://storage.googleapis.com/uxpilot-auth.appspot.com/8dd3504595-eb25778c23b60e7f0737.png"
+                        alt="A soft, abstract gradient placeholder for an avatar, muted teal and dark green, minimalist"
+                        class="w-full h-full object-cover opacity-60"></div>
+                    <div class="flex flex-col"><span
+                        class="font-sans text-sm font-medium text-white">ana.clara@email.com</span><span
+                        class="font-sans text-[10px] text-white/50">Enviado há 5
+                        dias</span></div>
+                  </div><button
+                    class="px-3 py-1.5 rounded-[8px] bg-white/10 hover:bg-white/20 transition-colors border border-white/10 font-sans text-xs font-medium text-white">
+                    Lembrar
+                  </button>
+                </div>
+              </div><button
+                class="w-full py-3 mt-2 font-sans text-sm font-medium text-brand-accent hover:text-brand-accent/80 transition-colors">
+                Ver histórico completo
+              </button>
+            </section>
+            <!-- Bottom Navigation Bar (Consistent with previous screens) -->
+            <nav id="bottom-nav" class="bottom-nav" data-component="bottom-nav"></nav>
+          </main>
+      </div>
+    </div>
+    <div class="phone-home-indicator" aria-hidden="true"></div>
+  </div>
+  <script src="../js/storage.js"></script>
+  <script src="../js/navigation.js"></script>
+  <script src="../js/components/bottom-nav.js"></script>
+  <script src="../js/pages/convite.js"></script>
+</body>
+</html>

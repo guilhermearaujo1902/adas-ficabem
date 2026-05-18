@@ -1,0 +1,32 @@
+/**
+ * Folha de estilos principal — ordem importa (legado por último nos utilitários)
+ */
+@import url("variables.css");
+@import url("base.css");
+@import url("layout.css");
+@import url("utilities.css");
+@import url("utilities-extra.css");
+@import url("legacy-compat.css");
+@import url("components.css");
+
+/* Utilitários de marca (gradientes Tailwind) */
+.from-brand-500\/40 {
+  --tw-gradient-from: rgba(95, 146, 125, 0.4);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, transparent);
+}
+.from-brand-900\/50 {
+  --tw-gradient-from: rgba(20, 83, 45, 0.5);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, transparent);
+}
+.to-transparent {
+  --tw-gradient-to: transparent;
+}
+.bg-brand-dark {
+  background-color: var(--color-brand-dark);
+}
+.selection\:bg-white::selection {
+  background-color: #fff;
+}
+.selection\:text-brand-dark::selection {
+  color: var(--color-brand-dark);
+}

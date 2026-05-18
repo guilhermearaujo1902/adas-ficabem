@@ -1,0 +1,90 @@
+/**
+ * Utilitários adicionais — classes arbitrárias e pseudo do legado
+ * (complementa utilities.css gerado)
+ */
+
+.from-\[#2f6759\] {
+  --tw-gradient-from: #2f6759;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, transparent);
+}
+.to-\[#5f927d\] {
+  --tw-gradient-to: #5f927d;
+}
+
+.shadow-\[0_4px_14px_0_rgba\(0\,0\,0\,0\.1\)\] {
+  box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.1);
+}
+
+.active\:scale-\[0\.98\]:active {
+  transform: scale(0.98);
+}
+
+.active\:scale-95:active {
+  transform: scale(0.95);
+}
+
+.blur-xl {
+  filter: blur(24px);
+}
+
+.drop-shadow-lg {
+  filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+}
+
+.drop-shadow-md {
+  filter: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07)) drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));
+}
+
+.backdrop-blur {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.border-dashed {
+  border-style: dashed;
+}
+
+.decoration-white\/30 {
+  text-decoration-color: rgba(255, 255, 255, 0.3);
+}
+
+.underline-offset-2 {
+  text-underline-offset: 2px;
+}
+
+.divide-white\/10 > * + * {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.divide-x > * + * {
+  border-left-width: 1px;
+}
+
+.bottom-2 { bottom: 0.5rem; }
+.bottom-24 { bottom: 6rem; }
+.bottom-full { bottom: 100%; }
+
+.bg-black\/20 { background-color: rgba(0, 0, 0, 0.2); }
+.bg-black\/40 { background-color: rgba(0, 0, 0, 0.4); }
+.bg-blue-500\/20 { background-color: rgba(59, 130, 246, 0.2); }
+.border-blue-500\/30 { border-color: rgba(59, 130, 246, 0.3); }
+
+.bg-\[#2f6759\]\/95 {
+  background-color: rgba(47, 103, 89, 0.95);
+}
+
+.cursor-help {
+  cursor: help;
+}
+
+.ring-2 {
+  box-shadow: 0 0 0 2px currentColor;
+}
+
+.ring-white {
+  --tw-ring-color: #fff;
+}
+
+.ring-brand-accent {
+  box-shadow: 0 0 0 2px var(--color-brand-accent);
+}

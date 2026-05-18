@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rota - Fica Bem</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body class="app-body" data-page="rota">
+  <div class="phone-device" aria-label="Simulador de aplicativo mobile">
+    <div class="phone-notch" aria-hidden="true"></div>
+    <div class="phone-screen">
+      <div class="phone-screen-inner text-white min-h-[100dvh] flex flex-col items-center justify-center relative overflow-hidden m-0 p-0">
+      <!-- Main Container (Mobile Constrained) -->
+          <main id="app-rota" class="w-full max-w-[375px] h-[840px] max-h-[100dvh] relative z-10 flex flex-col bg-[#2f6759] mx-auto overflow-hidden">
+              
+              <!-- Map Background Layer (Simulated) -->
+              <div class="map-container overflow-hidden">
+                  <!-- Simulated Map Image with Brand Tint -->
+                  <div class="absolute inset-0 bg-[#1a3c33] mix-blend-multiply opacity-60 z-10 pointer-events-none"></div>
+                  <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/8ce12478cc-f68a75c08b7e0b8e1b77.png" alt="A clean, minimalist city street map view, dark mode style with soft green and teal tones, showing a route path, mobile app map interface, high contrast roads" />
+                  
+                  <!-- Route Line Overlay -->
+                  <svg class="absolute inset-0 w-full h-full z-20 pointer-events-none" viewBox="0 0 375 840" preserveAspectRatio="none">
+                      <path d="M 180 600 C 180 500, 220 450, 200 350 C 180 250, 150 200, 150 100" fill="none" stroke="#86efac" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" class="drop-shadow-[0_0_8px_rgba(134,239,172,0.6)]" />
+                      
+                      <!-- Start Point -->
+                      <circle cx="180" cy="600" r="8" fill="#ffffff" stroke="#2f6759" stroke-width="4" />
+                      <!-- End Point -->
+                      <circle cx="150" cy="100" r="10" fill="#86efac" stroke="#ffffff" stroke-width="3" class="drop-shadow-lg" />
+                  </svg>
+      
+                  <!-- Safe Point Marker (Apoio) -->
+                  <div class="absolute top-[380px] left-[240px] z-20 flex flex-col items-center transform -translate-x-1/2 -translate-y-full">
+                      <div class="bg-white text-brand-900 text-[10px] font-bold px-2 py-1 rounded-md shadow-lg mb-1">Café Seguro</div>
+                      <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-lg border-2 border-brand-300">
+                          <i class="fa-solid fa-mug-hot text-[14px] text-brand-600"></i>
+                      </div>
+                  </div>
+              </div>
+      
+              <!-- Top Action Bar (Floating) -->
+              <header id="rota-header" class="absolute top-0 w-full px-6 pt-12 pb-4 z-30 flex items-center justify-between pointer-events-none">
+                  <button class="w-10 h-10 rounded-full glass-panel flex items-center justify-center hover:bg-white/20 transition-colors shadow-lg pointer-events-auto" aria-label="Voltar">
+                      <i class="fa-solid fa-chevron-left text-[16px] text-white"></i>
+                  </button>
+                  <div class="glass-panel px-4 py-2 rounded-full flex items-center gap-2 pointer-events-auto shadow-lg">
+                      <div class="w-2 h-2 rounded-full bg-brand-300 animate-pulse"></div>
+                      <span class="text-[12px] font-semibold text-white tracking-wide">Compartilhando</span>
+                  </div>
+                  <button class="w-10 h-10 rounded-full glass-panel flex items-center justify-center hover:bg-white/20 transition-colors shadow-lg pointer-events-auto" aria-label="Opções">
+                      <i class="fa-solid fa-ellipsis-vertical text-[16px] text-white"></i>
+                  </button>
+              </header>
+      
+              <!-- Quick Access Sidebar (Floating Right) -->
+              <div class="absolute right-6 top-[120px] z-30 flex flex-col gap-3">
+                  <button class="w-11 h-11 rounded-full glass-panel flex items-center justify-center hover:bg-white/20 transition-colors shadow-lg" aria-label="Check-in">
+                      <i class="fa-solid fa-location-dot text-[16px] text-white"></i>
+                  </button>
+                  <button class="w-11 h-11 rounded-full glass-panel flex items-center justify-center hover:bg-white/20 transition-colors shadow-lg" aria-label="Pontos de Apoio">
+                      <i class="fa-solid fa-shield-heart text-[16px] text-brand-300"></i>
+                  </button>
+                  <button class="w-11 h-11 rounded-full glass-panel flex items-center justify-center hover:bg-white/20 transition-colors shadow-lg" aria-label="Centralizar">
+                      <i class="fa-solid fa-crosshairs text-[16px] text-white"></i>
+                  </button>
+              </div>
+      
+              <!-- Emergency FAB -->
+              <button class="fab-emergency" aria-label="Emergência">
+                  <i class="fa-solid fa-phone text-[20px]"></i>
+              </button>
+      
+              <!-- Bottom Sheet (Route Status & Controls) -->
+              <div id="route-bottom-sheet" class="bottom-sheet absolute bottom-[84px] w-full z-40 flex flex-col max-h-[60vh]">
+                  <div class="w-full py-3 flex justify-center shrink-0 cursor-pointer" onclick="document.getElementById('route-bottom-sheet').classList.toggle('collapsed')">
+                      <div class="drag-handle"></div>
+                  </div>
+      
+                  <div class="px-6 pb-6 overflow-y-auto hide-scrollbar flex-1 space-y-6">
+                      
+                      <!-- ETA & Distance Header -->
+                      <div class="flex items-end justify-between">
+                          <div>
+                              <h2 class="text-[32px] font-bold text-white leading-none mb-1">12 min</h2>
+                              <p class="text-[14px] text-white/70">1.2 km • Chegada às 18:45</p>
+                          </div>
+                          <div class="bg-brand-300/20 border border-brand-300/30 px-3 py-1.5 rounded-lg flex items-center gap-1.5">
+                              <i class="fa-solid fa-person-walking text-brand-300 text-[14px]"></i>
+                          </div>
+                      </div>
+      
+                      <!-- Route Toggle -->
+                      <div class="route-toggle w-full h-[44px]">
+                          <div class="route-toggle-slider transform translate-x-0"></div> <!-- translate-x-full for right -->
+                          <button class="route-toggle-btn active" onclick="this.previousElementSibling.style.transform='translate-x-0'; this.classList.add('active'); this.nextElementSibling.classList.remove('active');">
+                              Mais Segura
+                          </button>
+                          <button class="route-toggle-btn" onclick="this.previousElementSibling.previousElementSibling.style.transform='translateX(100%)'; this.classList.add('active'); this.previousElementSibling.classList.remove('active');">
+                              Mais Rápida
+                          </button>
+                      </div>
+      
+                      <!-- Destination Info -->
+                      <div class="bg-white/5 border border-white/10 rounded-[16px] p-4 flex items-center gap-4">
+                          <div class="w-10 h-10 rounded-full bg-brand-300/20 flex items-center justify-center shrink-0">
+                              <i class="fa-solid fa-flag-checkered text-brand-300 text-[16px]"></i>
+                          </div>
+                          <div class="flex-1 min-w-0">
+                              <h3 class="text-[15px] font-medium text-white truncate">Metrô Vila Madalena</h3>
+                              <p class="text-[13px] text-white/60 truncate">R. Heitor Penteado, s/n</p>
+                          </div>
+                      </div>
+      
+                      <!-- Active Sharing / Contacts -->
+                      <div class="space-y-3">
+                          <div class="flex items-center justify-between">
+                              <h3 class="text-[14px] font-medium text-white/90">Compartilhando com</h3>
+                              <button class="text-[12px] text-brand-300 font-medium" onclick="document.getElementById('share-modal').classList.add('active')">Adicionar</button>
+                          </div>
+                          
+                          <div class="flex gap-3 overflow-x-auto hide-scrollbar pb-1">
+                              <!-- Contact 1 -->
+                              <div class="flex flex-col items-center gap-1.5 shrink-0">
+                                  <div class="w-12 h-12 rounded-full border-2 border-brand-300 p-[2px] relative">
+                                      <div class="w-full h-full rounded-full bg-white/10 overflow-hidden">
+                                          <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-1.jpg" alt="Mãe" class="w-full h-full object-cover">
+                                      </div>
+                                      <div class="absolute -bottom-1 -right-1 w-4 h-4 bg-brand-300 rounded-full border-2 border-[#2f6759] flex items-center justify-center">
+                                          <i class="fa-solid fa-check text-[#2f6759] text-[8px]"></i>
+                                      </div>
+                                  </div>
+                                  <span class="text-[11px] text-white/80">Mãe</span>
+                              </div>
+                              
+                              <!-- Contact 2 -->
+                              <div class="flex flex-col items-center gap-1.5 shrink-0">
+                                  <div class="w-12 h-12 rounded-full border-2 border-white/20 p-[2px] relative opacity-60">
+                                      <div class="w-full h-full rounded-full bg-white/10 overflow-hidden flex items-center justify-center text-white/50 text-[18px]">
+                                          <i class="fa-regular fa-user"></i>
+                                      </div>
+                                  </div>
+                                  <span class="text-[11px] text-white/50">Ana</span>
+                              </div>
+                              
+                              <!-- Share Link CTA -->
+                              <div class="flex flex-col items-center gap-1.5 shrink-0" onclick="document.getElementById('share-modal').classList.add('active')">
+                                  <div class="w-12 h-12 rounded-full border border-dashed border-white/30 bg-white/5 flex items-center justify-center text-white/70 hover:bg-white/10 hover:border-white/50 transition-colors cursor-pointer">
+                                      <i class="fa-solid fa-link text-[16px]"></i>
+                                  </div>
+                                  <span class="text-[11px] text-white/70">Link</span>
+                              </div>
+                          </div>
+                      </div>
+      
+                      <!-- Event Log Drawer (Preview) -->
+                      <div class="bg-white/5 border border-white/10 rounded-[16px] p-4">
+                          <div class="flex items-center justify-between mb-3">
+                              <h3 class="text-[14px] font-medium text-white/90">Registro da Rota</h3>
+                              <button class="text-[12px] text-white/50 hover:text-white transition-colors">Ver tudo</button>
+                          </div>
+                          <div class="space-y-3 relative before:absolute before:inset-y-1 before:left-[7px] before:w-[2px] before:bg-white/10">
+                              <div class="flex gap-3 relative z-10">
+                                  <div class="w-4 h-4 rounded-full bg-brand-300 border-4 border-[#2f6759] shrink-0 mt-0.5"></div>
+                                  <div>
+                                      <p class="text-[13px] text-white font-medium">Rota iniciada</p>
+                                      <span class="text-[11px] text-white/50">18:33</span>
+                                  </div>
+                              </div>
+                              <div class="flex gap-3 relative z-10">
+                                  <div class="w-4 h-4 rounded-full bg-white/20 border-4 border-[#2f6759] shrink-0 mt-0.5"></div>
+                                  <div>
+                                      <p class="text-[13px] text-white/80">Localização compartilhada com Mãe</p>
+                                      <span class="text-[11px] text-white/50">18:33</span>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+      
+                      <!-- Finish Route CTA -->
+                      <button class="w-full bg-white/10 border border-white/20 text-white font-bold text-[16px] py-4 rounded-[16px] hover:bg-white/20 transition-all duration-200 mt-2">
+                          Encerrar Rota
+                      </button>
+                  </div>
+              </div>
+      
+              <!-- Bottom Navigation Shell (Consistent with prior screens context) -->
+              <nav id="bottom-nav" class="bottom-nav" data-component="bottom-nav"></nav>
+      
+              <!-- Share Modal Overlay -->
+              <div id="share-modal" class="modal-overlay fixed inset-0 z-[60] flex items-end justify-center bg-[#14532d]/80 backdrop-blur-sm">
+                  <div class="modal-content w-full max-w-[375px] bg-[#2f6759] rounded-t-[32px] p-6 flex flex-col shadow-2xl border-t border-white/10 relative">
+                      
+                      <div class="w-10 h-1 bg-white/20 rounded-full mx-auto mb-6"></div>
+                      
+                      <h2 class="text-[20px] font-bold text-white mb-2">Compartilhar Rota</h2>
+                      <p class="text-[14px] text-white/70 mb-6">Envie sua localização em tempo real para contatos de confiança ou copie o link.</p>
+                      
+                      <div class="space-y-4 mb-6">
+                          <!-- Contact List Item -->
+                          <div class="flex items-center justify-between bg-white/5 p-3 rounded-[16px] border border-white/5">
+                              <div class="flex items-center gap-3">
+                                  <div class="w-10 h-10 rounded-full bg-white/10 overflow-hidden">
+                                      <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-5.jpg" alt="Ana Paula" class="w-full h-full object-cover">
+                                  </div>
+                                  <div>
+                                      <p class="text-[14px] font-medium text-white">Ana Paula</p>
+                                      <p class="text-[12px] text-white/50">Contato Frequente</p>
+                                  </div>
+                              </div>
+                              <button class="w-8 h-8 rounded-full bg-brand-300/20 text-brand-300 flex items-center justify-center border border-brand-300/30">
+                                  <i class="fa-solid fa-plus text-[14px]"></i>
+                              </button>
+                          </div>
+      
+                          <!-- Contact List Item -->
+                          <div class="flex items-center justify-between bg-white/5 p-3 rounded-[16px] border border-white/5">
+                              <div class="flex items-center gap-3">
+                                  <div class="w-10 h-10 rounded-full bg-white/10 overflow-hidden">
+                                      <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-6.jpg" alt="Juliana" class="w-full h-full object-cover">
+                                  </div>
+                                  <div>
+                                      <p class="text-[14px] font-medium text-white">Juliana</p>
+                                      <p class="text-[12px] text-white/50">Irmã</p>
+                                  </div>
+                              </div>
+                              <button class="w-8 h-8 rounded-full bg-brand-300/20 text-brand-300 flex items-center justify-center border border-brand-300/30">
+                                  <i class="fa-solid fa-plus text-[14px]"></i>
+                              </button>
+                          </div>
+                      </div>
+      
+                      <div class="flex gap-3">
+                          <button class="flex-1 bg-white/10 border border-white/20 text-white font-semibold text-[15px] py-3.5 rounded-[16px] flex items-center justify-center gap-2 hover:bg-white/20 transition-colors">
+                              <i class="fa-regular fa-copy"></i> Copiar Link
+                          </button>
+                          <button class="flex-1 bg-brand-300 text-brand-900 font-bold text-[15px] py-3.5 rounded-[16px] flex items-center justify-center gap-2 hover:bg-brand-200 transition-colors shadow-[0_4px_12px_rgba(134,239,172,0.3)]">
+                              <i class="fa-solid fa-share-nodes"></i> Enviar
+                          </button>
+                      </div>
+                      
+                      <button onclick="document.getElementById('share-modal').classList.remove('active')" class="w-full mt-4 py-3 text-[14px] text-white/60 font-medium hover:text-white transition-colors">
+                          Cancelar
+                      </button>
+                  </div>
+              </div>
+      
+          </main>
+      </div>
+    </div>
+    <div class="phone-home-indicator" aria-hidden="true"></div>
+  </div>
+  <script src="../js/storage.js"></script>
+  <script src="../js/navigation.js"></script>
+  <script src="../js/components/bottom-nav.js"></script>
+  <script src="../js/pages/rota.js"></script>
+</body>
+</html>

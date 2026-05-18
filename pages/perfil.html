@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fica Bem - Perfil</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body class="app-body" data-page="perfil">
+  <div class="phone-device" aria-label="Simulador de aplicativo mobile">
+    <div class="phone-notch" aria-hidden="true"></div>
+    <div class="phone-screen">
+      <div class="phone-screen-inner h-full w-full m-0 p-0 bg-brand-dark text-white flex flex-col selection:bg-white selection:text-brand-dark overflow-hidden">
+      <main id="perfil-main" class="w-full h-full max-w-[430px] mx-auto flex flex-col relative sm:shadow-2xl sm:border-x sm:border-white/10 bg-brand-dark overflow-y-auto overflow-x-hidden pb-24 no-scrollbar">
+              
+              <!-- Header Overlay -->
+              <header id="route-header" class="sticky top-0 left-0 w-full pt-6 px-4 pb-4 z-30 flex justify-between items-center bg-brand-dark/95 backdrop-blur-md border-b border-white/10">
+                  <button class="w-10 h-10 rounded-full glass-effect flex items-center justify-center text-white/80 hover:text-white transition-colors shadow-lg">
+                      <i class="fa-solid fa-arrow-left"></i>
+                  </button>
+                  <div class="flex flex-col items-center">
+                      <h1 class="font-serif text-lg font-bold text-white drop-shadow-md">Perfil</h1>
+                  </div>
+                  <button class="w-10 h-10 rounded-full glass-effect flex items-center justify-center text-white/80 hover:text-white transition-colors shadow-lg">
+                      <i class="fa-solid fa-gear"></i>
+                  </button>
+              </header>
+      
+              <!-- Profile Header Section -->
+              <section id="profile-header" class="px-4 pt-6 pb-6 flex flex-col items-center gap-4 relative">
+                  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-64 bg-brand-accent/20 rounded-full blur-3xl -z-10"></div>
+                  
+                  <div class="relative">
+                      <div class="w-24 h-24 rounded-full border-2 border-brand-accent p-1">
+                          <img class="w-full h-full object-cover rounded-full" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-1.jpg" alt="User Avatar" />
+                      </div>
+                      <div class="absolute -bottom-2 -right-2 bg-brand-accent text-white text-[10px] font-bold px-2 py-1 rounded-full border-2 border-brand-dark shadow-lg flex items-center gap-1">
+                          <i class="fa-solid fa-star text-yellow-300"></i> Top
+                      </div>
+                  </div>
+      
+                  <div class="text-center">
+                      <h2 class="font-serif text-2xl font-bold text-white">Maria Silva</h2>
+                      <p class="font-sans text-sm text-white/70 mt-1">Exploradora Urbana • Nível 4</p>
+                  </div>
+                  
+                  <button class="glass-effect px-6 py-2 rounded-full font-sans text-xs font-semibold text-white/90 hover:bg-white/10 transition-colors border-white/20">
+                      Editar Perfil
+                  </button>
+              </section>
+      
+              <!-- Contribution Stats Grid -->
+              <section id="contribution-stats" class="px-4 py-2">
+                  <div class="glass-card rounded-[24px] p-5 grid grid-cols-3 gap-4 divide-x divide-white/10">
+                      <div class="flex flex-col items-center gap-1">
+                          <span class="font-serif text-2xl font-bold text-white">42</span>
+                          <span class="font-sans text-[10px] text-white/60 uppercase tracking-wider text-center">Avaliações</span>
+                      </div>
+                      <div class="flex flex-col items-center gap-1">
+                          <span class="font-serif text-2xl font-bold text-white">18</span>
+                          <span class="font-sans text-[10px] text-white/60 uppercase tracking-wider text-center">Rotas</span>
+                      </div>
+                      <div class="flex flex-col items-center gap-1">
+                          <span class="font-serif text-2xl font-bold text-white">35</span>
+                          <span class="font-sans text-[10px] text-white/60 uppercase tracking-wider text-center">Salvos</span>
+                      </div>
+                  </div>
+              </section>
+      
+              <!-- Security Preferences Section -->
+              <section id="security-preferences" class="px-4 py-6 flex flex-col gap-4">
+                  <h3 class="font-sans text-sm font-semibold text-white uppercase tracking-wider text-white/80 px-1">DNA de Segurança</h3>
+                  
+                  <div class="glass-effect rounded-[20px] p-4 flex flex-col gap-4 border-white/10">
+                      <div class="flex items-center justify-between">
+                          <div class="flex items-center gap-3">
+                              <div class="w-10 h-10 rounded-full bg-brand-accent/20 flex items-center justify-center text-brand-accent">
+                                  <i class="fa-regular fa-clock text-lg"></i>
+                              </div>
+                              <div>
+                                  <h4 class="font-sans text-sm font-medium text-white">Horários Seguros</h4>
+                                  <p class="font-sans text-[10px] text-white/50">Você prefere rotas bem iluminadas</p>
+                              </div>
+                          </div>
+                          <button class="text-white/40 hover:text-white/80 transition-colors">
+                              <i class="fa-solid fa-chevron-right"></i>
+                          </button>
+                      </div>
+                      
+                      <div class="h-px w-full bg-white/5"></div>
+                      
+                      <div class="flex items-center justify-between">
+                          <div class="flex items-center gap-3">
+                              <div class="w-10 h-10 rounded-full bg-brand-accent/20 flex items-center justify-center text-brand-accent">
+                                  <i class="fa-solid fa-layer-group text-lg"></i>
+                              </div>
+                              <div>
+                                  <h4 class="font-sans text-sm font-medium text-white">Categorias Evitadas</h4>
+                                  <p class="font-sans text-[10px] text-white/50">Ruas desertas, Pouca iluminação</p>
+                              </div>
+                          </div>
+                          <button class="text-white/40 hover:text-white/80 transition-colors">
+                              <i class="fa-solid fa-chevron-right"></i>
+                          </button>
+                      </div>
+                  </div>
+              </section>
+      
+              <!-- Actions Menu Section -->
+              <section id="action-menu" class="px-4 py-2 flex flex-col gap-3">
+                  <h3 class="font-sans text-sm font-semibold text-white uppercase tracking-wider text-white/80 px-1">Configurações</h3>
+                  
+                  <div class="glass-effect rounded-[20px] overflow-hidden border-white/10 flex flex-col">
+                      <button class="w-full px-4 py-4 flex items-center justify-between hover:bg-white/5 transition-colors text-left">
+                          <div class="flex items-center gap-3">
+                              <i class="fa-solid fa-shield-halved text-white/60 w-5 text-center"></i>
+                              <span class="font-sans text-sm font-medium text-white">Privacidade e Segurança</span>
+                          </div>
+                          <i class="fa-solid fa-chevron-right text-white/30 text-xs"></i>
+                      </button>
+                      <div class="h-px w-[calc(100%-3rem)] ml-12 bg-white/5"></div>
+                      
+                      <button class="w-full px-4 py-4 flex items-center justify-between hover:bg-white/5 transition-colors text-left">
+                          <div class="flex items-center gap-3">
+                              <i class="fa-regular fa-bell text-white/60 w-5 text-center"></i>
+                              <span class="font-sans text-sm font-medium text-white">Notificações</span>
+                          </div>
+                          <i class="fa-solid fa-chevron-right text-white/30 text-xs"></i>
+                      </button>
+                      <div class="h-px w-[calc(100%-3rem)] ml-12 bg-white/5"></div>
+                      
+                      <button class="w-full px-4 py-4 flex items-center justify-between hover:bg-white/5 transition-colors text-left">
+                          <div class="flex items-center gap-3">
+                              <i class="fa-regular fa-bookmark text-white/60 w-5 text-center"></i>
+                              <span class="font-sans text-sm font-medium text-white">Locais Salvos</span>
+                          </div>
+                          <i class="fa-solid fa-chevron-right text-white/30 text-xs"></i>
+                      </button>
+                  </div>
+                  
+                  <button class="mt-4 glass-card rounded-[16px] p-4 flex items-center justify-between bg-brand-accent/20 border-brand-accent/40 hover:bg-brand-accent/30 transition-colors">
+                      <div class="flex items-center gap-3">
+                          <div class="w-10 h-10 rounded-full bg-brand-accent flex items-center justify-center text-white shadow-lg">
+                              <i class="fa-solid fa-user-plus"></i>
+                          </div>
+                          <div class="text-left">
+                              <h4 class="font-sans text-sm font-semibold text-white">Convidar Amigas</h4>
+                              <p class="font-sans text-[10px] text-white/70">Aumente nossa rede de segurança</p>
+                          </div>
+                      </div>
+                      <i class="fa-solid fa-arrow-right text-white/60"></i>
+                  </button>
+              </section>
+      
+              <!-- Bottom Navigation Bar -->
+              <nav id="bottom-nav" class="bottom-nav" data-component="bottom-nav"></nav>
+      
+          </main>
+      </div>
+    </div>
+    <div class="phone-home-indicator" aria-hidden="true"></div>
+  </div>
+  <script src="../js/storage.js"></script>
+  <script src="../js/navigation.js"></script>
+  <script src="../js/components/bottom-nav.js"></script>
+  <script src="../js/pages/perfil.js"></script>
+</body>
+</html>

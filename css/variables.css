@@ -1,0 +1,35 @@
+/**
+ * Design tokens — espelham tailwind.config dos wireframes legados
+ */
+:root {
+  --color-brand-50: #f0fdf4;
+  --color-brand-100: #dcfce7;
+  --color-brand-200: #bbf7d0;
+  --color-brand-300: #86efac;
+  --color-brand-400: #4ade80;
+  --color-brand-500: #5f927d;
+  --color-brand-600: #2f6759;
+  --color-brand-700: #15803d;
+  --color-brand-800: #166534;
+  --color-brand-900: #14532d;
+  --color-brand-dark: #2f6759;
+  --color-brand-light: #5f927d;
+  --color-brand-accent: #4e9983;
+
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+
+  /* Mesmas dimensões do iframe legado */
+  --phone-width: 375px;
+  --phone-height: 840px;
+  --phone-radius: 44px;
+  --screen-radius: 36px;
+
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+
+  --shadow-phone: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+}

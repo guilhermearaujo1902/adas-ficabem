@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boas-vindas - Fica Bem</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body class="app-body" data-page="login">
+  <div class="phone-device" aria-label="Simulador de aplicativo mobile">
+    <div class="phone-notch" aria-hidden="true"></div>
+    <div class="phone-screen">
+      <div class="phone-screen-inner text-white min-h-[100dvh] flex flex-col items-center justify-center relative overflow-hidden">
+      <!-- Background Elements -->
+          <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+              <div class="absolute top-[-10%] left-[-20%] w-[140%] h-[60%] bg-gradient-to-b from-brand-500/40 to-transparent rounded-[100%] blur-3xl opacity-60"></div>
+              <div class="absolute bottom-[-20%] right-[-10%] w-[80%] h-[80%] bg-gradient-to-t from-brand-900/50 to-transparent rounded-[100%] blur-3xl opacity-80"></div>
+          </div>
+      
+          <!-- Main Container (Mobile Constrained) -->
+          <main id="auth-welcome" class="w-full max-w-[375px] h-[840px] max-h-[100dvh] relative z-10 flex flex-col justify-between px-6 py-10 mx-auto">
+              
+              <!-- Top Section: Logo -->
+              <header id="welcome-header" class="flex justify-center mt-4 animate-fade-in">
+                  <div class="flex items-center gap-2">
+                      <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center backdrop-blur-md border border-white/20 shadow-sm">
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M12 2V4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M12 20V22" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M2 12H4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M20 12H22" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                      </div>
+                      <h1 class="text-2xl font-semibold tracking-tight text-white">
+                          Fica <span class="italic font-light">Bem</span>
+                      </h1>
+                  </div>
+              </header>
+      
+              <!-- Middle Section: Illustration & Value Prop -->
+              <section id="welcome-content" class="flex-1 flex flex-col items-center justify-center mt-8 mb-12">
+                  <!-- Illustration Container -->
+                  <div class="relative w-full aspect-square max-w-[280px] mx-auto mb-8">
+                      <div class="absolute inset-0 bg-brand-500/20 rounded-full blur-2xl animate-pulse"></div>
+                      <img 
+                          class="w-full h-full object-contain relative z-10 drop-shadow-2xl"
+                          src="https://storage.googleapis.com/uxpilot-auth.appspot.com/b8cf5ae022-733fd903956cd9b56e7f.png" alt="A minimalist, premium 3D illustration of a glowing, protective female figure or abstract shield symbolizing safety, trust, and emotional support. Soft dark green tones, translucent glass-like elements, elegant and modern startup style. No background." />
+                  </div>
+      
+                  <!-- Text Content -->
+                  <div class="text-center space-y-4 px-2">
+                      <h2 class="text-[28px] leading-[1.2] font-semibold text-white tracking-tight">
+                          Sua rede de<br>confiança e proteção.
+                      </h2>
+                      <p class="text-[15px] leading-relaxed text-brand-100/90 font-light max-w-[280px] mx-auto">
+                          Um espaço seguro, acolhedor e feito para você se sentir protegida em todos os momentos.
+                      </p>
+                  </div>
+                  
+                  <!-- Pagination Dots (Decorative for onboarding feel) -->
+                  <div class="flex gap-2 mt-8">
+                      <div class="w-6 h-1.5 rounded-full bg-white"></div>
+                      <div class="w-1.5 h-1.5 rounded-full bg-white/30"></div>
+                      <div class="w-1.5 h-1.5 rounded-full bg-white/30"></div>
+                  </div>
+              </section>
+      
+              <!-- Bottom Section: CTAs -->
+              <footer id="welcome-actions" class="w-full flex flex-col gap-3 pb-6">
+                  <button class="w-full h-[52px] bg-white text-brand-600 rounded-[14px] font-semibold text-[16px] shadow-[0_4px_14px_0_rgba(0,0,0,0.1)] hover:bg-brand-50 transition-colors flex items-center justify-center gap-2 active:scale-[0.98]">
+                      Entrar
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                  </button>
+                  
+                  <button class="w-full h-[52px] glass-panel text-white rounded-[14px] font-medium text-[16px] hover:bg-white/10 transition-colors active:scale-[0.98]">
+                      Tenho convite
+                  </button>
+              </footer>
+      
+          </main>
+      </div>
+    </div>
+    <div class="phone-home-indicator" aria-hidden="true"></div>
+  </div>
+  <script src="../js/storage.js"></script>
+  <script src="../js/navigation.js"></script>
+  <script src="../js/components/bottom-nav.js"></script>
+  <script src="../js/pages/login.js"></script>
+</body>
+</html>

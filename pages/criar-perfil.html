@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Criar Conta - Fica Bem</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body class="app-body" data-page="criar-perfil">
+  <div class="phone-device" aria-label="Simulador de aplicativo mobile">
+    <div class="phone-notch" aria-hidden="true"></div>
+    <div class="phone-screen">
+      <div class="phone-screen-inner text-white min-h-[100dvh] flex flex-col items-center justify-center relative overflow-hidden">
+      <!-- Background Elements (Preserved from prior screen) -->
+          <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+            <div
+              class="absolute top-[-10%] left-[-20%] w-[140%] h-[60%] bg-gradient-to-b from-brand-500/40 to-transparent rounded-[100%] blur-3xl opacity-60">
+            </div>
+            <div
+              class="absolute bottom-[-20%] right-[-10%] w-[80%] h-[80%] bg-gradient-to-t from-brand-900/50 to-transparent rounded-[100%] blur-3xl opacity-80">
+            </div>
+          </div><!-- Main Container (Mobile Constrained) -->
+          <main id="auth-create-account-step"
+            class="w-full max-w-[375px] h-[840px] max-h-[100dvh] relative z-10 flex flex-col px-6 py-10 mx-auto bg-[#2f6759]">
+            <!-- Header area with Back and Progress -->
+            <header id="step-header"
+              class="w-full flex items-center justify-between mb-8 z-20 shrink-0">
+              <button aria-label="Voltar"
+                class="w-10 h-10 rounded-full flex items-center justify-center bg-white/10 hover:bg-white/20 transition-colors backdrop-blur-md border border-white/10 active:scale-95"><svg
+                  width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path d="M15 18L9 12L15 6" stroke="white" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg></button>
+              <div class="flex items-center gap-2"><span
+                  class="text-sm font-medium text-white/80">Etapa 3 de 3</span></div>
+              <div class="w-10"></div> <!-- Spacer for centering -->
+            </header><!-- Content Area -->
+            <section id="create-account-content"
+              class="flex-1 flex flex-col animate-fade-in z-20 overflow-y-auto custom-scrollbar pb-4">
+              <div class="flex flex-col items-center text-center mb-8">
+                <!-- Logo element styling preserved -->
+                <div class="mb-6 font-medium text-2xl tracking-wide text-white/90">
+                  Fica <span class="italic font-light">Bem</span></div>
+                <h1
+                  class="text-[28px] leading-[1.2] font-semibold text-white tracking-tight mb-3">
+                  Crie seu perfil
+                </h1>
+                <p
+                  class="text-[15px] leading-relaxed text-brand-100/90 font-light max-w-[280px]">
+                  Configure sua conta para uma experiência segura e personalizada.
+                </p>
+              </div>
+              <form id="create-account-form"
+                onsubmit="event.preventDefault(); document.getElementById('success-modal').classList.remove('hidden');"
+                class="w-full space-y-6 flex-1 flex flex-col">
+                <!-- Profile Photo Uploader -->
+                <div id="profile_identity_fields"
+                  class="flex flex-col items-center mb-2">
+                  <div
+                    class="relative w-24 h-24 rounded-full glass-panel flex items-center justify-center mb-3 cursor-pointer group hover:bg-white/20 transition-colors">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="text-white/70 group-hover:text-white transition-colors">
+                      <path d="M12 5V19M5 12H19" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round"></path>
+                    </svg><!-- Hidden file input --><input type="file"
+                      accept="image/*"
+                      class="absolute inset-0 opacity-0 cursor-pointer"></div><span
+                    class="text-[13px] text-white/70 font-medium">Adicionar foto
+                    (Opcional)</span>
+                </div><!-- Input Fields -->
+                <div class="space-y-4">
+                  <div class="space-y-1"><label for="name"
+                      class="text-[13px] font-medium text-white/90 ml-1">Nome
+                      completo</label><input type="text" id="name"
+                      placeholder="Como quer ser chamada?" required=""
+                      class="w-full h-12 px-4 rounded-[14px] glass-panel text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all text-[15px]">
+                  </div>
+                  <div class="space-y-1"><label for="username"
+                      class="text-[13px] font-medium text-white/90 ml-1">Nome de
+                      usuário (@)</label>
+                    <div class="relative"><span
+                        class="absolute left-4 top-1/2 -translate-y-1/2 text-white/40 font-medium">@</span><input
+                        type="text" id="username" placeholder="seu.apelido"
+                        required=""
+                        class="w-full h-12 pl-8 pr-4 rounded-[14px] glass-panel text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all text-[15px]">
+                    </div>
+                  </div>
+                  <div class="space-y-1"><label for="password"
+                      class="text-[13px] font-medium text-white/90 ml-1">Senha</label>
+                    <div class="relative"><input type="password" id="password"
+                        placeholder="Mínimo 8 caracteres" required=""
+                        class="w-full h-12 px-4 rounded-[14px] glass-panel text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all text-[15px]"><button
+                        type="button"
+                        class="absolute right-4 top-1/2 -translate-y-1/2 text-white/60 hover:text-white"><svg
+                          width="20" height="20" viewBox="0 0 24 24" fill="none"
+                          xmlns="http://www.w3.org/2000/svg">
+                          <path
+                            d="M1 12C1 12 5 4 12 4C19 4 23 12 23 12C23 12 19 20 12 20C5 20 1 12 1 12Z"
+                            stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round"></path>
+                          <path
+                            d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z"
+                            stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg></button></div>
+                  </div>
+                </div><!-- Interests Grid -->
+                <div id="interest_selection_grid" class="space-y-3 mt-2">
+                  <div class="flex items-center justify-between ml-1 mb-1"><label
+                      class="text-[13px] font-medium text-white/90">Áreas de
+                      interesse</label><span
+                      class="text-[11px] font-medium text-white/50 bg-white/5 px-2 py-0.5 rounded-full">Selecione
+                      até 3</span></div>
+                  <div class="flex flex-wrap gap-2"><label
+                      class="interest-pill cursor-pointer"><input type="checkbox"
+                        name="interests" value="seguranca" class="hidden">
+                      <div
+                        class="glass-panel px-4 py-2 rounded-[14px] text-[13px] font-medium text-white/80 transition-colors border border-white/10 hover:bg-white/10">
+                        Segurança
+                      </div>
+                    </label><label class="interest-pill cursor-pointer"><input
+                        type="checkbox" name="interests" value="acolhimento"
+                        class="hidden">
+                      <div
+                        class="glass-panel px-4 py-2 rounded-[14px] text-[13px] font-medium text-white/80 transition-colors border border-white/10 hover:bg-white/10">
+                        Acolhimento
+                      </div>
+                    </label><label class="interest-pill cursor-pointer"><input
+                        type="checkbox" name="interests" value="rotas" class="hidden">
+                      <div
+                        class="glass-panel px-4 py-2 rounded-[14px] text-[13px] font-medium text-white/80 transition-colors border border-white/10 hover:bg-white/10">
+                        Rotas Seguras
+                      </div>
+                    </label><label class="interest-pill cursor-pointer"><input
+                        type="checkbox" name="interests" value="comunidade"
+                        class="hidden">
+                      <div
+                        class="glass-panel px-4 py-2 rounded-[14px] text-[13px] font-medium text-white/80 transition-colors border border-white/10 hover:bg-white/10">
+                        Comunidade
+                      </div>
+                    </label><label class="interest-pill cursor-pointer"><input
+                        type="checkbox" name="interests" value="eventos"
+                        class="hidden">
+                      <div
+                        class="glass-panel px-4 py-2 rounded-[14px] text-[13px] font-medium text-white/80 transition-colors border border-white/10 hover:bg-white/10">
+                        Eventos
+                      </div>
+                    </label></div>
+                </div><!-- SSO Divider -->
+                <div id="account_security_sso" class="relative py-4">
+                  <div class="absolute inset-0 flex items-center">
+                    <div class="w-full border-t border-white/10"></div>
+                  </div>
+                  <div class="relative flex justify-center text-[12px]"></div>
+                </div><!-- SSO Buttons -->
+                <div class="grid grid-cols-2 gap-3 mb-6"></div>
+                <!-- Bottom Actions & Progress Indicator -->
+                <div id="step-actions"
+                  class="w-full mt-auto pt-4 pb-2 z-20 flex flex-col items-center">
+                  <button type="submit"
+                    class="w-full h-[52px] bg-white text-brand-600 rounded-[14px] font-semibold text-[16px] shadow-[0_4px_14px_0_rgba(0,0,0,0.1)] hover:bg-brand-50 transition-colors flex items-center justify-center gap-2 active:scale-[0.98] mb-8">
+                    Criar conta
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round"></path>
+                    </svg></button>
+                  <!-- Consistent Progress Indicator from previous screen -->
+                  <div class="flex gap-2">
+                    <div class="w-1.5 h-1.5 rounded-full bg-white/30"></div>
+                    <div class="w-1.5 h-1.5 rounded-full bg-white/30"></div>
+                    <div class="w-6 h-1.5 rounded-full bg-white"></div>
+                  </div>
+                </div>
+              </form>
+            </section>
+          </main><!-- Success Confirmation Modal -->
+          <div id="success-modal"
+            class="hidden fixed inset-0 z-50 flex items-center justify-center p-6 bg-[#2f6759]/90 backdrop-blur-sm">
+            <div
+              class="w-full max-w-[327px] glass-panel bg-[#2f6759] border border-white/20 rounded-[24px] p-8 flex flex-col items-center text-center animate-fade-in shadow-2xl">
+              <div
+                class="w-20 h-20 rounded-full bg-brand-500/30 flex items-center justify-center mb-6 border border-brand-400/30 shadow-[0_0_30px_rgba(95,146,125,0.4)]">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none"
+                  xmlns="http://www.w3.org/2000/svg" class="text-white">
+                  <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg></div>
+              <h2 class="text-[24px] font-semibold text-white mb-2">Conta Criada!</h2>
+              <p class="text-[15px] text-white/80 leading-relaxed mb-8">
+                Bem-vinda ao <span class="font-medium">Fica <span
+                    class="italic font-light">Bem</span></span>. Sua jornada de
+                segurança e acolhimento começa agora.
+              </p><button
+                onclick="document.getElementById('success-modal').classList.add('hidden')"
+                class="w-full h-[52px] bg-white text-brand-600 rounded-[14px] font-semibold text-[16px] shadow-[0_4px_14px_0_rgba(0,0,0,0.1)] hover:bg-brand-50 transition-colors flex items-center justify-center active:scale-[0.98]">
+                Ir para o Feed
+              </button>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="phone-home-indicator" aria-hidden="true"></div>
+  </div>
+  <script src="../js/storage.js"></script>
+  <script src="../js/navigation.js"></script>
+  <script src="../js/components/bottom-nav.js"></script>
+  <script src="../js/pages/criar-perfil.js"></script>
+</body>
+</html>

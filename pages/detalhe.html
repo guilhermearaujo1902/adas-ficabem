@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fica Bem - Detalhe do Local</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body class="app-body" data-page="detalhe">
+  <div class="phone-device" aria-label="Simulador de aplicativo mobile">
+    <div class="phone-notch" aria-hidden="true"></div>
+    <div class="phone-screen">
+      <div class="phone-screen-inner h-full w-full m-0 p-0 overflow-hidden bg-brand-dark text-white flex flex-col selection:bg-white selection:text-brand-dark">
+      <!-- Screen Wrapper for Mobile Constraint (375x840 target) -->
+          <main id="details-screen" class="w-full h-full max-w-[430px] mx-auto flex flex-col relative sm:shadow-2xl sm:border-x sm:border-white/10 overflow-y-auto overflow-x-hidden no-scrollbar pb-24">
+              
+              <!-- Top Navigation Bar (Back & Actions) -->
+              <header id="details-header" class="absolute top-0 w-full pt-12 px-4 pb-4 z-30 flex justify-between items-center">
+                  <button class="w-10 h-10 rounded-full glass-effect flex items-center justify-center shadow-lg border border-white/20 text-white hover:bg-white/20 transition-colors backdrop-blur-md">
+                      <i class="fa-solid fa-arrow-left text-lg"></i>
+                  </button>
+                  <div class="flex gap-2">
+                      <button class="w-10 h-10 rounded-full glass-effect flex items-center justify-center shadow-lg border border-white/20 text-white hover:bg-white/20 transition-colors backdrop-blur-md">
+                          <i class="fa-regular fa-bookmark text-lg"></i>
+                      </button>
+                      <button class="w-10 h-10 rounded-full glass-effect flex items-center justify-center shadow-lg border border-white/20 text-white hover:bg-white/20 transition-colors backdrop-blur-md">
+                          <i class="fa-solid fa-share-nodes text-lg"></i>
+                      </button>
+                  </div>
+              </header>
+      
+              <!-- Visual Header Info Section -->
+              <section id="visual-header-info" class="w-full relative min-h-[300px]">
+                  <div class="absolute inset-0 z-0 w-full h-full">
+                      <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/d27359060e-8912020bcca2daadca8b.png" alt="High quality, warm and inviting interior of a botanical cafe, well lit, safe atmosphere, premium aesthetic" />
+                      <!-- Deep brand-dark gradient for text legibility -->
+                      <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/80 to-transparent z-10"></div>
+                  </div>
+                  
+                  <div class="relative z-20 pt-[220px] px-6 pb-6 flex flex-col gap-2">
+                      <div class="flex justify-between items-end">
+                          <div>
+                              <span class="font-sans text-[10px] font-bold tracking-wider text-brand-light uppercase mb-1 block">Cafeteria • 200m</span>
+                              <h1 class="font-serif text-3xl font-bold text-white leading-tight">Café Botânico</h1>
+                          </div>
+                          <div class="bg-brand-accent px-3 py-1.5 rounded-xl flex items-center gap-1.5 shadow-lg border border-white/20">
+                              <i class="fa-solid fa-shield-halved text-white text-xs"></i>
+                              <span class="font-sans text-sm font-bold text-white">4.9</span>
+                          </div>
+                      </div>
+                      
+                      <p class="font-sans text-xs text-white/80 leading-relaxed max-w-[90%]">
+                          Rua dos Pinheiros, 1234 - Pinheiros, São Paulo
+                      </p>
+      
+                      <!-- Sentiment Tags -->
+                      <div class="flex flex-wrap gap-2 mt-2">
+                          <span class="bg-white/10 backdrop-blur-md text-white text-[10px] font-medium px-2.5 py-1 rounded-full border border-white/10 flex items-center gap-1.5">
+                              <i class="fa-solid fa-heart text-brand-light text-[8px]"></i> Acolhedor
+                          </span>
+                          <span class="bg-white/10 backdrop-blur-md text-white text-[10px] font-medium px-2.5 py-1 rounded-full border border-white/10 flex items-center gap-1.5">
+                              <i class="fa-solid fa-lightbulb text-yellow-300 text-[8px]"></i> Bem iluminado
+                          </span>
+                          <span class="bg-white/10 backdrop-blur-md text-white text-[10px] font-medium px-2.5 py-1 rounded-full border border-white/10 flex items-center gap-1.5">
+                              <i class="fa-solid fa-moon text-blue-300 text-[8px]"></i> Seguro à noite
+                          </span>
+                      </div>
+                  </div>
+              </section>
+      
+              <!-- Safety Status Summary -->
+              <section id="safety-status-summary" class="w-full px-4 -mt-2 relative z-20 flex flex-col gap-3">
+                  <div class="glass-card rounded-2xl p-4 flex flex-col gap-4">
+                      <h2 class="font-sans text-sm font-semibold text-white uppercase tracking-wider text-center border-b border-white/10 pb-3">Status Atual de Segurança</h2>
+                      
+                      <div class="grid grid-cols-2 gap-4">
+                          <div class="flex flex-col items-center justify-center p-3 rounded-xl bg-white/5 border border-white/5 text-center gap-2">
+                              <div class="w-10 h-10 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center border border-blue-500/30">
+                                  <i class="fa-solid fa-users text-lg"></i>
+                              </div>
+                              <div>
+                                  <span class="font-sans text-[10px] text-white/60 block mb-0.5">Movimento</span>
+                                  <span class="font-sans text-xs font-semibold text-white">Moderado</span>
+                              </div>
+                          </div>
+                          
+                          <div class="flex flex-col items-center justify-center p-3 rounded-xl bg-white/5 border border-white/5 text-center gap-2">
+                              <div class="w-10 h-10 rounded-full bg-yellow-500/20 text-yellow-400 flex items-center justify-center border border-yellow-500/30">
+                                  <i class="fa-solid fa-lightbulb text-lg"></i>
+                              </div>
+                              <div>
+                                  <span class="font-sans text-[10px] text-white/60 block mb-0.5">Iluminação</span>
+                                  <span class="font-sans text-xs font-semibold text-white">Excelente</span>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </section>
+      
+              <!-- Security Tips & Horarios -->
+              <section id="security-tips-horarios" class="w-full px-4 mt-6 flex flex-col gap-4">
+                  
+                  <!-- Horarios -->
+                  <div class="glass-card rounded-2xl p-4">
+                      <div class="flex justify-between items-center mb-3">
+                          <h3 class="font-serif text-lg font-semibold text-white flex items-center gap-2">
+                              <i class="fa-regular fa-clock text-brand-light"></i> Horários
+                          </h3>
+                          <span class="font-sans text-[10px] text-brand-accent bg-white px-2 py-0.5 rounded-full font-bold">Aberto agora</span>
+                      </div>
+                      
+                      <div class="flex flex-col gap-2">
+                          <div class="flex justify-between items-center py-1 border-b border-white/5">
+                              <span class="font-sans text-xs font-medium text-white">Segunda a Sexta</span>
+                              <span class="font-sans text-xs text-white/80">08:00 - 20:00</span>
+                          </div>
+                          <div class="flex justify-between items-center py-1 border-b border-white/5">
+                              <span class="font-sans text-xs font-medium text-white">Sábado</span>
+                              <span class="font-sans text-xs text-white/80">09:00 - 18:00</span>
+                          </div>
+                          <div class="flex justify-between items-center py-1 text-white/50">
+                              <span class="font-sans text-xs font-medium">Domingo</span>
+                              <span class="font-sans text-xs">Fechado</span>
+                          </div>
+                      </div>
+                  </div>
+      
+                  <!-- Dicas de Segurança -->
+                  <div class="glass-card rounded-2xl p-4">
+                      <h3 class="font-serif text-lg font-semibold text-white flex items-center gap-2 mb-3">
+                          <i class="fa-solid fa-shield-cat text-brand-light"></i> Dicas da Comunidade
+                      </h3>
+                      
+                      <ul class="flex flex-col gap-3">
+                          <li class="flex items-start gap-3">
+                              <div class="w-6 h-6 rounded-full bg-brand-light/20 flex items-center justify-center shrink-0 mt-0.5 border border-brand-light/30">
+                                  <i class="fa-solid fa-check text-brand-light text-[10px]"></i>
+                              </div>
+                              <p class="font-sans text-xs text-white/90 leading-relaxed">Melhor horário para ir sozinha é entre 14h e 17h, o movimento é tranquilo.</p>
+                          </li>
+                          <li class="flex items-start gap-3">
+                              <div class="w-6 h-6 rounded-full bg-brand-light/20 flex items-center justify-center shrink-0 mt-0.5 border border-brand-light/30">
+                                  <i class="fa-solid fa-check text-brand-light text-[10px]"></i>
+                              </div>
+                              <p class="font-sans text-xs text-white/90 leading-relaxed">Estacione na rua lateral, que é bem iluminada e tem seguranças na rua.</p>
+                          </li>
+                      </ul>
+                  </div>
+              </section>
+      
+              <!-- Recent Reviews List -->
+              <section id="recent-reviews-list" class="w-full px-4 mt-6 mb-8 flex flex-col gap-4">
+                  <div class="flex justify-between items-end mb-2">
+                      <h3 class="font-serif text-xl font-semibold text-white">Avaliações</h3>
+                      <a href="javascript:void(0)" class="font-sans text-xs text-brand-light font-medium hover:underline">Ver todas (128)</a>
+                  </div>
+      
+                  <!-- Review 1 -->
+                  <div class="glass-card rounded-2xl p-4 flex flex-col gap-3">
+                      <div class="flex justify-between items-start">
+                          <div class="flex items-center gap-3">
+                              <div class="w-10 h-10 rounded-full bg-white/20 overflow-hidden border border-white/20">
+                                  <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-5.jpg" alt="Mariana" class="w-full h-full object-cover">
+                              </div>
+                              <div>
+                                  <span class="font-sans text-sm font-semibold text-white block">Mariana S.</span>
+                                  <span class="font-sans text-[10px] text-white/60">Há 2 dias</span>
+                              </div>
+                          </div>
+                          <div class="flex items-center gap-0.5 text-brand-light text-[10px]">
+                              <i class="fa-solid fa-star"></i>
+                              <i class="fa-solid fa-star"></i>
+                              <i class="fa-solid fa-star"></i>
+                              <i class="fa-solid fa-star"></i>
+                              <i class="fa-solid fa-star"></i>
+                          </div>
+                      </div>
+                      <p class="font-sans text-xs text-white/90 leading-relaxed">
+                          Lugar incrível! Fui trabalhar de lá na quinta-feira à tarde e me senti super segura. O staff é muito atencioso e o ambiente é super acolhedor para mulheres sozinhas.
+                      </p>
+                      <div class="flex gap-2">
+                           <span class="bg-white/5 text-white/80 text-[9px] px-2 py-1 rounded-md border border-white/10">Trabalho</span>
+                           <span class="bg-white/5 text-white/80 text-[9px] px-2 py-1 rounded-md border border-white/10">Seguro</span>
+                      </div>
+                  </div>
+      
+                  <!-- Review 2 -->
+                  <div class="glass-card rounded-2xl p-4 flex flex-col gap-3">
+                      <div class="flex justify-between items-start">
+                          <div class="flex items-center gap-3">
+                              <div class="w-10 h-10 rounded-full bg-white/20 overflow-hidden border border-white/20">
+                                  <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-6.jpg" alt="Juliana" class="w-full h-full object-cover">
+                              </div>
+                              <div>
+                                  <span class="font-sans text-sm font-semibold text-white block">Juliana C.</span>
+                                  <span class="font-sans text-[10px] text-white/60">Há 1 semana</span>
+                              </div>
+                          </div>
+                          <div class="flex items-center gap-0.5 text-brand-light text-[10px]">
+                              <i class="fa-solid fa-star"></i>
+                              <i class="fa-solid fa-star"></i>
+                              <i class="fa-solid fa-star"></i>
+                              <i class="fa-solid fa-star"></i>
+                              <i class="fa-regular fa-star-half-stroke"></i>
+                          </div>
+                      </div>
+                      <p class="font-sans text-xs text-white/90 leading-relaxed">
+                          Ótimo café, a iluminação é muito boa, mesmo no fim da tarde. O único ponto é que a rua de trás pode ser um pouco escura à noite, melhor sair pela principal.
+                      </p>
+                      <div class="flex gap-2">
+                           <span class="bg-white/5 text-white/80 text-[9px] px-2 py-1 rounded-md border border-white/10">Iluminado</span>
+                      </div>
+                  </div>
+              </section>
+      
+              <!-- Action Footer Buttons (Sticky above nav) -->
+              <section id="action-footer-buttons" class="w-full px-4 fixed bottom-24 max-w-[430px] z-40">
+                  <div class="flex flex-col gap-3">
+                      <button class="w-full py-4 rounded-2xl bg-brand-accent hover:bg-brand-light text-white font-sans font-bold text-sm shadow-[0_8px_30px_rgba(78,153,131,0.4)] border border-white/20 flex items-center justify-center gap-2 transition-all active:scale-[0.98]">
+                          <i class="fa-solid fa-route text-lg"></i> Iniciar Rota Segura
+                      </button>
+                      <button class="w-full py-3.5 rounded-2xl bg-brand-dark/80 backdrop-blur-md text-white font-sans font-semibold text-sm border border-brand-accent hover:bg-brand-dark transition-all active:scale-[0.98]">
+                          Avaliar este local
+                      </button>
+                  </div>
+              </section>
+      
+              <!-- Spacer for fixed footer and nav -->
+              <div class="h-32 w-full"></div>
+      
+              <!-- Bottom Navigation Bar (Consistent with previous screens) -->
+              <nav id="bottom-nav" class="bottom-nav" data-component="bottom-nav"></nav>
+      
+          </main>
+      </div>
+    </div>
+    <div class="phone-home-indicator" aria-hidden="true"></div>
+  </div>
+  <script src="../js/storage.js"></script>
+  <script src="../js/navigation.js"></script>
+  <script src="../js/components/bottom-nav.js"></script>
+  <script src="../js/pages/detalhe.js"></script>
+</body>
+</html>

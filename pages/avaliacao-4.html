@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avaliar - Step 4/7 - Fica Bem</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body class="app-body" data-page="avaliacao-4">
+  <div class="phone-device" aria-label="Simulador de aplicativo mobile">
+    <div class="phone-notch" aria-hidden="true"></div>
+    <div class="phone-screen">
+      <div class="phone-screen-inner text-white min-h-[100dvh] flex flex-col items-center justify-center relative overflow-hidden m-0 p-0">
+      <!-- Background Elements -->
+          <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+              <div class="absolute top-[-10%] left-[-20%] w-[140%] h-[60%] bg-gradient-to-b from-brand-500/40 to-transparent rounded-[100%] blur-3xl opacity-60"></div>
+              <div class="absolute bottom-[-20%] right-[-10%] w-[80%] h-[80%] bg-gradient-to-t from-brand-900/50 to-transparent rounded-[100%] blur-3xl opacity-80"></div>
+          </div>
+      
+          <!-- Main Container (Mobile Constrained) -->
+          <main id="app-avaliar-step4" class="w-full max-w-[375px] h-[840px] max-h-[100dvh] relative z-10 flex flex-col bg-[#2f6759] mx-auto overflow-hidden">
+              
+              <!-- Header with Progress Bar -->
+              <header id="avaliar-header" class="w-full px-6 pt-12 pb-4 z-20 shrink-0 bg-[#2f6759]">
+                  <div class="flex items-center justify-between mb-4">
+                      <button class="w-10 h-10 rounded-full glass-panel flex items-center justify-center hover:bg-white/20 transition-colors shadow-lg" aria-label="Voltar">
+                          <i class="fa-solid fa-chevron-left text-[16px] text-white"></i>
+                      </button>
+                      <span class="text-[14px] font-semibold text-white tracking-wide">Passo 4 de 7</span>
+                      <button class="text-[14px] font-medium text-brand-300 hover:text-brand-200 transition-colors" aria-label="Pular">
+                          Pular
+                      </button>
+                  </div>
+                  
+                  <!-- Progress Bar -->
+                  <div class="progress-bar-bg w-full">
+                      <div class="progress-bar-fill" style="width: 57.14%;"></div>
+                  </div>
+              </header>
+      
+              <!-- Main Scrollable Content -->
+              <section id="avaliar-content" class="flex-1 overflow-y-auto hide-scrollbar px-6 pt-4 pb-[120px] z-10 w-full relative space-y-8">
+                  
+                  <!-- Title Section -->
+                  <div class="space-y-2">
+                      <h1 class="text-[28px] font-bold text-white leading-tight">Sua experiência</h1>
+                      <p class="text-[14px] text-white/70 leading-relaxed">
+                          Conte um pouco mais sobre como você se sentiu. Seu relato ajuda outras mulheres.
+                      </p>
+                  </div>
+      
+                  <!-- Guided Comment Area -->
+                  <div class="space-y-4">
+                      <div class="glass-panel rounded-[20px] p-5 border border-white/10 soft-shadow flex flex-col h-[200px]">
+                          <div class="flex-1">
+                              <textarea 
+                                  class="w-full h-full bg-transparent text-white text-[15px] placeholder-white/40 resize-none focus:outline-none custom-scrollbar"
+                                  placeholder="Ex: O ambiente era bem iluminado? A equipe foi acolhedora? Você se sentiu segura ao ir embora?"
+                              ></textarea>
+                          </div>
+                          <div class="flex justify-between items-center mt-2 border-t border-white/10 pt-3">
+                              <span class="text-[12px] text-white/50">Opcional</span>
+                              <span class="text-[12px] text-white/50">0/500</span>
+                          </div>
+                      </div>
+                  </div>
+      
+                  <!-- Visibility / Anonymity Options -->
+                  <div class="space-y-4">
+                      <h3 class="text-[15px] font-medium text-white mb-3">Como deseja publicar?</h3>
+                      
+                      <div class="grid grid-cols-2 gap-3">
+                          <!-- Option: Public -->
+                          <label class="relative cursor-pointer">
+                              <input type="radio" name="visibility" value="public" class="peer sr-only radio-custom" checked>
+                              <div class="glass-panel rounded-[16px] p-4 border border-white/10 soft-shadow flex flex-col items-center justify-center gap-2 transition-all duration-200 peer-checked:bg-brand-300 peer-checked:border-brand-300 h-full">
+                                  <i class="fa-regular fa-user text-[20px] text-white peer-checked:text-brand-900 transition-colors"></i>
+                                  <span class="text-[13px] font-medium text-white transition-colors text-center">Público</span>
+                                  <i class="fa-solid fa-circle-check absolute top-3 right-3 text-[14px] text-brand-900 opacity-0 transform scale-50 transition-all duration-200 icon-check"></i>
+                              </div>
+                          </label>
+      
+                          <!-- Option: Anonymous -->
+                          <label class="relative cursor-pointer">
+                              <input type="radio" name="visibility" value="anonymous" class="peer sr-only radio-custom">
+                              <div class="glass-panel rounded-[16px] p-4 border border-white/10 soft-shadow flex flex-col items-center justify-center gap-2 transition-all duration-200 peer-checked:bg-brand-300 peer-checked:border-brand-300 h-full">
+                                  <i class="fa-solid fa-user-secret text-[20px] text-white peer-checked:text-brand-900 transition-colors"></i>
+                                  <span class="text-[13px] font-medium text-white transition-colors text-center">Anônimo</span>
+                                  <i class="fa-solid fa-circle-check absolute top-3 right-3 text-[14px] text-brand-900 opacity-0 transform scale-50 transition-all duration-200 icon-check"></i>
+                              </div>
+                          </label>
+                      </div>
+                      <p class="text-[12px] text-white/60 text-center mt-2 px-2">
+                          No modo anônimo, sua foto e nome não aparecerão na avaliação.
+                      </p>
+                  </div>
+      
+                  <!-- Guidelines Notice -->
+                  <div class="glass-panel rounded-[16px] p-4 border border-brand-300/30 bg-brand-900/20 soft-shadow flex items-start gap-3">
+                      <div class="w-8 h-8 rounded-full bg-brand-300/20 flex items-center justify-center shrink-0 mt-0.5">
+                          <i class="fa-solid fa-shield-heart text-brand-300 text-[14px]"></i>
+                      </div>
+                      <div class="space-y-1.5">
+                          <h4 class="text-[13px] font-semibold text-white">Comunidade Segura</h4>
+                          <p class="text-[12px] text-white/70 leading-relaxed">
+                              Lembre-se de manter o respeito. Relatos falsos ou ofensivos podem ser removidos.
+                          </p>
+                          <a href="javascript:void(0)" class="text-[12px] font-medium text-brand-300 hover:text-brand-200 inline-flex items-center gap-1 mt-1 transition-colors">
+                              Ler diretrizes <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                          </a>
+                      </div>
+                  </div>
+      
+              </section>
+      
+              <!-- Navigation Actions (Fixed Bottom above Nav) -->
+              <div class="absolute bottom-[84px] w-full px-6 py-4 bg-gradient-to-t from-[#2f6759] via-[#2f6759]/90 to-transparent z-30">
+                  <button class="w-full bg-brand-300 text-brand-900 font-semibold text-[15px] py-3.5 rounded-[16px] shadow-lg hover:bg-brand-200 transition-colors flex items-center justify-center gap-2">
+                      Próximo <i class="fa-solid fa-arrow-right text-[14px]"></i>
+                  </button>
+              </div>
+      
+              <!-- Bottom Navigation Shell (Consistent with prior screens context) -->
+              <nav id="bottom-nav" class="bottom-nav" data-component="bottom-nav"></nav>
+      
+          </main>
+      </div>
+    </div>
+    <div class="phone-home-indicator" aria-hidden="true"></div>
+  </div>
+  <script src="../js/storage.js"></script>
+  <script src="../js/navigation.js"></script>
+  <script src="../js/pages/avaliacao-shared.js"></script>
+  <script src="../js/components/bottom-nav.js"></script>
+  <script src="../js/pages/avaliacao-4.js"></script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avaliar - Step 2/7 - Fica Bem</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body class="app-body" data-page="avaliacao-2">
+  <div class="phone-device" aria-label="Simulador de aplicativo mobile">
+    <div class="phone-notch" aria-hidden="true"></div>
+    <div class="phone-screen">
+      <div class="phone-screen-inner text-white min-h-[100dvh] flex flex-col items-center justify-center relative overflow-hidden m-0 p-0">
+      <!-- Background Elements -->
+          <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+              <div class="absolute top-[-10%] left-[-20%] w-[140%] h-[60%] bg-gradient-to-b from-brand-500/40 to-transparent rounded-[100%] blur-3xl opacity-60"></div>
+              <div class="absolute bottom-[-20%] right-[-10%] w-[80%] h-[80%] bg-gradient-to-t from-brand-900/50 to-transparent rounded-[100%] blur-3xl opacity-80"></div>
+          </div>
+      
+          <!-- Main Container (Mobile Constrained) -->
+          <main id="app-avaliar-step2" class="w-full max-w-[375px] h-[840px] max-h-[100dvh] relative z-10 flex flex-col bg-[#2f6759] mx-auto overflow-hidden">
+              
+              <!-- Header with Progress Bar -->
+              <header id="avaliar-header" class="w-full px-6 pt-12 pb-4 z-20 shrink-0 bg-[#2f6759]">
+                  <div class="flex items-center justify-between mb-4">
+                      <button class="w-10 h-10 rounded-full glass-panel flex items-center justify-center hover:bg-white/20 transition-colors shadow-lg" aria-label="Voltar">
+                          <i class="fa-solid fa-chevron-left text-[16px] text-white"></i>
+                      </button>
+                      <span class="text-[14px] font-semibold text-white tracking-wide">Passo 2 de 7</span>
+                      <button class="text-[14px] font-medium text-brand-300 hover:text-brand-200 transition-colors" aria-label="Pular">
+                          Pular
+                      </button>
+                  </div>
+                  
+                  <!-- Progress Bar -->
+                  <div class="progress-bar-bg w-full">
+                      <div class="progress-bar-fill" style="width: 28.57%;"></div>
+                  </div>
+              </header>
+      
+              <!-- Main Scrollable Content -->
+              <section id="avaliar-content" class="flex-1 overflow-y-auto hide-scrollbar px-6 pt-4 pb-[120px] z-10 w-full relative space-y-8">
+                  
+                  <!-- Title Section -->
+                  <div class="space-y-2">
+                      <h1 class="text-[28px] font-bold text-white leading-tight">Como você se sentiu?</h1>
+                      <p class="text-[14px] text-white/70 leading-relaxed">
+                          Sua experiência é importante. Avalie o <span class="font-medium text-white">Bar do Centro</span> de forma geral.
+                      </p>
+                  </div>
+      
+                  <!-- Star Rating Section -->
+                  <div class="glass-panel rounded-[24px] p-6 flex flex-col items-center space-y-6 border border-white/10 soft-shadow">
+                      <div class="text-center space-y-1">
+                          <h2 class="text-[16px] font-semibold text-white">Nota Geral</h2>
+                          <p class="text-[12px] text-white/60">Toque nas estrelas para avaliar</p>
+                      </div>
+                      
+                      <div class="flex items-center justify-center gap-3 star-rating">
+                          <i class="fa-solid fa-star text-[32px] text-brand-300 cursor-pointer"></i>
+                          <i class="fa-solid fa-star text-[32px] text-brand-300 cursor-pointer"></i>
+                          <i class="fa-solid fa-star text-[32px] text-brand-300 cursor-pointer"></i>
+                          <i class="fa-solid fa-star text-[32px] text-white/20 cursor-pointer hover:text-brand-300/50"></i>
+                          <i class="fa-solid fa-star text-[32px] text-white/20 cursor-pointer hover:text-brand-300/50"></i>
+                      </div>
+                      
+                      <div class="bg-white/5 px-4 py-2 rounded-full border border-white/10">
+                          <span class="text-[14px] font-medium text-brand-300">Bom</span>
+                      </div>
+                  </div>
+      
+                  <!-- Sentiment Chips Section -->
+                  <div class="space-y-4 pt-2">
+                      <div class="flex items-center justify-between">
+                          <h2 class="text-[14px] font-semibold text-white uppercase tracking-wider text-white/80">O que melhor descreve?</h2>
+                          <span class="text-[11px] text-white/50">Múltipla escolha</span>
+                      </div>
+                      
+                      <div class="flex flex-wrap gap-2.5">
+                          <button class="sentiment-chip active glass-panel px-4 py-2.5 rounded-full text-[13px] font-medium text-brand-300 border border-brand-300 transition-all flex items-center gap-2">
+                              <i class="fa-solid fa-shield-heart text-[12px]"></i> Segura
+                          </button>
+                          <button class="sentiment-chip glass-panel px-4 py-2.5 rounded-full text-[13px] font-medium text-white border border-white/10 hover:bg-white/10 transition-all flex items-center gap-2">
+                              <i class="fa-solid fa-mug-hot text-[12px] text-white/70"></i> Acolhida
+                          </button>
+                          <button class="sentiment-chip glass-panel px-4 py-2.5 rounded-full text-[13px] font-medium text-white border border-white/10 hover:bg-white/10 transition-all flex items-center gap-2">
+                              <i class="fa-solid fa-eye text-[12px] text-white/70"></i> Alerta
+                          </button>
+                          <button class="sentiment-chip glass-panel px-4 py-2.5 rounded-full text-[13px] font-medium text-white border border-white/10 hover:bg-white/10 transition-all flex items-center gap-2">
+                              <i class="fa-solid fa-people-group text-[12px] text-white/70"></i> Ambiente Misto
+                          </button>
+                          <button class="sentiment-chip glass-panel px-4 py-2.5 rounded-full text-[13px] font-medium text-white border border-white/10 hover:bg-white/10 transition-all flex items-center gap-2">
+                              <i class="fa-solid fa-lightbulb text-[12px] text-white/70"></i> Bem Iluminado
+                          </button>
+                          <button class="sentiment-chip active glass-panel px-4 py-2.5 rounded-full text-[13px] font-medium text-brand-300 border border-brand-300 transition-all flex items-center gap-2">
+                              <i class="fa-solid fa-handshake-angle text-[12px]"></i> Staff Atencioso
+                          </button>
+                      </div>
+                  </div>
+      
+                  <!-- Intensity Slider -->
+                  <div class="glass-panel rounded-[20px] p-5 border border-white/10 soft-shadow space-y-4">
+                      <div class="flex justify-between items-center">
+                          <h2 class="text-[14px] font-medium text-white">Nível de Conforto</h2>
+                          <span class="text-[12px] font-bold text-brand-300">70%</span>
+                      </div>
+                      
+                      <div class="relative pt-2 pb-1">
+                          <input type="range" min="0" max="100" value="70" class="w-full">
+                          <div class="absolute left-0 top-[14px] h-[4px] bg-brand-300 rounded-l-full pointer-events-none" style="width: 70%;"></div>
+                      </div>
+                      
+                      <div class="flex justify-between text-[11px] text-white/50 font-medium px-1 uppercase tracking-wide">
+                          <span>Desconfortável</span>
+                          <span>Muito Confortável</span>
+                      </div>
+                  </div>
+      
+              </section>
+      
+              <!-- Navigation Actions (Fixed Bottom above Nav) -->
+              <div class="absolute bottom-[84px] w-full px-6 py-4 bg-gradient-to-t from-[#2f6759] via-[#2f6759]/90 to-transparent z-30">
+                  <button class="w-full bg-brand-300 text-brand-900 font-semibold text-[15px] py-3.5 rounded-[16px] shadow-lg hover:bg-brand-200 transition-colors flex items-center justify-center gap-2">
+                      Continuar <i class="fa-solid fa-arrow-right text-[14px]"></i>
+                  </button>
+              </div>
+      
+              <!-- Bottom Navigation Shell (Consistent with prior screens context) -->
+              <nav id="bottom-nav" class="bottom-nav" data-component="bottom-nav"></nav>
+      
+          </main>
+      </div>
+    </div>
+    <div class="phone-home-indicator" aria-hidden="true"></div>
+  </div>
+  <script src="../js/storage.js"></script>
+  <script src="../js/navigation.js"></script>
+  <script src="../js/pages/avaliacao-shared.js"></script>
+  <script src="../js/components/bottom-nav.js"></script>
+  <script src="../js/pages/avaliacao-2.js"></script>
+</body>
+</html>

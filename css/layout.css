@@ -1,0 +1,90 @@
+/**
+ * Layout do simulador de celular — dimensões idênticas ao iframe legado (375×840px).
+ */
+.app-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: var(--space-lg);
+  background: linear-gradient(145deg, #1a3d34 0%, #2f6759 40%, #5f927d 100%);
+}
+
+/* Moldura do dispositivo (bezel + notch) */
+.phone-device {
+  position: relative;
+  width: calc(var(--phone-width) + 24px);
+  height: calc(var(--phone-height) + 24px);
+  background: #0d0d0d;
+  border-radius: var(--phone-radius);
+  box-shadow: var(--shadow-phone), inset 0 0 0 2px rgba(255, 255, 255, 0.08);
+  padding: 12px;
+  flex-shrink: 0;
+}
+
+.phone-notch {
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 28px;
+  background: #0d0d0d;
+  border-radius: 20px;
+  z-index: 30;
+  pointer-events: none;
+}
+
+/* Viewport interna = mesmo tamanho do iframe legado */
+.phone-screen {
+  width: var(--phone-width);
+  height: var(--phone-height);
+  border-radius: var(--screen-radius);
+  overflow: hidden;
+  position: relative;
+  background: #2f6759;
+}
+
+/* Substitui <body> do wireframe legado */
+.phone-screen-inner {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  overflow: hidden;
+}
+
+.phone-home-indicator {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 4px;
+  z-index: 30;
+  pointer-events: none;
+}
+
+/* main do legado: não forçar altura diferente */
+.phone-screen-inner > main {
+  box-sizing: border-box;
+}
+
+/* Dentro do viewport 840px, 100dvh do legado vira 100% */
+.phone-screen .min-h-\[100dvh\] {
+  min-height: 100% !important;
+}
+
+.phone-screen .h-\[840px\] {
+  height: 100% !important;
+  max-height: 100%;
+}
+
+.phone-screen .max-h-\[100dvh\] {
+  max-height: 100% !important;
+}

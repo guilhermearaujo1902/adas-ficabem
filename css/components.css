@@ -1,0 +1,239 @@
+/**
+ * Componentes reutilizáveis — botões, cards, navegação, formulários.
+ */
+
+/**
+ * glass-panel, glass-effect, glass-card: definidos em legacy-compat.css
+ * (valores extraídos de cada wireframe legado).
+ */
+
+/* Botões */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  width: 100%;
+  min-height: 52px;
+  padding: 0 var(--space-lg);
+  border-radius: 14px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background var(--transition-base), transform var(--transition-fast);
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn--primary {
+  background: #fff;
+  color: var(--color-brand-600);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+}
+
+.btn--primary:hover {
+  background: var(--color-brand-50);
+}
+
+.btn--ghost {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+.btn--ghost:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.btn--accent {
+  background: var(--color-brand-accent);
+  color: #fff;
+}
+
+.btn--sm {
+  min-height: 40px;
+  font-size: 0.875rem;
+  width: auto;
+  padding: 0 var(--space-md);
+}
+
+/* Campos de formulário */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-md);
+}
+
+.field label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.field input,
+.field textarea,
+.field select {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  outline: none;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.field input:focus,
+.field textarea:focus {
+  border-color: var(--color-brand-accent);
+  box-shadow: 0 0 0 2px rgba(78, 153, 131, 0.35);
+}
+
+/* Barra de progresso (fluxo de avaliação) */
+.progress-bar {
+  display: flex;
+  gap: 4px;
+  padding: 0 var(--space-md);
+}
+
+.progress-bar__step {
+  flex: 1;
+  height: 4px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.progress-bar__step--active,
+.progress-bar__step--done {
+  background: #fff;
+}
+
+/* Navegação inferior */
+.bottom-nav {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 72px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0.5rem 1rem 1rem;
+  background: rgba(47, 103, 89, 0.95);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 50;
+}
+
+.bottom-nav__link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.5);
+  transition: color var(--transition-base);
+}
+
+.bottom-nav__link:hover,
+.bottom-nav__link--active {
+  color: #fff;
+}
+
+.bottom-nav__link i {
+  font-size: 1.125rem;
+}
+
+/* Chips de filtro */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  transition: background var(--transition-base);
+}
+
+.chip--active {
+  background: #fff;
+  color: var(--color-brand-dark);
+  border-color: #fff;
+}
+
+/* Cards de local */
+.place-card {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transition: background var(--transition-base);
+}
+
+.place-card:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Alertas / mensagens */
+.alert {
+  padding: var(--space-md);
+  border-radius: 1rem;
+  font-size: 0.875rem;
+}
+
+.alert--error {
+  background: rgba(239, 68, 68, 0.2);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  color: #fecaca;
+}
+
+.alert--success {
+  background: rgba(78, 153, 131, 0.25);
+  border: 1px solid rgba(78, 153, 131, 0.4);
+  color: #dcfce7;
+}
+
+/* Logo do app */
+.app-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.app-logo__icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-logo__title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.app-logo__title em {
+  font-style: italic;
+  font-weight: 300;
+}

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fica Bem - Feed</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body class="app-body" data-page="feed">
+  <div class="phone-device" aria-label="Simulador de aplicativo mobile">
+    <div class="phone-notch" aria-hidden="true"></div>
+    <div class="phone-screen">
+      <div class="phone-screen-inner h-full w-full m-0 p-0 overflow-hidden bg-gradient-to-b from-[#2f6759] to-[#5f927d] text-white flex flex-col selection:bg-white selection:text-brand-dark">
+      <!-- Screen Wrapper for Mobile Constraint (375x840 target) -->
+          <main id="feed-screen" class="w-full h-full max-w-[430px] mx-auto flex flex-col relative sm:shadow-2xl sm:border-x sm:border-white/10 bg-gradient-to-b from-[#2f6759] to-[#5f927d]">
+              
+              <!-- Header & Search -->
+              <header id="header-search-filters" class="w-full pt-12 px-6 pb-4 flex flex-col z-20 bg-brand-dark/80 backdrop-blur-md sticky top-0 border-b border-white/10">
+                  <div class="flex justify-between items-center mb-6">
+                      <div>
+                          <h1 class="text-2xl font-serif font-semibold tracking-tight text-white">
+                              Fica <span class="italic font-light">Bem</span>
+                          </h1>
+                          <p class="text-xs font-sans text-white/70 mt-1">Bom dia, Mariana</p>
+                      </div>
+                      <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center border border-white/20">
+                          <i class="fa-regular fa-bell text-white"></i>
+                          <div class="absolute top-0 right-0 w-2.5 h-2.5 bg-red-400 rounded-full border border-brand-dark"></div>
+                      </div>
+                  </div>
+      
+                  <!-- Search Bar -->
+                  <div class="w-full bg-white/10 rounded-2xl border border-white/20 flex items-center px-4 py-3 mb-4">
+                      <i class="fa-solid fa-search text-white/50 mr-3"></i>
+                      <input type="text" placeholder="Buscar locais ou categorias..." class="bg-transparent border-none outline-none text-white placeholder-white/50 w-full font-sans text-sm">
+                  </div>
+      
+                  <!-- Filters Carousel -->
+                  <div class="w-full overflow-x-auto no-scrollbar flex gap-3 pb-2">
+                      <button class="whitespace-nowrap px-4 py-2 rounded-full bg-white text-brand-dark font-sans text-xs font-semibold shadow-sm flex items-center gap-2">
+                          <i class="fa-solid fa-mug-hot"></i> Cafés
+                      </button>
+                      <button class="whitespace-nowrap px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white font-sans text-xs font-medium flex items-center gap-2">
+                          <i class="fa-solid fa-martini-glass"></i> Bares
+                      </button>
+                      <button class="whitespace-nowrap px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white font-sans text-xs font-medium flex items-center gap-2">
+                          <i class="fa-solid fa-bus"></i> Transporte
+                      </button>
+                      <button class="whitespace-nowrap px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white font-sans text-xs font-medium flex items-center gap-2">
+                          <i class="fa-solid fa-utensils"></i> Restaurantes
+                      </button>
+                  </div>
+              </header>
+      
+              <!-- Scrollable Content -->
+              <div class="flex-1 overflow-y-auto no-scrollbar pb-24">
+                  
+                  <!-- Quick Actions CTA -->
+                  <section id="quick-actions-cta" class="px-6 py-6">
+                      <div class="w-full glass-card rounded-3xl p-5 relative overflow-hidden">
+                          <div class="absolute -right-4 -top-4 w-24 h-24 bg-white/10 rounded-full blur-xl"></div>
+                          <div class="relative z-10 flex justify-between items-center">
+                              <div>
+                                  <h3 class="font-serif text-lg font-semibold mb-1">Rota Segura</h3>
+                                  <p class="font-sans text-xs text-white/70 max-w-[180px]">Planeje seu trajeto com base em avaliações reais.</p>
+                              </div>
+                              <button class="w-12 h-12 rounded-full bg-white text-brand-dark flex items-center justify-center shadow-lg active:scale-95 transition-transform">
+                                  <i class="fa-solid fa-route"></i>
+                              </button>
+                          </div>
+                      </div>
+                  </section>
+      
+                  <!-- Safety Alerts Carousel -->
+                  <section id="safety-alerts-carousel" class="pl-6 py-2">
+                      <h2 class="font-sans text-sm font-semibold text-white/90 mb-4 uppercase tracking-wider">Alertas Próximos</h2>
+                      <div class="flex gap-4 overflow-x-auto no-scrollbar pr-6 pb-4">
+                          <div class="min-w-[240px] bg-red-500/20 border border-red-500/30 rounded-2xl p-4 flex flex-col gap-2">
+                              <div class="flex items-center gap-2 text-red-200">
+                                  <i class="fa-solid fa-triangle-exclamation text-xs"></i>
+                                  <span class="font-sans text-xs font-medium">Atenção</span>
+                              </div>
+                              <p class="font-sans text-sm text-white leading-snug">Iluminação precária na R. Augusta (quarteirão 3).</p>
+                              <span class="font-sans text-[10px] text-white/50 mt-1">Há 10 min • Por @carol_s</span>
+                          </div>
+                          <div class="min-w-[240px] bg-yellow-500/20 border border-yellow-500/30 rounded-2xl p-4 flex flex-col gap-2">
+                              <div class="flex items-center gap-2 text-yellow-200">
+                                  <i class="fa-solid fa-circle-info text-xs"></i>
+                                  <span class="font-sans text-xs font-medium">Aviso</span>
+                              </div>
+                              <p class="font-sans text-sm text-white leading-snug">Metrô Consolação com movimentação atípica hoje.</p>
+                              <span class="font-sans text-[10px] text-white/50 mt-1">Há 45 min • Por @julia_m</span>
+                          </div>
+                      </div>
+                  </section>
+      
+                  <!-- Trending Safe Spots -->
+                  <section id="trending-safe-spots" class="px-6 py-6">
+                      <div class="flex justify-between items-end mb-4">
+                          <h2 class="font-sans text-sm font-semibold text-white/90 uppercase tracking-wider">Locais em Alta</h2>
+                          <a href="javascript:void(0)" class="font-sans text-xs text-white/60 underline underline-offset-2">Ver mapa</a>
+                      </div>
+                      
+                      <div class="flex flex-col gap-4">
+                          <!-- Spot Card 1 -->
+                          <div class="w-full bg-white/5 border border-white/10 rounded-2xl p-4 flex gap-4 items-center">
+                              <div class="w-16 h-16 rounded-xl bg-white/10 overflow-hidden shrink-0">
+                                  <img class="w-full h-full object-cover opacity-80 mix-blend-overlay" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/01f2bd413b-5de1466befb3b2a2e26f.png" alt="cozy cafe interior warm lighting" />
+                              </div>
+                              <div class="flex-1">
+                                  <div class="flex justify-between items-start">
+                                      <h3 class="font-serif text-base font-semibold">Café Botânico</h3>
+                                      <div class="flex items-center gap-1 bg-white/10 px-2 py-1 rounded-md">
+                                          <i class="fa-solid fa-shield-halved text-[#4e9983] text-[10px]"></i>
+                                          <span class="font-sans text-xs font-bold">4.9</span>
+                                      </div>
+                                  </div>
+                                  <p class="font-sans text-xs text-white/60 mt-1">Pinheiros • Café</p>
+                                  <div class="flex gap-2 mt-2">
+                                      <span class="text-[10px] bg-white/10 px-2 py-0.5 rounded-full text-white/80">Iluminado</span>
+                                      <span class="text-[10px] bg-white/10 px-2 py-0.5 rounded-full text-white/80">Acolhedor</span>
+                                  </div>
+                              </div>
+                          </div>
+      
+                          <!-- Spot Card 2 -->
+                          <div class="w-full bg-white/5 border border-white/10 rounded-2xl p-4 flex gap-4 items-center">
+                              <div class="w-16 h-16 rounded-xl bg-white/10 overflow-hidden shrink-0">
+                                  <img class="w-full h-full object-cover opacity-80 mix-blend-overlay" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/f8d1c9cd94-4d3a098e3ae74c699b5a.png" alt="modern library workspace clean" />
+                              </div>
+                              <div class="flex-1">
+                                  <div class="flex justify-between items-start">
+                                      <h3 class="font-serif text-base font-semibold">Espaço Co-Work</h3>
+                                      <div class="flex items-center gap-1 bg-white/10 px-2 py-1 rounded-md">
+                                          <i class="fa-solid fa-shield-halved text-[#4e9983] text-[10px]"></i>
+                                          <span class="font-sans text-xs font-bold">4.8</span>
+                                      </div>
+                                  </div>
+                                  <p class="font-sans text-xs text-white/60 mt-1">Vila Madalena • Coworking</p>
+                                  <div class="flex gap-2 mt-2">
+                                      <span class="text-[10px] bg-white/10 px-2 py-0.5 rounded-full text-white/80">Segurança 24h</span>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </section>
+      
+                  <!-- Friends Activity Feed -->
+                  <section id="friends-activity-feed" class="px-6 py-6 border-t border-white/10">
+                      <h2 class="font-sans text-sm font-semibold text-white/90 mb-6 uppercase tracking-wider">Atividade das Amigas</h2>
+                      
+                      <div class="flex flex-col gap-6">
+                          <!-- Activity Item 1 -->
+                          <div class="flex gap-3">
+                              <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-[#4e9983] shrink-0">
+                                  <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-1.jpg" class="w-full h-full object-cover" alt="User Avatar">
+                              </div>
+                              <div class="flex-1">
+                                  <div class="bg-white/5 border border-white/10 rounded-2xl rounded-tl-none p-4">
+                                      <p class="font-sans text-sm text-white/90 mb-2">
+                                          <span class="font-semibold">Ana Silva</span> avaliou <span class="font-semibold text-white">Bar da Esquina</span>
+                                      </p>
+                                      <div class="flex items-center gap-1 mb-2">
+                                          <i class="fa-solid fa-star text-yellow-400 text-[10px]"></i>
+                                          <i class="fa-solid fa-star text-yellow-400 text-[10px]"></i>
+                                          <i class="fa-solid fa-star text-yellow-400 text-[10px]"></i>
+                                          <i class="fa-solid fa-star text-yellow-400 text-[10px]"></i>
+                                          <i class="fa-regular fa-star text-white/30 text-[10px]"></i>
+                                      </div>
+                                      <p class="font-sans text-xs text-white/70 leading-relaxed">
+                                          "Lugar super tranquilo, staff atencioso e me senti muito segura esperando o uber na porta."
+                                      </p>
+                                  </div>
+                                  <span class="font-sans text-[10px] text-white/40 mt-2 block ml-1">Há 2 horas</span>
+                              </div>
+                          </div>
+      
+                          <!-- Activity Item 2 -->
+                          <div class="flex gap-3">
+                              <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-[#4e9983] shrink-0">
+                                  <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-5.jpg" class="w-full h-full object-cover" alt="User Avatar">
+                              </div>
+                              <div class="flex-1">
+                                  <div class="bg-white/5 border border-white/10 rounded-2xl rounded-tl-none p-4">
+                                      <p class="font-sans text-sm text-white/90 mb-2">
+                                          <span class="font-semibold">Beatriz Costa</span> criou uma nova rota segura
+                                      </p>
+                                      <div class="w-full h-20 rounded-xl bg-white/10 overflow-hidden relative mt-2 border border-white/10 flex items-center justify-center">
+                                          <i class="fa-solid fa-map text-white/30 text-2xl"></i>
+                                          <div class="absolute bottom-2 left-2 right-2 bg-brand-dark/80 backdrop-blur rounded p-1.5 flex justify-between items-center">
+                                              <span class="text-[10px] font-sans">Av. Paulista -> Jardins</span>
+                                              <i class="fa-solid fa-shield-check text-[#4e9983] text-[10px]"></i>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <span class="font-sans text-[10px] text-white/40 mt-2 block ml-1">Ontem</span>
+                              </div>
+                          </div>
+                      </div>
+                  </section>
+                  
+              </div>
+      
+              <!-- Bottom Navigation Bar -->
+              <nav id="bottom-nav" class="bottom-nav" data-component="bottom-nav"></nav>
+      
+          </main>
+      </div>
+    </div>
+    <div class="phone-home-indicator" aria-hidden="true"></div>
+  </div>
+  <script src="../js/storage.js"></script>
+  <script src="../js/navigation.js"></script>
+  <script src="../js/components/bottom-nav.js"></script>
+  <script src="../js/pages/feed.js"></script>
+</body>
+</html>

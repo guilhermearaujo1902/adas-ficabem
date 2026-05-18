@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avaliar - Step 6/7 - Fica Bem</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body class="app-body" data-page="avaliacao-6">
+  <div class="phone-device" aria-label="Simulador de aplicativo mobile">
+    <div class="phone-notch" aria-hidden="true"></div>
+    <div class="phone-screen">
+      <div class="phone-screen-inner text-white min-h-[100dvh] flex flex-col items-center justify-center relative overflow-hidden m-0 p-0">
+      <!-- Background Elements -->
+          <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+              <div class="absolute top-[-10%] left-[-20%] w-[140%] h-[60%] bg-gradient-to-b from-brand-500/40 to-transparent rounded-[100%] blur-3xl opacity-60"></div>
+              <div class="absolute bottom-[-20%] right-[-10%] w-[80%] h-[80%] bg-gradient-to-t from-brand-900/50 to-transparent rounded-[100%] blur-3xl opacity-80"></div>
+          </div>
+      
+          <!-- Main Container (Mobile Constrained) -->
+          <main id="app-avaliar-step6" class="w-full max-w-[375px] h-[840px] max-h-[100dvh] relative z-10 flex flex-col bg-[#2f6759] mx-auto overflow-hidden">
+              
+              <!-- Header with Progress Bar -->
+              <header id="avaliar-header" class="w-full px-6 pt-12 pb-4 z-20 shrink-0 bg-[#2f6759]">
+                  <div class="flex items-center justify-between mb-4">
+                      <button class="w-10 h-10 rounded-full glass-panel flex items-center justify-center hover:bg-white/20 transition-colors shadow-lg" aria-label="Voltar">
+                          <i class="fa-solid fa-chevron-left text-[16px] text-white"></i>
+                      </button>
+                      <span class="text-[14px] font-semibold text-white tracking-wide">Passo 6 de 7</span>
+                      <button class="text-[14px] font-medium text-brand-300 hover:text-brand-200 transition-colors" aria-label="Pular">
+                          Pular
+                      </button>
+                  </div>
+                  
+                  <!-- Progress Bar -->
+                  <div class="progress-bar-bg w-full">
+                      <div class="progress-bar-fill" style="width: 85.71%;"></div>
+                  </div>
+              </header>
+      
+              <!-- Main Scrollable Content -->
+              <section id="avaliar-content" class="flex-1 overflow-y-auto hide-scrollbar px-6 pt-4 pb-[120px] z-10 w-full relative space-y-8">
+                  
+                  <!-- Title Section -->
+                  <div class="space-y-2">
+                      <h1 class="text-[28px] font-bold text-white leading-tight">Tags e contexto</h1>
+                      <p class="text-[14px] text-white/70 leading-relaxed">
+                          Selecione as características que melhor descrevem sua experiência no local.
+                      </p>
+                  </div>
+      
+                  <!-- Tags Cloud Section -->
+                  <div class="space-y-4">
+                      <h3 class="text-[15px] font-medium text-white">Ambiente</h3>
+                      <div class="flex flex-wrap gap-2">
+                          <label class="cursor-pointer">
+                              <input type="checkbox" class="peer sr-only tag-checkbox">
+                              <div class="px-4 py-2 rounded-full border border-white/20 bg-white/5 text-[13px] text-white/90 hover:border-white/40 transition-all duration-200">
+                                  Bem iluminado
+                              </div>
+                          </label>
+                          <label class="cursor-pointer">
+                              <input type="checkbox" class="peer sr-only tag-checkbox" checked>
+                              <div class="px-4 py-2 rounded-full border border-white/20 bg-white/5 text-[13px] text-white/90 hover:border-white/40 transition-all duration-200">
+                                  Movimentado
+                              </div>
+                          </label>
+                          <label class="cursor-pointer">
+                              <input type="checkbox" class="peer sr-only tag-checkbox">
+                              <div class="px-4 py-2 rounded-full border border-white/20 bg-white/5 text-[13px] text-white/90 hover:border-white/40 transition-all duration-200">
+                                  Seguro à noite
+                              </div>
+                          </label>
+                          <label class="cursor-pointer">
+                              <input type="checkbox" class="peer sr-only tag-checkbox">
+                              <div class="px-4 py-2 rounded-full border border-white/20 bg-white/5 text-[13px] text-white/90 hover:border-white/40 transition-all duration-200">
+                                  Silencioso
+                              </div>
+                          </label>
+                          <label class="cursor-pointer">
+                              <input type="checkbox" class="peer sr-only tag-checkbox" checked>
+                              <div class="px-4 py-2 rounded-full border border-white/20 bg-white/5 text-[13px] text-white/90 hover:border-white/40 transition-all duration-200">
+                                  Acolhedor
+                              </div>
+                          </label>
+                          <label class="cursor-pointer">
+                              <input type="checkbox" class="peer sr-only tag-checkbox">
+                              <div class="px-4 py-2 rounded-full border border-white/20 bg-white/5 text-[13px] text-white/90 hover:border-white/40 transition-all duration-200">
+                                  Estacionamento fácil
+                              </div>
+                          </label>
+                      </div>
+                  </div>
+      
+                  <!-- Recommendation Section -->
+                  <div class="space-y-4 pt-4 border-t border-white/10">
+                      <h3 class="text-[15px] font-medium text-white">Você recomendaria este local?</h3>
+                      <div class="grid grid-cols-2 gap-3">
+                          <label class="cursor-pointer">
+                              <input type="radio" name="recommend" class="peer sr-only radio-custom" checked>
+                              <div class="flex flex-col items-center justify-center p-4 rounded-[16px] border border-white/20 bg-white/5 text-white/90 hover:border-white/40 transition-all duration-200 gap-2">
+                                  <i class="fa-solid fa-thumbs-up text-[20px]"></i>
+                                  <span class="text-[14px] font-medium">Sim, com certeza</span>
+                              </div>
+                          </label>
+                          <label class="cursor-pointer">
+                              <input type="radio" name="recommend" class="peer sr-only radio-custom">
+                              <div class="flex flex-col items-center justify-center p-4 rounded-[16px] border border-white/20 bg-white/5 text-white/90 hover:border-white/40 transition-all duration-200 gap-2">
+                                  <i class="fa-solid fa-thumbs-down text-[20px]"></i>
+                                  <span class="text-[14px] font-medium">Não recomendo</span>
+                              </div>
+                          </label>
+                      </div>
+                  </div>
+      
+                  <!-- Target Profiles Section -->
+                  <div class="space-y-4 pt-4 border-t border-white/10">
+                      <h3 class="text-[15px] font-medium text-white">Ideal para quais perfis/situações?</h3>
+                      <div class="space-y-3">
+                          <label class="relative flex items-center justify-between p-4 rounded-[16px] border border-white/10 bg-white/5 cursor-pointer hover:border-white/30 transition-colors group">
+                              <div class="flex items-center gap-3">
+                                  <div class="w-10 h-10 rounded-full bg-brand-500/30 flex items-center justify-center">
+                                      <i class="fa-solid fa-person-walking text-brand-300"></i>
+                                  </div>
+                                  <div>
+                                      <span class="block text-[14px] font-medium text-white">Mulher sozinha</span>
+                                      <span class="block text-[12px] text-white/60">Seguro para ir sem companhia</span>
+                                  </div>
+                              </div>
+                              <div class="relative flex items-center justify-center shrink-0">
+                                  <input type="checkbox" class="peer sr-only checkbox-custom" checked>
+                                  <div class="w-5 h-5 rounded-[6px] border border-white/30 bg-transparent flex items-center justify-center transition-all duration-200 peer-checked:bg-brand-300 peer-checked:border-brand-300">
+                                      <i class="fa-solid fa-check text-[12px] text-brand-900 opacity-0 transform scale-50 transition-all duration-200 icon-check"></i>
+                                  </div>
+                              </div>
+                          </label>
+      
+                          <label class="relative flex items-center justify-between p-4 rounded-[16px] border border-white/10 bg-white/5 cursor-pointer hover:border-white/30 transition-colors group">
+                              <div class="flex items-center gap-3">
+                                  <div class="w-10 h-10 rounded-full bg-brand-500/30 flex items-center justify-center">
+                                      <i class="fa-solid fa-users text-brand-300"></i>
+                                  </div>
+                                  <div>
+                                      <span class="block text-[14px] font-medium text-white">Grupo de amigas</span>
+                                      <span class="block text-[12px] text-white/60">Ótimo para encontros em grupo</span>
+                                  </div>
+                              </div>
+                              <div class="relative flex items-center justify-center shrink-0">
+                                  <input type="checkbox" class="peer sr-only checkbox-custom" checked>
+                                  <div class="w-5 h-5 rounded-[6px] border border-white/30 bg-transparent flex items-center justify-center transition-all duration-200 peer-checked:bg-brand-300 peer-checked:border-brand-300">
+                                      <i class="fa-solid fa-check text-[12px] text-brand-900 opacity-0 transform scale-50 transition-all duration-200 icon-check"></i>
+                                  </div>
+                              </div>
+                          </label>
+      
+                          <label class="relative flex items-center justify-between p-4 rounded-[16px] border border-white/10 bg-white/5 cursor-pointer hover:border-white/30 transition-colors group">
+                              <div class="flex items-center gap-3">
+                                  <div class="w-10 h-10 rounded-full bg-brand-500/30 flex items-center justify-center">
+                                      <i class="fa-solid fa-child-reaching text-brand-300"></i>
+                                  </div>
+                                  <div>
+                                      <span class="block text-[14px] font-medium text-white">Com crianças</span>
+                                      <span class="block text-[12px] text-white/60">Ambiente familiar e tranquilo</span>
+                                  </div>
+                              </div>
+                              <div class="relative flex items-center justify-center shrink-0">
+                                  <input type="checkbox" class="peer sr-only checkbox-custom">
+                                  <div class="w-5 h-5 rounded-[6px] border border-white/30 bg-transparent flex items-center justify-center transition-all duration-200 peer-checked:bg-brand-300 peer-checked:border-brand-300">
+                                      <i class="fa-solid fa-check text-[12px] text-brand-900 opacity-0 transform scale-50 transition-all duration-200 icon-check"></i>
+                                  </div>
+                              </div>
+                          </label>
+                      </div>
+                  </div>
+      
+              </section>
+      
+              <!-- Navigation Actions (Fixed Bottom above Nav) -->
+              <div class="absolute bottom-[84px] w-full px-6 py-4 bg-gradient-to-t from-[#2f6759] via-[#2f6759]/90 to-transparent z-30">
+                  <button class="w-full bg-brand-300 text-brand-900 font-semibold text-[15px] py-3.5 rounded-[16px] shadow-lg hover:bg-brand-200 transition-colors flex items-center justify-center gap-2">
+                      Próximo <i class="fa-solid fa-arrow-right text-[14px]"></i>
+                  </button>
+              </div>
+      
+              <!-- Bottom Navigation Shell (Consistent with prior screens context) -->
+              <nav id="bottom-nav" class="bottom-nav" data-component="bottom-nav"></nav>
+      
+          </main>
+      </div>
+    </div>
+    <div class="phone-home-indicator" aria-hidden="true"></div>
+  </div>
+  <script src="../js/storage.js"></script>
+  <script src="../js/navigation.js"></script>
+  <script src="../js/pages/avaliacao-shared.js"></script>
+  <script src="../js/components/bottom-nav.js"></script>
+  <script src="../js/pages/avaliacao-6.js"></script>
+</body>
+</html>

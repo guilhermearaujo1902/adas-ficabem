@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Setor - Fica Bem</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body class="app-body" data-page="filtro">
+  <div class="phone-device" aria-label="Simulador de aplicativo mobile">
+    <div class="phone-notch" aria-hidden="true"></div>
+    <div class="phone-screen">
+      <div class="phone-screen-inner text-white min-h-[100dvh] flex flex-col items-center justify-center relative overflow-hidden m-0 p-0">
+      <!-- Background Elements -->
+          <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+              <div class="absolute top-[-10%] left-[-20%] w-[140%] h-[60%] bg-gradient-to-b from-brand-500/40 to-transparent rounded-[100%] blur-3xl opacity-60"></div>
+              <div class="absolute bottom-[-20%] right-[-10%] w-[80%] h-[80%] bg-gradient-to-t from-brand-900/50 to-transparent rounded-[100%] blur-3xl opacity-80"></div>
+          </div>
+      
+          <!-- Main Container (Mobile Constrained) -->
+          <main id="app-setor" class="w-full max-w-[375px] h-[840px] max-h-[100dvh] relative z-10 flex flex-col bg-[#2f6759] mx-auto overflow-hidden">
+              
+              <!-- Header / Search -->
+              <header id="setor-header" class="w-full px-6 pt-12 pb-4 z-20 shrink-0 bg-[#2f6759]/90 backdrop-blur-md border-b border-white/5 relative">
+                  <div class="flex items-center justify-between mb-6">
+                      <div class="flex items-center gap-3">
+                          <button class="w-8 h-8 rounded-full glass-panel flex items-center justify-center hover:bg-white/20 transition-colors" aria-label="Voltar">
+                              <i class="fa-solid fa-chevron-left text-[14px] text-white"></i>
+                          </button>
+                          <div class="font-medium text-[20px] tracking-wide text-white/90">
+                              Bares e <span class="italic font-light">Restaurantes</span>
+                          </div>
+                      </div>
+                  </div>
+      
+                  <!-- Search Bar -->
+                  <div class="relative w-full mb-4">
+                      <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-white/40 text-[14px]"></i>
+                      <input type="text" placeholder="Buscar em bares e restaurantes..." 
+                          class="w-full h-12 pl-10 pr-12 rounded-[16px] glass-panel text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all text-[15px] shadow-[0_4px_12px_rgba(0,0,0,0.05)]">
+                  </div>
+      
+                  <!-- Filters -->
+                  <div class="flex overflow-x-auto hide-scrollbar gap-2 pb-2 -mx-6 px-6 snap-x">
+                      <button class="snap-start shrink-0 h-8 px-4 rounded-full bg-white text-brand-600 font-medium text-[12px] flex items-center gap-1.5 shadow-[0_4px_14px_0_rgba(0,0,0,0.1)]">
+                          <i class="fa-solid fa-shield-halved text-[11px]"></i> Mais Seguros
+                      </button>
+                      <button class="snap-start shrink-0 h-8 px-4 rounded-full glass-panel text-white font-medium text-[12px] flex items-center gap-1.5 hover:bg-white/10">
+                          <i class="fa-regular fa-clock text-[11px]"></i> Abertos Agora
+                      </button>
+                      <button class="snap-start shrink-0 h-8 px-4 rounded-full glass-panel text-white font-medium text-[12px] flex items-center gap-1.5 hover:bg-white/10">
+                          <i class="fa-solid fa-wifi text-[11px]"></i> Com Wi-Fi
+                      </button>
+                      <button class="snap-start shrink-0 h-8 px-4 rounded-full glass-panel text-white font-medium text-[12px] flex items-center gap-1.5 hover:bg-white/10">
+                          <i class="fa-solid fa-users text-[11px]"></i> Movimentado
+                      </button>
+                  </div>
+              </header>
+      
+              <!-- Main Scrollable Content -->
+              <section id="setor-content" class="flex-1 overflow-y-auto hide-scrollbar pt-6 pb-[100px] z-10 w-full px-6 space-y-4">
+                  
+                  <div class="flex items-center justify-between mb-4">
+                      <h2 class="text-[14px] font-medium text-white/80">42 locais encontrados</h2>
+                      <div class="text-[12px] text-white flex items-center gap-1.5 cursor-pointer bg-white/10 px-3 py-1.5 rounded-full">
+                          Score <i class="fa-solid fa-arrow-down-short-wide text-[10px]"></i>
+                      </div>
+                  </div>
+      
+                  <!-- List View Format inspired by Ref -->
+                  <div class="w-full glass-panel rounded-[24px] soft-shadow border border-white/10 overflow-hidden">
+                      
+                      <!-- List Item 1 -->
+                      <div class="list-row w-full p-4 flex gap-4 items-center relative">
+                          <div class="w-12 h-12 shrink-0 rounded-[12px] overflow-hidden relative">
+                               <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/df51b71438-94412f5c3f5fc18ca582.png" alt="cocktail bar interior warm lighting dark green aesthetic" />
+                          </div>
+                          
+                          <div class="flex-1 min-w-0">
+                              <div class="flex items-center justify-between mb-0.5">
+                                  <h3 class="text-[15px] font-semibold text-white truncate pr-2">Bar do Centro</h3>
+                                  <div class="bg-brand-600/80 backdrop-blur-sm px-1.5 py-0.5 rounded-full flex items-center gap-1 border border-white/20 shrink-0">
+                                      <i class="fa-solid fa-shield-halved text-[8px] text-brand-300"></i>
+                                      <span class="text-[10px] font-bold text-white">4.9</span>
+                                  </div>
+                              </div>
+                              <p class="text-[12px] text-white/60 flex items-center gap-1.5 mb-1 truncate">
+                                  <i class="fa-solid fa-martini-glass-citrus text-[10px]"></i> Bar • 0.3 km • Aberto
+                              </p>
+                              <div class="flex flex-wrap gap-1">
+                                  <span class="text-[9px] px-1.5 py-0.5 bg-brand-500/20 rounded text-brand-100"><i class="fa-solid fa-lightbulb mr-1"></i>Iluminado</span>
+                                  <span class="text-[9px] px-1.5 py-0.5 bg-brand-500/20 rounded text-brand-100"><i class="fa-solid fa-users mr-1"></i>Movimentado</span>
+                              </div>
+                          </div>
+                          <i class="fa-solid fa-chevron-right text-white/30 text-[12px] absolute right-4"></i>
+                      </div>
+      
+                      <!-- List Item 2 -->
+                      <div class="list-row w-full p-4 flex gap-4 items-center relative">
+                          <div class="w-12 h-12 shrink-0 rounded-[12px] overflow-hidden relative">
+                               <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/3687b0ef2d-0950dc24724ac97988ee.png" alt="cozy italian restaurant interior plants warm light" />
+                          </div>
+                          
+                          <div class="flex-1 min-w-0">
+                              <div class="flex items-center justify-between mb-0.5">
+                                  <h3 class="text-[15px] font-semibold text-white truncate pr-2">Cantina Bella</h3>
+                                  <div class="bg-brand-600/80 backdrop-blur-sm px-1.5 py-0.5 rounded-full flex items-center gap-1 border border-white/20 shrink-0">
+                                      <i class="fa-solid fa-shield-halved text-[8px] text-brand-300"></i>
+                                      <span class="text-[10px] font-bold text-white">4.7</span>
+                                  </div>
+                              </div>
+                              <p class="text-[12px] text-white/60 flex items-center gap-1.5 mb-1 truncate">
+                                  <i class="fa-solid fa-utensils text-[10px]"></i> Restaurante • 0.8 km • Aberto
+                              </p>
+                              <div class="flex flex-wrap gap-1">
+                                  <span class="text-[9px] px-1.5 py-0.5 bg-brand-500/20 rounded text-brand-100"><i class="fa-solid fa-person-military-pointing mr-1"></i>Segurança</span>
+                                  <span class="text-[9px] px-1.5 py-0.5 bg-brand-500/20 rounded text-brand-100"><i class="fa-solid fa-wifi mr-1"></i>Wi-Fi</span>
+                              </div>
+                          </div>
+                          <i class="fa-solid fa-chevron-right text-white/30 text-[12px] absolute right-4"></i>
+                      </div>
+      
+                      <!-- List Item 3 -->
+                      <div class="list-row w-full p-4 flex gap-4 items-center relative">
+                          <div class="w-12 h-12 shrink-0 rounded-[12px] bg-brand-500/20 flex items-center justify-center relative">
+                               <i class="fa-solid fa-beer-mug-empty text-xl text-brand-300"></i>
+                          </div>
+                          
+                          <div class="flex-1 min-w-0">
+                              <div class="flex items-center justify-between mb-0.5">
+                                  <h3 class="text-[15px] font-semibold text-white truncate pr-2">Pub da Esquina</h3>
+                                  <div class="bg-brand-600/80 backdrop-blur-sm px-1.5 py-0.5 rounded-full flex items-center gap-1 border border-white/20 shrink-0">
+                                      <i class="fa-solid fa-shield-halved text-[8px] text-brand-300"></i>
+                                      <span class="text-[10px] font-bold text-white">4.5</span>
+                                  </div>
+                              </div>
+                              <p class="text-[12px] text-white/60 flex items-center gap-1.5 mb-1 truncate">
+                                  <i class="fa-solid fa-beer-mug-empty text-[10px]"></i> Pub • 1.2 km • Fecha às 02h
+                              </p>
+                              <div class="flex flex-wrap gap-1">
+                                  <span class="text-[9px] px-1.5 py-0.5 bg-brand-500/20 rounded text-brand-100"><i class="fa-solid fa-car mr-1"></i>Estacionamento</span>
+                              </div>
+                          </div>
+                          <i class="fa-solid fa-chevron-right text-white/30 text-[12px] absolute right-4"></i>
+                      </div>
+                      
+                       <!-- List Item 4 -->
+                       <div class="list-row w-full p-4 flex gap-4 items-center relative">
+                          <div class="w-12 h-12 shrink-0 rounded-[12px] overflow-hidden relative">
+                               <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/cf846b30eb-c0b669dc4a7fcb1c6105.png" alt="modern vegan cafe green aesthetic natural light" />
+                          </div>
+                          
+                          <div class="flex-1 min-w-0">
+                              <div class="flex items-center justify-between mb-0.5">
+                                  <h3 class="text-[15px] font-semibold text-white truncate pr-2">Verde Vida</h3>
+                                  <div class="bg-brand-600/80 backdrop-blur-sm px-1.5 py-0.5 rounded-full flex items-center gap-1 border border-white/20 shrink-0">
+                                      <i class="fa-solid fa-shield-halved text-[8px] text-brand-300"></i>
+                                      <span class="text-[10px] font-bold text-white">4.3</span>
+                                  </div>
+                              </div>
+                              <p class="text-[12px] text-white/60 flex items-center gap-1.5 mb-1 truncate">
+                                  <i class="fa-solid fa-leaf text-[10px]"></i> Vegano • 1.5 km • Aberto
+                              </p>
+                              <div class="flex flex-wrap gap-1">
+                                  <span class="text-[9px] px-1.5 py-0.5 bg-brand-500/20 rounded text-brand-100"><i class="fa-solid fa-lightbulb mr-1"></i>Iluminado</span>
+                              </div>
+                          </div>
+                          <i class="fa-solid fa-chevron-right text-white/30 text-[12px] absolute right-4"></i>
+                      </div>
+      
+                  </div>
+      
+              </section>
+      
+              <!-- Bottom Navigation Shell (Consistent with prior screens context) -->
+              <nav id="bottom-nav" class="bottom-nav" data-component="bottom-nav"></nav>
+      
+          </main>
+      </div>
+    </div>
+    <div class="phone-home-indicator" aria-hidden="true"></div>
+  </div>
+  <script src="../js/storage.js"></script>
+  <script src="../js/navigation.js"></script>
+  <script src="../js/components/bottom-nav.js"></script>
+  <script src="../js/pages/filtro.js"></script>
+</body>
+</html>

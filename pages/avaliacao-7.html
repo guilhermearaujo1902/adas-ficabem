@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avaliar - Step 7/7 - Fica Bem</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body class="app-body" data-page="avaliacao-7">
+  <div class="phone-device" aria-label="Simulador de aplicativo mobile">
+    <div class="phone-notch" aria-hidden="true"></div>
+    <div class="phone-screen">
+      <div class="phone-screen-inner text-white min-h-[100dvh] flex flex-col items-center justify-center relative overflow-hidden m-0 p-0">
+      <!-- Background Elements -->
+          <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+              <div class="absolute top-[-10%] left-[-20%] w-[140%] h-[60%] bg-gradient-to-b from-brand-500/40 to-transparent rounded-[100%] blur-3xl opacity-60"></div>
+              <div class="absolute bottom-[-20%] right-[-10%] w-[80%] h-[80%] bg-gradient-to-t from-brand-900/50 to-transparent rounded-[100%] blur-3xl opacity-80"></div>
+          </div>
+      
+          <!-- Main Container (Mobile Constrained) -->
+          <main id="app-avaliar-step7" class="w-full max-w-[375px] h-[840px] max-h-[100dvh] relative z-10 flex flex-col bg-[#2f6759] mx-auto overflow-hidden">
+              
+              <!-- Header with Progress Bar -->
+              <header id="avaliar-header" class="w-full px-6 pt-12 pb-4 z-20 shrink-0 bg-[#2f6759]">
+                  <div class="flex items-center justify-between mb-4">
+                      <button class="w-10 h-10 rounded-full glass-panel flex items-center justify-center hover:bg-white/20 transition-colors shadow-lg" aria-label="Voltar">
+                          <i class="fa-solid fa-chevron-left text-[16px] text-white"></i>
+                      </button>
+                      <span class="text-[14px] font-semibold text-white tracking-wide">Passo 7 de 7</span>
+                      <div class="w-10"></div> <!-- Empty div for flex balance since no 'Pular' here -->
+                  </div>
+                  
+                  <!-- Progress Bar -->
+                  <div class="progress-bar-bg w-full">
+                      <div class="progress-bar-fill" style="width: 100%;"></div>
+                  </div>
+              </header>
+      
+              <!-- Main Scrollable Content -->
+              <section id="avaliar-content" class="flex-1 overflow-y-auto hide-scrollbar px-6 pt-4 pb-[120px] z-10 w-full relative space-y-6">
+                  
+                  <!-- Title Section -->
+                  <div class="space-y-2">
+                      <h1 class="text-[28px] font-bold text-white leading-tight">Revisão final</h1>
+                      <p class="text-[14px] text-white/70 leading-relaxed">
+                          Confira os detalhes da sua avaliação antes de publicar.
+                      </p>
+                  </div>
+      
+                  <!-- Review Summary Card -->
+                  <div id="review-summary" class="space-y-4">
+                      
+                      <!-- Rating & Criteria Block -->
+                      <div class="review-card soft-shadow">
+                          <div class="flex items-center justify-between mb-3">
+                              <h3 class="text-[15px] font-medium text-white/90">Nota Geral</h3>
+                              <button class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-white/60 hover:text-white hover:bg-white/10 transition-colors" aria-label="Editar Nota">
+                                  <i class="fa-solid fa-pen text-[12px]"></i>
+                              </button>
+                          </div>
+                          <div class="flex items-center gap-2 mb-4">
+                              <div class="flex gap-1 text-brand-300">
+                                  <i class="fa-solid fa-star text-[18px]"></i>
+                                  <i class="fa-solid fa-star text-[18px]"></i>
+                                  <i class="fa-solid fa-star text-[18px]"></i>
+                                  <i class="fa-solid fa-star text-[18px]"></i>
+                                  <i class="fa-regular fa-star text-[18px]"></i>
+                              </div>
+                              <span class="text-[16px] font-semibold text-white">4.0</span>
+                          </div>
+      
+                          <div class="space-y-3 pt-3 border-t border-white/10">
+                              <div class="flex justify-between items-center">
+                                  <span class="text-[13px] text-white/70">Iluminação</span>
+                                  <div class="flex gap-1 text-brand-300">
+                                      <i class="fa-solid fa-star text-[10px]"></i>
+                                      <i class="fa-solid fa-star text-[10px]"></i>
+                                      <i class="fa-solid fa-star text-[10px]"></i>
+                                      <i class="fa-solid fa-star text-[10px]"></i>
+                                      <i class="fa-solid fa-star text-[10px]"></i>
+                                  </div>
+                              </div>
+                              <div class="flex justify-between items-center">
+                                  <span class="text-[13px] text-white/70">Segurança</span>
+                                  <div class="flex gap-1 text-brand-300">
+                                      <i class="fa-solid fa-star text-[10px]"></i>
+                                      <i class="fa-solid fa-star text-[10px]"></i>
+                                      <i class="fa-solid fa-star text-[10px]"></i>
+                                      <i class="fa-solid fa-star text-[10px]"></i>
+                                      <i class="fa-regular fa-star text-[10px]"></i>
+                                  </div>
+                              </div>
+                              <div class="flex justify-between items-center">
+                                  <span class="text-[13px] text-white/70">Acolhimento</span>
+                                  <div class="flex gap-1 text-brand-300">
+                                      <i class="fa-solid fa-star text-[10px]"></i>
+                                      <i class="fa-solid fa-star text-[10px]"></i>
+                                      <i class="fa-solid fa-star text-[10px]"></i>
+                                      <i class="fa-solid fa-star text-[10px]"></i>
+                                      <i class="fa-regular fa-star text-[10px]"></i>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+      
+                      <!-- Comment Block -->
+                      <div class="review-card soft-shadow">
+                          <div class="flex items-center justify-between mb-2">
+                              <h3 class="text-[15px] font-medium text-white/90">Comentário</h3>
+                              <button class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-white/60 hover:text-white hover:bg-white/10 transition-colors" aria-label="Editar Comentário">
+                                  <i class="fa-solid fa-pen text-[12px]"></i>
+                              </button>
+                          </div>
+                          <p class="text-[13px] text-white/80 leading-relaxed italic">
+                              "Lugar super tranquilo para ir sozinha durante a tarde. A iluminação natural é ótima e as funcionárias são muito atenciosas. Me senti super acolhida."
+                          </p>
+                      </div>
+      
+                      <!-- Photos Block -->
+                      <div class="review-card soft-shadow">
+                          <div class="flex items-center justify-between mb-3">
+                              <h3 class="text-[15px] font-medium text-white/90">Fotos (2)</h3>
+                              <button class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-white/60 hover:text-white hover:bg-white/10 transition-colors" aria-label="Editar Fotos">
+                                  <i class="fa-solid fa-pen text-[12px]"></i>
+                              </button>
+                          </div>
+                          <div class="flex gap-3 overflow-x-auto hide-scrollbar pb-1">
+                              <div class="w-20 h-20 rounded-[12px] bg-white/10 shrink-0 overflow-hidden relative">
+                                  <img class="w-full h-full object-cover opacity-80" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/fbbc2da3a3-5a020deb408d4d5e799f.png" alt="A cozy, well-lit cafe interior with plants, seen from a first-person perspective, warm tones, mobile app photo style" />
+                              </div>
+                              <div class="w-20 h-20 rounded-[12px] bg-white/10 shrink-0 overflow-hidden relative">
+                                  <img class="w-full h-full object-cover opacity-80" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/64387235f1-826a46b1bf877b48e447.png" alt="A clean, bright outdoor patio area of a cafe, safe environment, mobile app photo style" />
+                              </div>
+                          </div>
+                      </div>
+      
+                      <!-- Tags & Context Block -->
+                      <div class="review-card soft-shadow">
+                          <div class="flex items-center justify-between mb-3">
+                              <h3 class="text-[15px] font-medium text-white/90">Tags e Contexto</h3>
+                              <button class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-white/60 hover:text-white hover:bg-white/10 transition-colors" aria-label="Editar Tags">
+                                  <i class="fa-solid fa-pen text-[12px]"></i>
+                              </button>
+                          </div>
+                          
+                          <div class="space-y-3">
+                              <div>
+                                  <span class="block text-[12px] text-white/50 mb-1.5 uppercase tracking-wider">Características</span>
+                                  <div class="flex flex-wrap gap-1.5">
+                                      <span class="px-3 py-1 rounded-full border border-brand-300/30 bg-brand-300/10 text-[11px] text-brand-100">Movimentado</span>
+                                      <span class="px-3 py-1 rounded-full border border-brand-300/30 bg-brand-300/10 text-[11px] text-brand-100">Acolhedor</span>
+                                  </div>
+                              </div>
+                              
+                              <div class="pt-2 border-t border-white/5">
+                                  <span class="block text-[12px] text-white/50 mb-1.5 uppercase tracking-wider">Ideal para</span>
+                                  <div class="flex items-center gap-2">
+                                      <i class="fa-solid fa-person-walking text-[12px] text-brand-300"></i>
+                                      <span class="text-[13px] text-white/90">Mulher sozinha</span>
+                                  </div>
+                                  <div class="flex items-center gap-2 mt-1">
+                                      <i class="fa-solid fa-users text-[12px] text-brand-300"></i>
+                                      <span class="text-[13px] text-white/90">Grupo de amigas</span>
+                                  </div>
+                              </div>
+      
+                              <div class="pt-2 border-t border-white/5 flex items-center gap-2">
+                                  <i class="fa-solid fa-thumbs-up text-[14px] text-brand-300"></i>
+                                  <span class="text-[13px] font-medium text-white">Recomenda o local</span>
+                              </div>
+                          </div>
+                      </div>
+      
+                  </div>
+      
+              </section>
+      
+              <!-- Navigation Actions (Fixed Bottom above Nav) -->
+              <div class="absolute bottom-[84px] w-full px-6 py-4 bg-gradient-to-t from-[#2f6759] via-[#2f6759]/90 to-transparent z-30">
+                  <button id="btn-publicar" onclick="document.getElementById('success-modal').classList.add('active')" class="w-full bg-brand-300 text-brand-900 font-bold text-[16px] py-4 rounded-[16px] shadow-[0_8px_20px_-6px_rgba(134,239,172,0.4)] hover:bg-brand-200 hover:scale-[1.02] transition-all duration-200 flex items-center justify-center gap-2">
+                      Publicar Avaliação <i class="fa-solid fa-check text-[15px]"></i>
+                  </button>
+              </div>
+      
+              <!-- Bottom Navigation Shell (Consistent with prior screens context) -->
+              <nav id="bottom-nav" class="bottom-nav" data-component="bottom-nav"></nav>
+      
+              <!-- Success Modal Overlay -->
+              <div id="success-modal" class="modal-overlay fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-[#14532d]/80 backdrop-blur-sm">
+                  <div class="modal-content w-full max-w-[375px] bg-[#2f6759] rounded-t-[32px] sm:rounded-[32px] p-8 flex flex-col items-center text-center shadow-2xl border border-white/10 relative overflow-hidden">
+                      
+                      <!-- Decorative background glow inside modal -->
+                      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[200px] h-[200px] bg-brand-300/20 rounded-full blur-3xl pointer-events-none"></div>
+      
+                      <div class="w-20 h-20 rounded-full bg-brand-300/20 flex items-center justify-center mb-6 relative z-10">
+                          <div class="w-14 h-14 rounded-full bg-brand-300 flex items-center justify-center shadow-[0_0_20px_rgba(134,239,172,0.4)]">
+                              <i class="fa-solid fa-check text-[24px] text-brand-900"></i>
+                          </div>
+                      </div>
+                      
+                      <h2 class="text-[24px] font-bold text-white mb-2 relative z-10">Avaliação Publicada!</h2>
+                      <p class="text-[14px] text-white/80 mb-8 leading-relaxed relative z-10">
+                          Obrigada por compartilhar sua experiência. Você está ajudando outras mulheres a se sentirem mais seguras.
+                      </p>
+                      
+                      <button onclick="document.getElementById('success-modal').classList.remove('active')" class="w-full bg-white/10 border border-white/20 text-white font-semibold text-[15px] py-3.5 rounded-[16px] hover:bg-white/20 transition-colors relative z-10">
+                          Voltar para o Feed
+                      </button>
+                  </div>
+              </div>
+      
+          </main>
+      </div>
+    </div>
+    <div class="phone-home-indicator" aria-hidden="true"></div>
+  </div>
+  <script src="../js/storage.js"></script>
+  <script src="../js/navigation.js"></script>
+  <script src="../js/pages/avaliacao-shared.js"></script>
+  <script src="../js/components/bottom-nav.js"></script>
+  <script src="../js/pages/avaliacao-7.js"></script>
+</body>
+</html>

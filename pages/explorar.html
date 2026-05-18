@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explorar - Fica Bem</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body class="app-body" data-page="explorar">
+  <div class="phone-device" aria-label="Simulador de aplicativo mobile">
+    <div class="phone-notch" aria-hidden="true"></div>
+    <div class="phone-screen">
+      <div class="phone-screen-inner text-white min-h-[100dvh] flex flex-col items-center justify-center relative overflow-hidden m-0 p-0">
+      <!-- Background Elements -->
+          <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+              <div class="absolute top-[-10%] left-[-20%] w-[140%] h-[60%] bg-gradient-to-b from-brand-500/40 to-transparent rounded-[100%] blur-3xl opacity-60"></div>
+              <div class="absolute bottom-[-20%] right-[-10%] w-[80%] h-[80%] bg-gradient-to-t from-brand-900/50 to-transparent rounded-[100%] blur-3xl opacity-80"></div>
+          </div>
+      
+          <!-- Main Container (Mobile Constrained) -->
+          <main id="app-explorar" class="w-full max-w-[375px] h-[840px] max-h-[100dvh] relative z-10 flex flex-col bg-[#2f6759] mx-auto overflow-hidden">
+              
+              <!-- Header / Search -->
+              <header id="explorar-header" class="w-full px-6 pt-12 pb-4 z-20 shrink-0 bg-[#2f6759]/90 backdrop-blur-md border-b border-white/5 relative">
+                  <div class="flex items-center justify-between mb-6">
+                      <div class="font-medium text-[22px] tracking-wide text-white/90">
+                          Fica <span class="italic font-light">Bem</span>
+                      </div>
+                      <button class="w-10 h-10 rounded-full glass-panel flex items-center justify-center hover:bg-white/20 transition-colors relative" aria-label="Notificações">
+                          <i class="fa-regular fa-bell text-[18px] text-white"></i>
+                          <span class="absolute top-2 right-2.5 w-2 h-2 bg-brand-400 rounded-full border border-[#2f6759]"></span>
+                      </button>
+                  </div>
+      
+                  <!-- Search Bar -->
+                  <div class="relative w-full mb-4">
+                      <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-white/40 text-[14px]"></i>
+                      <input type="text" placeholder="Buscar locais seguros..." 
+                          class="w-full h-12 pl-10 pr-12 rounded-[16px] glass-panel text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all text-[15px] shadow-[0_4px_12px_rgba(0,0,0,0.05)]">
+                      <button class="absolute right-4 top-1/2 -translate-y-1/2 text-white/60 hover:text-white transition-colors">
+                          <i class="fa-solid fa-sliders text-[14px]"></i>
+                      </button>
+                  </div>
+      
+                  <!-- Filters -->
+                  <div class="flex overflow-x-auto hide-scrollbar gap-2 pb-2 -mx-6 px-6 snap-x">
+                      <button class="snap-start shrink-0 h-8 px-4 rounded-full bg-white text-brand-600 font-medium text-[12px] flex items-center gap-1.5 shadow-[0_4px_14px_0_rgba(0,0,0,0.1)]">
+                          <i class="fa-solid fa-shield-halved text-[11px]"></i> Mais Seguro
+                      </button>
+                      <button class="snap-start shrink-0 h-8 px-4 rounded-full glass-panel text-white font-medium text-[12px] flex items-center gap-1.5 hover:bg-white/10">
+                          <i class="fa-solid fa-location-dot text-[11px]"></i> Distância
+                      </button>
+                      <button class="snap-start shrink-0 h-8 px-4 rounded-full glass-panel text-white font-medium text-[12px] flex items-center gap-1.5 hover:bg-white/10">
+                          <i class="fa-solid fa-star text-[11px]"></i> Score Mínimo
+                      </button>
+                      <button class="snap-start shrink-0 h-8 px-4 rounded-full glass-panel text-white font-medium text-[12px] flex items-center gap-1.5 hover:bg-white/10">
+                          <i class="fa-regular fa-clock text-[11px]"></i> Aberto Agora
+                      </button>
+                  </div>
+                  
+                  <!-- View Toggle -->
+                  <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 z-30 flex bg-brand-600/90 backdrop-blur-md p-1 rounded-full border border-white/10 shadow-[0_8px_24px_rgba(0,0,0,0.2)]">
+                      <button class="w-20 h-8 rounded-full bg-white text-brand-600 text-[12px] font-semibold flex items-center justify-center gap-1.5 shadow-sm">
+                          <i class="fa-solid fa-list-ul"></i> Lista
+                      </button>
+                      <button class="w-20 h-8 rounded-full text-white/80 hover:text-white text-[12px] font-medium flex items-center justify-center gap-1.5 transition-colors">
+                          <i class="fa-regular fa-map"></i> Mapa
+                      </button>
+                  </div>
+              </header>
+      
+              <!-- Main Scrollable Content (List View Active) -->
+              <section id="explorar-content" class="flex-1 overflow-y-auto hide-scrollbar pt-10 pb-[100px] z-10 w-full px-6 space-y-4">
+                  
+                  <div class="flex items-center justify-between mb-2">
+                      <h2 class="text-[16px] font-semibold text-white">Resultados próximos</h2>
+                      <div class="text-[12px] text-white/60 flex items-center gap-1 cursor-pointer">
+                          Relevância <i class="fa-solid fa-chevron-down text-[10px]"></i>
+                      </div>
+                  </div>
+      
+                  <!-- Location Card 1 -->
+                  <article class="w-full glass-panel rounded-[24px] p-4 soft-shadow border border-white/10 relative overflow-hidden flex gap-4 items-center">
+                      <div class="w-20 h-20 shrink-0 rounded-[16px] overflow-hidden relative">
+                          <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/e03fcd6430-47c97714cdd32376edf6.png" alt="cozy cafe interior with plants and warm lighting" />
+                          <div class="absolute top-1.5 right-1.5 bg-brand-600/80 backdrop-blur-sm px-1.5 py-0.5 rounded-full flex items-center gap-1 border border-white/20">
+                              <i class="fa-solid fa-shield-halved text-[8px] text-brand-300"></i>
+                              <span class="text-[10px] font-bold text-white">4.8</span>
+                          </div>
+                      </div>
+                      
+                      <div class="flex-1 min-w-0">
+                          <h3 class="text-[15px] font-semibold text-white truncate mb-1">Café Botânico</h3>
+                          <p class="text-[12px] text-white/60 flex items-center gap-1.5 mb-2 truncate">
+                              <i class="fa-solid fa-mug-hot text-[10px]"></i> Café • 0.8 km
+                          </p>
+                          <div class="flex flex-wrap gap-1.5">
+                              <span class="text-[10px] px-2 py-0.5 bg-brand-500/30 border border-brand-400/20 rounded-full text-brand-100 flex items-center gap-1">
+                                  <i class="fa-solid fa-lightbulb"></i> Bem iluminado
+                              </span>
+                              <span class="text-[10px] px-2 py-0.5 bg-brand-500/30 border border-brand-400/20 rounded-full text-brand-100 flex items-center gap-1">
+                                  <i class="fa-solid fa-users"></i> Movimentado
+                              </span>
+                          </div>
+                      </div>
+                      <button class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center shrink-0 hover:bg-white/20 transition-colors">
+                          <i class="fa-regular fa-bookmark text-[14px] text-white"></i>
+                      </button>
+                  </article>
+      
+                  <!-- Location Card 2 -->
+                  <article class="w-full glass-panel rounded-[24px] p-4 soft-shadow border border-white/10 relative overflow-hidden flex gap-4 items-center">
+                      <div class="w-20 h-20 shrink-0 rounded-[16px] overflow-hidden relative">
+                          <div class="w-full h-full bg-brand-500/20 flex items-center justify-center">
+                              <i class="fa-solid fa-tree text-2xl text-brand-300"></i>
+                          </div>
+                          <div class="absolute top-1.5 right-1.5 bg-brand-600/80 backdrop-blur-sm px-1.5 py-0.5 rounded-full flex items-center gap-1 border border-white/20">
+                              <i class="fa-solid fa-shield-halved text-[8px] text-brand-300"></i>
+                              <span class="text-[10px] font-bold text-white">4.5</span>
+                          </div>
+                      </div>
+                      
+                      <div class="flex-1 min-w-0">
+                          <h3 class="text-[15px] font-semibold text-white truncate mb-1">Praça do Sol</h3>
+                          <p class="text-[12px] text-white/60 flex items-center gap-1.5 mb-2 truncate">
+                              <i class="fa-solid fa-tree text-[10px]"></i> Parque • 1.2 km
+                          </p>
+                          <div class="flex flex-wrap gap-1.5">
+                              <span class="text-[10px] px-2 py-0.5 bg-brand-500/30 border border-brand-400/20 rounded-full text-brand-100 flex items-center gap-1">
+                                  <i class="fa-solid fa-person-military-pointing"></i> Policiamento
+                              </span>
+                          </div>
+                      </div>
+                      <button class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center shrink-0 hover:bg-white/20 transition-colors">
+                          <i class="fa-regular fa-bookmark text-[14px] text-white"></i>
+                      </button>
+                  </article>
+      
+                  <!-- Location Card 3 -->
+                  <article class="w-full glass-panel rounded-[24px] p-4 soft-shadow border border-white/10 relative overflow-hidden flex gap-4 items-center">
+                      <div class="w-20 h-20 shrink-0 rounded-[16px] overflow-hidden relative">
+                          <div class="w-full h-full bg-brand-500/20 flex items-center justify-center">
+                              <i class="fa-solid fa-store text-2xl text-brand-300"></i>
+                          </div>
+                          <div class="absolute top-1.5 right-1.5 bg-brand-600/80 backdrop-blur-sm px-1.5 py-0.5 rounded-full flex items-center gap-1 border border-white/20">
+                              <i class="fa-solid fa-shield-halved text-[8px] text-brand-300"></i>
+                              <span class="text-[10px] font-bold text-white">4.2</span>
+                          </div>
+                      </div>
+                      
+                      <div class="flex-1 min-w-0">
+                          <h3 class="text-[15px] font-semibold text-white truncate mb-1">Mercado Central</h3>
+                          <p class="text-[12px] text-white/60 flex items-center gap-1.5 mb-2 truncate">
+                              <i class="fa-solid fa-store text-[10px]"></i> Loja • 2.5 km
+                          </p>
+                          <div class="flex flex-wrap gap-1.5">
+                              <span class="text-[10px] px-2 py-0.5 bg-brand-500/30 border border-brand-400/20 rounded-full text-brand-100 flex items-center gap-1">
+                                  <i class="fa-solid fa-users"></i> Movimentado
+                              </span>
+                          </div>
+                      </div>
+                      <button class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center shrink-0 hover:bg-white/20 transition-colors">
+                          <i class="fa-regular fa-bookmark text-[14px] text-white"></i>
+                      </button>
+                  </article>
+      
+              </section>
+      
+              <!-- Bottom Navigation Shell (Consistent with prior screens context) -->
+              <nav id="bottom-nav" class="bottom-nav" data-component="bottom-nav"></nav>
+      
+          </main>
+      </div>
+    </div>
+    <div class="phone-home-indicator" aria-hidden="true"></div>
+  </div>
+  <script src="../js/storage.js"></script>
+  <script src="../js/navigation.js"></script>
+  <script src="../js/components/bottom-nav.js"></script>
+  <script src="../js/pages/explorar.js"></script>
+</body>
+</html>
