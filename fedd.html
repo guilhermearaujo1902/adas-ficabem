@@ -1,0 +1,370 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <iframe title="wireframe-wdpOrbxCgSmo4KNUHwe6" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;pt-BR&quot; class=&quot;h-full&quot;&gt;
+&lt;head&gt;
+    &lt;script&gt;
+        window.FontAwesomeConfig = {
+          autoReplaceSvg: 'nest'
+        };
+      &lt;/script&gt;
+    &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js&quot; crossorigin=&quot;anonymous&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;/script&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot;&gt;
+    &lt;title&gt;Fica Bem - Feed&lt;/title&gt;
+    &lt;script src=&quot;https://cdn.tailwindcss.com&quot;&gt;&lt;/script&gt;
+    &lt;link href=&quot;https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css&quot;&gt;
+    &lt;script&gt;
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#2f6759',
+                            light: '#5f927d',
+                            accent: '#4e9983'
+                        }
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                    }
+                }
+            }
+        }
+    &lt;/script&gt;
+    &lt;style&gt;
+        body {
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .glass-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.05) 100%);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+        }
+
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body class=&quot;h-full w-full m-0 p-0 overflow-hidden bg-gradient-to-b from-[#2f6759] to-[#5f927d] text-white flex flex-col selection:bg-white selection:text-brand-dark&quot;&gt;
+
+    &lt;!-- Screen Wrapper for Mobile Constraint (375x840 target) --&gt;
+    &lt;main id=&quot;feed-screen&quot; class=&quot;w-full h-full max-w-[430px] mx-auto flex flex-col relative sm:shadow-2xl sm:border-x sm:border-white/10 bg-gradient-to-b from-[#2f6759] to-[#5f927d]&quot;&gt;
+        
+        &lt;!-- Header &amp; Search --&gt;
+        &lt;header id=&quot;header-search-filters&quot; class=&quot;w-full pt-12 px-6 pb-4 flex flex-col z-20 bg-brand-dark/80 backdrop-blur-md sticky top-0 border-b border-white/10&quot;&gt;
+            &lt;div class=&quot;flex justify-between items-center mb-6&quot;&gt;
+                &lt;div&gt;
+                    &lt;h1 class=&quot;text-2xl font-serif font-semibold tracking-tight text-white&quot;&gt;
+                        Fica &lt;span class=&quot;italic font-light&quot;&gt;Bem&lt;/span&gt;
+                    &lt;/h1&gt;
+                    &lt;p class=&quot;text-xs font-sans text-white/70 mt-1&quot;&gt;Bom dia, Mariana&lt;/p&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;w-10 h-10 rounded-full bg-white/10 flex items-center justify-center border border-white/20&quot;&gt;
+                    &lt;i class=&quot;fa-regular fa-bell text-white&quot;&gt;&lt;/i&gt;
+                    &lt;div class=&quot;absolute top-0 right-0 w-2.5 h-2.5 bg-red-400 rounded-full border border-brand-dark&quot;&gt;&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;!-- Search Bar --&gt;
+            &lt;div class=&quot;w-full bg-white/10 rounded-2xl border border-white/20 flex items-center px-4 py-3 mb-4&quot;&gt;
+                &lt;i class=&quot;fa-solid fa-search text-white/50 mr-3&quot;&gt;&lt;/i&gt;
+                &lt;input type=&quot;text&quot; placeholder=&quot;Buscar locais ou categorias...&quot; class=&quot;bg-transparent border-none outline-none text-white placeholder-white/50 w-full font-sans text-sm&quot;&gt;
+            &lt;/div&gt;
+
+            &lt;!-- Filters Carousel --&gt;
+            &lt;div class=&quot;w-full overflow-x-auto no-scrollbar flex gap-3 pb-2&quot;&gt;
+                &lt;button class=&quot;whitespace-nowrap px-4 py-2 rounded-full bg-white text-brand-dark font-sans text-xs font-semibold shadow-sm flex items-center gap-2&quot;&gt;
+                    &lt;i class=&quot;fa-solid fa-mug-hot&quot;&gt;&lt;/i&gt; Cafés
+                &lt;/button&gt;
+                &lt;button class=&quot;whitespace-nowrap px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white font-sans text-xs font-medium flex items-center gap-2&quot;&gt;
+                    &lt;i class=&quot;fa-solid fa-martini-glass&quot;&gt;&lt;/i&gt; Bares
+                &lt;/button&gt;
+                &lt;button class=&quot;whitespace-nowrap px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white font-sans text-xs font-medium flex items-center gap-2&quot;&gt;
+                    &lt;i class=&quot;fa-solid fa-bus&quot;&gt;&lt;/i&gt; Transporte
+                &lt;/button&gt;
+                &lt;button class=&quot;whitespace-nowrap px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white font-sans text-xs font-medium flex items-center gap-2&quot;&gt;
+                    &lt;i class=&quot;fa-solid fa-utensils&quot;&gt;&lt;/i&gt; Restaurantes
+                &lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/header&gt;
+
+        &lt;!-- Scrollable Content --&gt;
+        &lt;div class=&quot;flex-1 overflow-y-auto no-scrollbar pb-24&quot;&gt;
+            
+            &lt;!-- Quick Actions CTA --&gt;
+            &lt;section id=&quot;quick-actions-cta&quot; class=&quot;px-6 py-6&quot;&gt;
+                &lt;div class=&quot;w-full glass-card rounded-3xl p-5 relative overflow-hidden&quot;&gt;
+                    &lt;div class=&quot;absolute -right-4 -top-4 w-24 h-24 bg-white/10 rounded-full blur-xl&quot;&gt;&lt;/div&gt;
+                    &lt;div class=&quot;relative z-10 flex justify-between items-center&quot;&gt;
+                        &lt;div&gt;
+                            &lt;h3 class=&quot;font-serif text-lg font-semibold mb-1&quot;&gt;Rota Segura&lt;/h3&gt;
+                            &lt;p class=&quot;font-sans text-xs text-white/70 max-w-[180px]&quot;&gt;Planeje seu trajeto com base em avaliações reais.&lt;/p&gt;
+                        &lt;/div&gt;
+                        &lt;button class=&quot;w-12 h-12 rounded-full bg-white text-brand-dark flex items-center justify-center shadow-lg active:scale-95 transition-transform&quot;&gt;
+                            &lt;i class=&quot;fa-solid fa-route&quot;&gt;&lt;/i&gt;
+                        &lt;/button&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/section&gt;
+
+            &lt;!-- Safety Alerts Carousel --&gt;
+            &lt;section id=&quot;safety-alerts-carousel&quot; class=&quot;pl-6 py-2&quot;&gt;
+                &lt;h2 class=&quot;font-sans text-sm font-semibold text-white/90 mb-4 uppercase tracking-wider&quot;&gt;Alertas Próximos&lt;/h2&gt;
+                &lt;div class=&quot;flex gap-4 overflow-x-auto no-scrollbar pr-6 pb-4&quot;&gt;
+                    &lt;div class=&quot;min-w-[240px] bg-red-500/20 border border-red-500/30 rounded-2xl p-4 flex flex-col gap-2&quot;&gt;
+                        &lt;div class=&quot;flex items-center gap-2 text-red-200&quot;&gt;
+                            &lt;i class=&quot;fa-solid fa-triangle-exclamation text-xs&quot;&gt;&lt;/i&gt;
+                            &lt;span class=&quot;font-sans text-xs font-medium&quot;&gt;Atenção&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;p class=&quot;font-sans text-sm text-white leading-snug&quot;&gt;Iluminação precária na R. Augusta (quarteirão 3).&lt;/p&gt;
+                        &lt;span class=&quot;font-sans text-[10px] text-white/50 mt-1&quot;&gt;Há 10 min • Por @carol_s&lt;/span&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;min-w-[240px] bg-yellow-500/20 border border-yellow-500/30 rounded-2xl p-4 flex flex-col gap-2&quot;&gt;
+                        &lt;div class=&quot;flex items-center gap-2 text-yellow-200&quot;&gt;
+                            &lt;i class=&quot;fa-solid fa-circle-info text-xs&quot;&gt;&lt;/i&gt;
+                            &lt;span class=&quot;font-sans text-xs font-medium&quot;&gt;Aviso&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;p class=&quot;font-sans text-sm text-white leading-snug&quot;&gt;Metrô Consolação com movimentação atípica hoje.&lt;/p&gt;
+                        &lt;span class=&quot;font-sans text-[10px] text-white/50 mt-1&quot;&gt;Há 45 min • Por @julia_m&lt;/span&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/section&gt;
+
+            &lt;!-- Trending Safe Spots --&gt;
+            &lt;section id=&quot;trending-safe-spots&quot; class=&quot;px-6 py-6&quot;&gt;
+                &lt;div class=&quot;flex justify-between items-end mb-4&quot;&gt;
+                    &lt;h2 class=&quot;font-sans text-sm font-semibold text-white/90 uppercase tracking-wider&quot;&gt;Locais em Alta&lt;/h2&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;font-sans text-xs text-white/60 underline underline-offset-2&quot;&gt;Ver mapa&lt;/a&gt;
+                &lt;/div&gt;
+                
+                &lt;div class=&quot;flex flex-col gap-4&quot;&gt;
+                    &lt;!-- Spot Card 1 --&gt;
+                    &lt;div class=&quot;w-full bg-white/5 border border-white/10 rounded-2xl p-4 flex gap-4 items-center&quot;&gt;
+                        &lt;div class=&quot;w-16 h-16 rounded-xl bg-white/10 overflow-hidden shrink-0&quot;&gt;
+                            &lt;img class=&quot;w-full h-full object-cover opacity-80 mix-blend-overlay&quot; src=&quot;https://storage.googleapis.com/uxpilot-auth.appspot.com/01f2bd413b-5de1466befb3b2a2e26f.png&quot; alt=&quot;cozy cafe interior warm lighting&quot; /&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;flex-1&quot;&gt;
+                            &lt;div class=&quot;flex justify-between items-start&quot;&gt;
+                                &lt;h3 class=&quot;font-serif text-base font-semibold&quot;&gt;Café Botânico&lt;/h3&gt;
+                                &lt;div class=&quot;flex items-center gap-1 bg-white/10 px-2 py-1 rounded-md&quot;&gt;
+                                    &lt;i class=&quot;fa-solid fa-shield-halved text-[#4e9983] text-[10px]&quot;&gt;&lt;/i&gt;
+                                    &lt;span class=&quot;font-sans text-xs font-bold&quot;&gt;4.9&lt;/span&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;p class=&quot;font-sans text-xs text-white/60 mt-1&quot;&gt;Pinheiros • Café&lt;/p&gt;
+                            &lt;div class=&quot;flex gap-2 mt-2&quot;&gt;
+                                &lt;span class=&quot;text-[10px] bg-white/10 px-2 py-0.5 rounded-full text-white/80&quot;&gt;Iluminado&lt;/span&gt;
+                                &lt;span class=&quot;text-[10px] bg-white/10 px-2 py-0.5 rounded-full text-white/80&quot;&gt;Acolhedor&lt;/span&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+
+                    &lt;!-- Spot Card 2 --&gt;
+                    &lt;div class=&quot;w-full bg-white/5 border border-white/10 rounded-2xl p-4 flex gap-4 items-center&quot;&gt;
+                        &lt;div class=&quot;w-16 h-16 rounded-xl bg-white/10 overflow-hidden shrink-0&quot;&gt;
+                            &lt;img class=&quot;w-full h-full object-cover opacity-80 mix-blend-overlay&quot; src=&quot;https://storage.googleapis.com/uxpilot-auth.appspot.com/f8d1c9cd94-4d3a098e3ae74c699b5a.png&quot; alt=&quot;modern library workspace clean&quot; /&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;flex-1&quot;&gt;
+                            &lt;div class=&quot;flex justify-between items-start&quot;&gt;
+                                &lt;h3 class=&quot;font-serif text-base font-semibold&quot;&gt;Espaço Co-Work&lt;/h3&gt;
+                                &lt;div class=&quot;flex items-center gap-1 bg-white/10 px-2 py-1 rounded-md&quot;&gt;
+                                    &lt;i class=&quot;fa-solid fa-shield-halved text-[#4e9983] text-[10px]&quot;&gt;&lt;/i&gt;
+                                    &lt;span class=&quot;font-sans text-xs font-bold&quot;&gt;4.8&lt;/span&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;p class=&quot;font-sans text-xs text-white/60 mt-1&quot;&gt;Vila Madalena • Coworking&lt;/p&gt;
+                            &lt;div class=&quot;flex gap-2 mt-2&quot;&gt;
+                                &lt;span class=&quot;text-[10px] bg-white/10 px-2 py-0.5 rounded-full text-white/80&quot;&gt;Segurança 24h&lt;/span&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/section&gt;
+
+            &lt;!-- Friends Activity Feed --&gt;
+            &lt;section id=&quot;friends-activity-feed&quot; class=&quot;px-6 py-6 border-t border-white/10&quot;&gt;
+                &lt;h2 class=&quot;font-sans text-sm font-semibold text-white/90 mb-6 uppercase tracking-wider&quot;&gt;Atividade das Amigas&lt;/h2&gt;
+                
+                &lt;div class=&quot;flex flex-col gap-6&quot;&gt;
+                    &lt;!-- Activity Item 1 --&gt;
+                    &lt;div class=&quot;flex gap-3&quot;&gt;
+                        &lt;div class=&quot;w-10 h-10 rounded-full overflow-hidden border-2 border-[#4e9983] shrink-0&quot;&gt;
+                            &lt;img src=&quot;https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-1.jpg&quot; class=&quot;w-full h-full object-cover&quot; alt=&quot;User Avatar&quot;&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;flex-1&quot;&gt;
+                            &lt;div class=&quot;bg-white/5 border border-white/10 rounded-2xl rounded-tl-none p-4&quot;&gt;
+                                &lt;p class=&quot;font-sans text-sm text-white/90 mb-2&quot;&gt;
+                                    &lt;span class=&quot;font-semibold&quot;&gt;Ana Silva&lt;/span&gt; avaliou &lt;span class=&quot;font-semibold text-white&quot;&gt;Bar da Esquina&lt;/span&gt;
+                                &lt;/p&gt;
+                                &lt;div class=&quot;flex items-center gap-1 mb-2&quot;&gt;
+                                    &lt;i class=&quot;fa-solid fa-star text-yellow-400 text-[10px]&quot;&gt;&lt;/i&gt;
+                                    &lt;i class=&quot;fa-solid fa-star text-yellow-400 text-[10px]&quot;&gt;&lt;/i&gt;
+                                    &lt;i class=&quot;fa-solid fa-star text-yellow-400 text-[10px]&quot;&gt;&lt;/i&gt;
+                                    &lt;i class=&quot;fa-solid fa-star text-yellow-400 text-[10px]&quot;&gt;&lt;/i&gt;
+                                    &lt;i class=&quot;fa-regular fa-star text-white/30 text-[10px]&quot;&gt;&lt;/i&gt;
+                                &lt;/div&gt;
+                                &lt;p class=&quot;font-sans text-xs text-white/70 leading-relaxed&quot;&gt;
+                                    &quot;Lugar super tranquilo, staff atencioso e me senti muito segura esperando o uber na porta.&quot;
+                                &lt;/p&gt;
+                            &lt;/div&gt;
+                            &lt;span class=&quot;font-sans text-[10px] text-white/40 mt-2 block ml-1&quot;&gt;Há 2 horas&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+
+                    &lt;!-- Activity Item 2 --&gt;
+                    &lt;div class=&quot;flex gap-3&quot;&gt;
+                        &lt;div class=&quot;w-10 h-10 rounded-full overflow-hidden border-2 border-[#4e9983] shrink-0&quot;&gt;
+                            &lt;img src=&quot;https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-5.jpg&quot; class=&quot;w-full h-full object-cover&quot; alt=&quot;User Avatar&quot;&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;flex-1&quot;&gt;
+                            &lt;div class=&quot;bg-white/5 border border-white/10 rounded-2xl rounded-tl-none p-4&quot;&gt;
+                                &lt;p class=&quot;font-sans text-sm text-white/90 mb-2&quot;&gt;
+                                    &lt;span class=&quot;font-semibold&quot;&gt;Beatriz Costa&lt;/span&gt; criou uma nova rota segura
+                                &lt;/p&gt;
+                                &lt;div class=&quot;w-full h-20 rounded-xl bg-white/10 overflow-hidden relative mt-2 border border-white/10 flex items-center justify-center&quot;&gt;
+                                    &lt;i class=&quot;fa-solid fa-map text-white/30 text-2xl&quot;&gt;&lt;/i&gt;
+                                    &lt;div class=&quot;absolute bottom-2 left-2 right-2 bg-brand-dark/80 backdrop-blur rounded p-1.5 flex justify-between items-center&quot;&gt;
+                                        &lt;span class=&quot;text-[10px] font-sans&quot;&gt;Av. Paulista -&gt; Jardins&lt;/span&gt;
+                                        &lt;i class=&quot;fa-solid fa-shield-check text-[#4e9983] text-[10px]&quot;&gt;&lt;/i&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;span class=&quot;font-sans text-[10px] text-white/40 mt-2 block ml-1&quot;&gt;Ontem&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/section&gt;
+            
+        &lt;/div&gt;
+
+        &lt;!-- Bottom Navigation Bar --&gt;
+        &lt;nav id=&quot;bottom-nav&quot; class=&quot;w-full h-20 bg-brand-dark/95 backdrop-blur-lg border-t border-white/10 absolute bottom-0 left-0 flex justify-around items-center px-4 pb-4 pt-2 z-50&quot;&gt;
+            &lt;a href=&quot;#&quot; class=&quot;flex flex-col items-center gap-1 text-white&quot;&gt;
+                &lt;i class=&quot;fa-solid fa-house text-lg&quot;&gt;&lt;/i&gt;
+                &lt;span class=&quot;font-sans text-[10px] font-medium&quot;&gt;Feed&lt;/span&gt;
+            &lt;/a&gt;
+            &lt;a href=&quot;#&quot; class=&quot;flex flex-col items-center gap-1 text-white/50 hover:text-white/80 transition-colors&quot;&gt;
+                &lt;i class=&quot;fa-solid fa-map-location-dot text-lg&quot;&gt;&lt;/i&gt;
+                &lt;span class=&quot;font-sans text-[10px] font-medium&quot;&gt;Explorar&lt;/span&gt;
+            &lt;/a&gt;
+            &lt;a href=&quot;#&quot; class=&quot;flex flex-col items-center gap-1 text-white/50 hover:text-white/80 transition-colors&quot;&gt;
+                &lt;i class=&quot;fa-solid fa-trophy text-lg&quot;&gt;&lt;/i&gt;
+                &lt;span class=&quot;font-sans text-[10px] font-medium&quot;&gt;Ranking&lt;/span&gt;
+            &lt;/a&gt;
+            &lt;a href=&quot;#&quot; class=&quot;flex flex-col items-center gap-1 text-white/50 hover:text-white/80 transition-colors&quot;&gt;
+                &lt;i class=&quot;fa-regular fa-user text-lg&quot;&gt;&lt;/i&gt;
+                &lt;span class=&quot;font-sans text-[10px] font-medium&quot;&gt;Perfil&lt;/span&gt;
+            &lt;/a&gt;
+        &lt;/nav&gt;
+
+    &lt;/main&gt;
+
+
+  &lt;script&gt;
+    (function() {
+      function blockEvent(e) {
+        if (!e) return false;
+        if (typeof e.preventDefault === 'function') e.preventDefault();
+        if (typeof e.stopPropagation === 'function') e.stopPropagation();
+        if (typeof e.stopImmediatePropagation === 'function') e.stopImmediatePropagation();
+        return false;
+      }
+
+      // Block all anchor navigations (including http(s), mailto, tel, hash, fragments)
+      document.addEventListener('click', function(e) {
+        var a = e.target &amp;&amp; e.target.closest ? e.target.closest('a[href]') : null;
+        if (!a) return;
+        return blockEvent(e);
+      }, true);
+
+      // Neutralize programmatic navigation attempts
+      try { window.open = function() { return null }; } catch (_) {}
+      try {
+        var noop = function(){};
+        history.pushState = noop;
+        history.replaceState = noop;
+      } catch (_) {}
+      try {
+        if (window.location) {
+          window.location.assign = function(){};
+          window.location.replace = function(){};
+        }
+      } catch (_) {}
+    })();
+  &lt;/script&gt;
+&lt;script&gt;
+(function() {
+  function _uxpResizeCharts() {
+    if (window.Plotly) {
+      document.querySelectorAll('.plot-container.plotly').forEach(function(pc) {
+        var gd = pc.parentElement;
+        if (!gd) return;
+        var rect = gd.getBoundingClientRect();
+        if (rect.width &lt;= 0 || rect.height &lt;= 0) return;
+        try { window.Plotly.relayout(gd, { width: Math.round(rect.width), height: Math.round(rect.height) }); } catch(e) {}
+      });
+    }
+    if (window.ApexCharts &amp;&amp; window.Apex &amp;&amp; window.Apex._chartInstances) {
+      window.Apex._chartInstances.forEach(function(inst) {
+        try { (inst.chart || inst).updateOptions({}, false, false); } catch(e) {}
+      });
+    }
+    if (window.Chart) {
+      try { Object.values(window.Chart.instances || {}).forEach(function(c) { c.resize(); }); } catch(e) {}
+    }
+  }
+
+  window.addEventListener('load', function() {
+    setTimeout(function() { _uxpResizeCharts(); setTimeout(_uxpResizeCharts, 500); }, 300);
+    try {
+      var _lastW = 0, _lastH = 0, _timer = 0;
+      new ResizeObserver(function() {
+        var w = document.documentElement.clientWidth;
+        var h = document.documentElement.clientHeight;
+        if (w === _lastW &amp;&amp; h === _lastH) return;
+        _lastW = w; _lastH = h;
+        clearTimeout(_timer);
+        _timer = setTimeout(_uxpResizeCharts, 150);
+      }).observe(document.documentElement);
+    } catch(e) {}
+  });
+})();
+&lt;/script&gt;&lt;/body&gt;
+&lt;/html&gt;" frameborder="0"
+        style="width: 375px; height: 840px; min-height: 840px; border: 2px solid rgb(209, 213, 219); border-radius: 0.5rem; display: block;"></iframe>
+</body>
+
+</html>

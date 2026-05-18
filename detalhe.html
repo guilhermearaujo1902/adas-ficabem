@@ -1,0 +1,426 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <iframe title="wireframe-Cx4NI262QykWHtGcmH0J" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;pt-BR&quot; class=&quot;h-full&quot;&gt;
+&lt;head&gt;
+    &lt;script&gt;
+        window.FontAwesomeConfig = {
+          autoReplaceSvg: 'nest'
+        };
+      &lt;/script&gt;
+    &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js&quot; crossorigin=&quot;anonymous&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;/script&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot;&gt;
+    &lt;title&gt;Fica Bem - Detalhe do Local&lt;/title&gt;
+    &lt;script src=&quot;https://cdn.tailwindcss.com&quot;&gt;&lt;/script&gt;
+    &lt;link href=&quot;https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css&quot;&gt;
+    &lt;script&gt;
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#2f6759',
+                            light: '#5f927d',
+                            accent: '#4e9983'
+                        }
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                    }
+                }
+            }
+        }
+    &lt;/script&gt;
+    &lt;style&gt;
+        body {
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        .glass-effect {
+            background: rgba(47, 103, 89, 0.4);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .glass-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.05) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
+        }
+        
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 32px 32px 0 0;
+            box-shadow: 0 -10px 40px rgba(0,0,0,0.2);
+        }
+
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+        
+        /* Map Pin Pulse Animation */
+        @keyframes pulse-ring {
+            0% { transform: scale(0.8); opacity: 0.5; }
+            100% { transform: scale(2.5); opacity: 0; }
+        }
+        .pin-pulse::before {
+            content: '';
+            position: absolute;
+            left: -50%;
+            top: -50%;
+            width: 200%;
+            height: 200%;
+            background-color: inherit;
+            border-radius: 50%;
+            z-index: -1;
+            animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body class=&quot;h-full w-full m-0 p-0 overflow-hidden bg-brand-dark text-white flex flex-col selection:bg-white selection:text-brand-dark&quot;&gt;
+
+    &lt;!-- Screen Wrapper for Mobile Constraint (375x840 target) --&gt;
+    &lt;main id=&quot;details-screen&quot; class=&quot;w-full h-full max-w-[430px] mx-auto flex flex-col relative sm:shadow-2xl sm:border-x sm:border-white/10 overflow-y-auto overflow-x-hidden no-scrollbar pb-24&quot;&gt;
+        
+        &lt;!-- Top Navigation Bar (Back &amp; Actions) --&gt;
+        &lt;header id=&quot;details-header&quot; class=&quot;absolute top-0 w-full pt-12 px-4 pb-4 z-30 flex justify-between items-center&quot;&gt;
+            &lt;button class=&quot;w-10 h-10 rounded-full glass-effect flex items-center justify-center shadow-lg border border-white/20 text-white hover:bg-white/20 transition-colors backdrop-blur-md&quot;&gt;
+                &lt;i class=&quot;fa-solid fa-arrow-left text-lg&quot;&gt;&lt;/i&gt;
+            &lt;/button&gt;
+            &lt;div class=&quot;flex gap-2&quot;&gt;
+                &lt;button class=&quot;w-10 h-10 rounded-full glass-effect flex items-center justify-center shadow-lg border border-white/20 text-white hover:bg-white/20 transition-colors backdrop-blur-md&quot;&gt;
+                    &lt;i class=&quot;fa-regular fa-bookmark text-lg&quot;&gt;&lt;/i&gt;
+                &lt;/button&gt;
+                &lt;button class=&quot;w-10 h-10 rounded-full glass-effect flex items-center justify-center shadow-lg border border-white/20 text-white hover:bg-white/20 transition-colors backdrop-blur-md&quot;&gt;
+                    &lt;i class=&quot;fa-solid fa-share-nodes text-lg&quot;&gt;&lt;/i&gt;
+                &lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/header&gt;
+
+        &lt;!-- Visual Header Info Section --&gt;
+        &lt;section id=&quot;visual-header-info&quot; class=&quot;w-full relative min-h-[300px]&quot;&gt;
+            &lt;div class=&quot;absolute inset-0 z-0 w-full h-full&quot;&gt;
+                &lt;img class=&quot;w-full h-full object-cover&quot; src=&quot;https://storage.googleapis.com/uxpilot-auth.appspot.com/d27359060e-8912020bcca2daadca8b.png&quot; alt=&quot;High quality, warm and inviting interior of a botanical cafe, well lit, safe atmosphere, premium aesthetic&quot; /&gt;
+                &lt;!-- Deep brand-dark gradient for text legibility --&gt;
+                &lt;div class=&quot;absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/80 to-transparent z-10&quot;&gt;&lt;/div&gt;
+            &lt;/div&gt;
+            
+            &lt;div class=&quot;relative z-20 pt-[220px] px-6 pb-6 flex flex-col gap-2&quot;&gt;
+                &lt;div class=&quot;flex justify-between items-end&quot;&gt;
+                    &lt;div&gt;
+                        &lt;span class=&quot;font-sans text-[10px] font-bold tracking-wider text-brand-light uppercase mb-1 block&quot;&gt;Cafeteria • 200m&lt;/span&gt;
+                        &lt;h1 class=&quot;font-serif text-3xl font-bold text-white leading-tight&quot;&gt;Café Botânico&lt;/h1&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;bg-brand-accent px-3 py-1.5 rounded-xl flex items-center gap-1.5 shadow-lg border border-white/20&quot;&gt;
+                        &lt;i class=&quot;fa-solid fa-shield-halved text-white text-xs&quot;&gt;&lt;/i&gt;
+                        &lt;span class=&quot;font-sans text-sm font-bold text-white&quot;&gt;4.9&lt;/span&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                
+                &lt;p class=&quot;font-sans text-xs text-white/80 leading-relaxed max-w-[90%]&quot;&gt;
+                    Rua dos Pinheiros, 1234 - Pinheiros, São Paulo
+                &lt;/p&gt;
+
+                &lt;!-- Sentiment Tags --&gt;
+                &lt;div class=&quot;flex flex-wrap gap-2 mt-2&quot;&gt;
+                    &lt;span class=&quot;bg-white/10 backdrop-blur-md text-white text-[10px] font-medium px-2.5 py-1 rounded-full border border-white/10 flex items-center gap-1.5&quot;&gt;
+                        &lt;i class=&quot;fa-solid fa-heart text-brand-light text-[8px]&quot;&gt;&lt;/i&gt; Acolhedor
+                    &lt;/span&gt;
+                    &lt;span class=&quot;bg-white/10 backdrop-blur-md text-white text-[10px] font-medium px-2.5 py-1 rounded-full border border-white/10 flex items-center gap-1.5&quot;&gt;
+                        &lt;i class=&quot;fa-solid fa-lightbulb text-yellow-300 text-[8px]&quot;&gt;&lt;/i&gt; Bem iluminado
+                    &lt;/span&gt;
+                    &lt;span class=&quot;bg-white/10 backdrop-blur-md text-white text-[10px] font-medium px-2.5 py-1 rounded-full border border-white/10 flex items-center gap-1.5&quot;&gt;
+                        &lt;i class=&quot;fa-solid fa-moon text-blue-300 text-[8px]&quot;&gt;&lt;/i&gt; Seguro à noite
+                    &lt;/span&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/section&gt;
+
+        &lt;!-- Safety Status Summary --&gt;
+        &lt;section id=&quot;safety-status-summary&quot; class=&quot;w-full px-4 -mt-2 relative z-20 flex flex-col gap-3&quot;&gt;
+            &lt;div class=&quot;glass-card rounded-2xl p-4 flex flex-col gap-4&quot;&gt;
+                &lt;h2 class=&quot;font-sans text-sm font-semibold text-white uppercase tracking-wider text-center border-b border-white/10 pb-3&quot;&gt;Status Atual de Segurança&lt;/h2&gt;
+                
+                &lt;div class=&quot;grid grid-cols-2 gap-4&quot;&gt;
+                    &lt;div class=&quot;flex flex-col items-center justify-center p-3 rounded-xl bg-white/5 border border-white/5 text-center gap-2&quot;&gt;
+                        &lt;div class=&quot;w-10 h-10 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center border border-blue-500/30&quot;&gt;
+                            &lt;i class=&quot;fa-solid fa-users text-lg&quot;&gt;&lt;/i&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                            &lt;span class=&quot;font-sans text-[10px] text-white/60 block mb-0.5&quot;&gt;Movimento&lt;/span&gt;
+                            &lt;span class=&quot;font-sans text-xs font-semibold text-white&quot;&gt;Moderado&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    
+                    &lt;div class=&quot;flex flex-col items-center justify-center p-3 rounded-xl bg-white/5 border border-white/5 text-center gap-2&quot;&gt;
+                        &lt;div class=&quot;w-10 h-10 rounded-full bg-yellow-500/20 text-yellow-400 flex items-center justify-center border border-yellow-500/30&quot;&gt;
+                            &lt;i class=&quot;fa-solid fa-lightbulb text-lg&quot;&gt;&lt;/i&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                            &lt;span class=&quot;font-sans text-[10px] text-white/60 block mb-0.5&quot;&gt;Iluminação&lt;/span&gt;
+                            &lt;span class=&quot;font-sans text-xs font-semibold text-white&quot;&gt;Excelente&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/section&gt;
+
+        &lt;!-- Security Tips &amp; Horarios --&gt;
+        &lt;section id=&quot;security-tips-horarios&quot; class=&quot;w-full px-4 mt-6 flex flex-col gap-4&quot;&gt;
+            
+            &lt;!-- Horarios --&gt;
+            &lt;div class=&quot;glass-card rounded-2xl p-4&quot;&gt;
+                &lt;div class=&quot;flex justify-between items-center mb-3&quot;&gt;
+                    &lt;h3 class=&quot;font-serif text-lg font-semibold text-white flex items-center gap-2&quot;&gt;
+                        &lt;i class=&quot;fa-regular fa-clock text-brand-light&quot;&gt;&lt;/i&gt; Horários
+                    &lt;/h3&gt;
+                    &lt;span class=&quot;font-sans text-[10px] text-brand-accent bg-white px-2 py-0.5 rounded-full font-bold&quot;&gt;Aberto agora&lt;/span&gt;
+                &lt;/div&gt;
+                
+                &lt;div class=&quot;flex flex-col gap-2&quot;&gt;
+                    &lt;div class=&quot;flex justify-between items-center py-1 border-b border-white/5&quot;&gt;
+                        &lt;span class=&quot;font-sans text-xs font-medium text-white&quot;&gt;Segunda a Sexta&lt;/span&gt;
+                        &lt;span class=&quot;font-sans text-xs text-white/80&quot;&gt;08:00 - 20:00&lt;/span&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;flex justify-between items-center py-1 border-b border-white/5&quot;&gt;
+                        &lt;span class=&quot;font-sans text-xs font-medium text-white&quot;&gt;Sábado&lt;/span&gt;
+                        &lt;span class=&quot;font-sans text-xs text-white/80&quot;&gt;09:00 - 18:00&lt;/span&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;flex justify-between items-center py-1 text-white/50&quot;&gt;
+                        &lt;span class=&quot;font-sans text-xs font-medium&quot;&gt;Domingo&lt;/span&gt;
+                        &lt;span class=&quot;font-sans text-xs&quot;&gt;Fechado&lt;/span&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;!-- Dicas de Segurança --&gt;
+            &lt;div class=&quot;glass-card rounded-2xl p-4&quot;&gt;
+                &lt;h3 class=&quot;font-serif text-lg font-semibold text-white flex items-center gap-2 mb-3&quot;&gt;
+                    &lt;i class=&quot;fa-solid fa-shield-cat text-brand-light&quot;&gt;&lt;/i&gt; Dicas da Comunidade
+                &lt;/h3&gt;
+                
+                &lt;ul class=&quot;flex flex-col gap-3&quot;&gt;
+                    &lt;li class=&quot;flex items-start gap-3&quot;&gt;
+                        &lt;div class=&quot;w-6 h-6 rounded-full bg-brand-light/20 flex items-center justify-center shrink-0 mt-0.5 border border-brand-light/30&quot;&gt;
+                            &lt;i class=&quot;fa-solid fa-check text-brand-light text-[10px]&quot;&gt;&lt;/i&gt;
+                        &lt;/div&gt;
+                        &lt;p class=&quot;font-sans text-xs text-white/90 leading-relaxed&quot;&gt;Melhor horário para ir sozinha é entre 14h e 17h, o movimento é tranquilo.&lt;/p&gt;
+                    &lt;/li&gt;
+                    &lt;li class=&quot;flex items-start gap-3&quot;&gt;
+                        &lt;div class=&quot;w-6 h-6 rounded-full bg-brand-light/20 flex items-center justify-center shrink-0 mt-0.5 border border-brand-light/30&quot;&gt;
+                            &lt;i class=&quot;fa-solid fa-check text-brand-light text-[10px]&quot;&gt;&lt;/i&gt;
+                        &lt;/div&gt;
+                        &lt;p class=&quot;font-sans text-xs text-white/90 leading-relaxed&quot;&gt;Estacione na rua lateral, que é bem iluminada e tem seguranças na rua.&lt;/p&gt;
+                    &lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+        &lt;/section&gt;
+
+        &lt;!-- Recent Reviews List --&gt;
+        &lt;section id=&quot;recent-reviews-list&quot; class=&quot;w-full px-4 mt-6 mb-8 flex flex-col gap-4&quot;&gt;
+            &lt;div class=&quot;flex justify-between items-end mb-2&quot;&gt;
+                &lt;h3 class=&quot;font-serif text-xl font-semibold text-white&quot;&gt;Avaliações&lt;/h3&gt;
+                &lt;a href=&quot;#&quot; class=&quot;font-sans text-xs text-brand-light font-medium hover:underline&quot;&gt;Ver todas (128)&lt;/a&gt;
+            &lt;/div&gt;
+
+            &lt;!-- Review 1 --&gt;
+            &lt;div class=&quot;glass-card rounded-2xl p-4 flex flex-col gap-3&quot;&gt;
+                &lt;div class=&quot;flex justify-between items-start&quot;&gt;
+                    &lt;div class=&quot;flex items-center gap-3&quot;&gt;
+                        &lt;div class=&quot;w-10 h-10 rounded-full bg-white/20 overflow-hidden border border-white/20&quot;&gt;
+                            &lt;img src=&quot;https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-5.jpg&quot; alt=&quot;Mariana&quot; class=&quot;w-full h-full object-cover&quot;&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                            &lt;span class=&quot;font-sans text-sm font-semibold text-white block&quot;&gt;Mariana S.&lt;/span&gt;
+                            &lt;span class=&quot;font-sans text-[10px] text-white/60&quot;&gt;Há 2 dias&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;flex items-center gap-0.5 text-brand-light text-[10px]&quot;&gt;
+                        &lt;i class=&quot;fa-solid fa-star&quot;&gt;&lt;/i&gt;
+                        &lt;i class=&quot;fa-solid fa-star&quot;&gt;&lt;/i&gt;
+                        &lt;i class=&quot;fa-solid fa-star&quot;&gt;&lt;/i&gt;
+                        &lt;i class=&quot;fa-solid fa-star&quot;&gt;&lt;/i&gt;
+                        &lt;i class=&quot;fa-solid fa-star&quot;&gt;&lt;/i&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;p class=&quot;font-sans text-xs text-white/90 leading-relaxed&quot;&gt;
+                    Lugar incrível! Fui trabalhar de lá na quinta-feira à tarde e me senti super segura. O staff é muito atencioso e o ambiente é super acolhedor para mulheres sozinhas.
+                &lt;/p&gt;
+                &lt;div class=&quot;flex gap-2&quot;&gt;
+                     &lt;span class=&quot;bg-white/5 text-white/80 text-[9px] px-2 py-1 rounded-md border border-white/10&quot;&gt;Trabalho&lt;/span&gt;
+                     &lt;span class=&quot;bg-white/5 text-white/80 text-[9px] px-2 py-1 rounded-md border border-white/10&quot;&gt;Seguro&lt;/span&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;!-- Review 2 --&gt;
+            &lt;div class=&quot;glass-card rounded-2xl p-4 flex flex-col gap-3&quot;&gt;
+                &lt;div class=&quot;flex justify-between items-start&quot;&gt;
+                    &lt;div class=&quot;flex items-center gap-3&quot;&gt;
+                        &lt;div class=&quot;w-10 h-10 rounded-full bg-white/20 overflow-hidden border border-white/20&quot;&gt;
+                            &lt;img src=&quot;https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-6.jpg&quot; alt=&quot;Juliana&quot; class=&quot;w-full h-full object-cover&quot;&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                            &lt;span class=&quot;font-sans text-sm font-semibold text-white block&quot;&gt;Juliana C.&lt;/span&gt;
+                            &lt;span class=&quot;font-sans text-[10px] text-white/60&quot;&gt;Há 1 semana&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;flex items-center gap-0.5 text-brand-light text-[10px]&quot;&gt;
+                        &lt;i class=&quot;fa-solid fa-star&quot;&gt;&lt;/i&gt;
+                        &lt;i class=&quot;fa-solid fa-star&quot;&gt;&lt;/i&gt;
+                        &lt;i class=&quot;fa-solid fa-star&quot;&gt;&lt;/i&gt;
+                        &lt;i class=&quot;fa-solid fa-star&quot;&gt;&lt;/i&gt;
+                        &lt;i class=&quot;fa-regular fa-star-half-stroke&quot;&gt;&lt;/i&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;p class=&quot;font-sans text-xs text-white/90 leading-relaxed&quot;&gt;
+                    Ótimo café, a iluminação é muito boa, mesmo no fim da tarde. O único ponto é que a rua de trás pode ser um pouco escura à noite, melhor sair pela principal.
+                &lt;/p&gt;
+                &lt;div class=&quot;flex gap-2&quot;&gt;
+                     &lt;span class=&quot;bg-white/5 text-white/80 text-[9px] px-2 py-1 rounded-md border border-white/10&quot;&gt;Iluminado&lt;/span&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/section&gt;
+
+        &lt;!-- Action Footer Buttons (Sticky above nav) --&gt;
+        &lt;section id=&quot;action-footer-buttons&quot; class=&quot;w-full px-4 fixed bottom-24 max-w-[430px] z-40&quot;&gt;
+            &lt;div class=&quot;flex flex-col gap-3&quot;&gt;
+                &lt;button class=&quot;w-full py-4 rounded-2xl bg-brand-accent hover:bg-brand-light text-white font-sans font-bold text-sm shadow-[0_8px_30px_rgba(78,153,131,0.4)] border border-white/20 flex items-center justify-center gap-2 transition-all active:scale-[0.98]&quot;&gt;
+                    &lt;i class=&quot;fa-solid fa-route text-lg&quot;&gt;&lt;/i&gt; Iniciar Rota Segura
+                &lt;/button&gt;
+                &lt;button class=&quot;w-full py-3.5 rounded-2xl bg-brand-dark/80 backdrop-blur-md text-white font-sans font-semibold text-sm border border-brand-accent hover:bg-brand-dark transition-all active:scale-[0.98]&quot;&gt;
+                    Avaliar este local
+                &lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/section&gt;
+
+        &lt;!-- Spacer for fixed footer and nav --&gt;
+        &lt;div class=&quot;h-32 w-full&quot;&gt;&lt;/div&gt;
+
+        &lt;!-- Bottom Navigation Bar (Consistent with previous screens) --&gt;
+        &lt;nav id=&quot;bottom-nav&quot; class=&quot;w-full h-20 bg-brand-dark/95 backdrop-blur-lg border-t border-white/10 absolute bottom-0 left-0 flex justify-around items-center px-4 pb-4 pt-2 z-50&quot;&gt;
+            &lt;a href=&quot;#&quot; class=&quot;flex flex-col items-center gap-1 text-white/50 hover:text-white/80 transition-colors&quot;&gt;
+                &lt;i class=&quot;fa-solid fa-house text-lg&quot;&gt;&lt;/i&gt;
+                &lt;span class=&quot;font-sans text-[10px] font-medium&quot;&gt;Feed&lt;/span&gt;
+            &lt;/a&gt;
+            &lt;a href=&quot;#&quot; class=&quot;flex flex-col items-center gap-1 text-white&quot;&gt;
+                &lt;i class=&quot;fa-solid fa-map-location-dot text-lg&quot;&gt;&lt;/i&gt;
+                &lt;span class=&quot;font-sans text-[10px] font-medium&quot;&gt;Explorar&lt;/span&gt;
+            &lt;/a&gt;
+            &lt;a href=&quot;#&quot; class=&quot;flex flex-col items-center gap-1 text-white/50 hover:text-white/80 transition-colors&quot;&gt;
+                &lt;i class=&quot;fa-solid fa-trophy text-lg&quot;&gt;&lt;/i&gt;
+                &lt;span class=&quot;font-sans text-[10px] font-medium&quot;&gt;Ranking&lt;/span&gt;
+            &lt;/a&gt;
+            &lt;a href=&quot;#&quot; class=&quot;flex flex-col items-center gap-1 text-white/50 hover:text-white/80 transition-colors&quot;&gt;
+                &lt;i class=&quot;fa-regular fa-user text-lg&quot;&gt;&lt;/i&gt;
+                &lt;span class=&quot;font-sans text-[10px] font-medium&quot;&gt;Perfil&lt;/span&gt;
+            &lt;/a&gt;
+        &lt;/nav&gt;
+
+    &lt;/main&gt;
+
+
+  &lt;script&gt;
+    (function() {
+      function blockEvent(e) {
+        if (!e) return false;
+        if (typeof e.preventDefault === 'function') e.preventDefault();
+        if (typeof e.stopPropagation === 'function') e.stopPropagation();
+        if (typeof e.stopImmediatePropagation === 'function') e.stopImmediatePropagation();
+        return false;
+      }
+
+      // Block all anchor navigations (including http(s), mailto, tel, hash, fragments)
+      document.addEventListener('click', function(e) {
+        var a = e.target &amp;&amp; e.target.closest ? e.target.closest('a[href]') : null;
+        if (!a) return;
+        return blockEvent(e);
+      }, true);
+
+      // Neutralize programmatic navigation attempts
+      try { window.open = function() { return null }; } catch (_) {}
+      try {
+        var noop = function(){};
+        history.pushState = noop;
+        history.replaceState = noop;
+      } catch (_) {}
+      try {
+        if (window.location) {
+          window.location.assign = function(){};
+          window.location.replace = function(){};
+        }
+      } catch (_) {}
+    })();
+  &lt;/script&gt;
+&lt;script&gt;
+(function() {
+  function _uxpResizeCharts() {
+    if (window.Plotly) {
+      document.querySelectorAll('.plot-container.plotly').forEach(function(pc) {
+        var gd = pc.parentElement;
+        if (!gd) return;
+        var rect = gd.getBoundingClientRect();
+        if (rect.width &lt;= 0 || rect.height &lt;= 0) return;
+        try { window.Plotly.relayout(gd, { width: Math.round(rect.width), height: Math.round(rect.height) }); } catch(e) {}
+      });
+    }
+    if (window.ApexCharts &amp;&amp; window.Apex &amp;&amp; window.Apex._chartInstances) {
+      window.Apex._chartInstances.forEach(function(inst) {
+        try { (inst.chart || inst).updateOptions({}, false, false); } catch(e) {}
+      });
+    }
+    if (window.Chart) {
+      try { Object.values(window.Chart.instances || {}).forEach(function(c) { c.resize(); }); } catch(e) {}
+    }
+  }
+
+  window.addEventListener('load', function() {
+    setTimeout(function() { _uxpResizeCharts(); setTimeout(_uxpResizeCharts, 500); }, 300);
+    try {
+      var _lastW = 0, _lastH = 0, _timer = 0;
+      new ResizeObserver(function() {
+        var w = document.documentElement.clientWidth;
+        var h = document.documentElement.clientHeight;
+        if (w === _lastW &amp;&amp; h === _lastH) return;
+        _lastW = w; _lastH = h;
+        clearTimeout(_timer);
+        _timer = setTimeout(_uxpResizeCharts, 150);
+      }).observe(document.documentElement);
+    } catch(e) {}
+  });
+})();
+&lt;/script&gt;&lt;/body&gt;
+&lt;/html&gt;" frameborder="0"
+        style="width: 375px; height: 840px; min-height: 840px; border: 2px solid rgb(209, 213, 219); border-radius: 0.5rem; display: block;"></iframe>
+</body>
+
+</html>

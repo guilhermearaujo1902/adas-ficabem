@@ -1,0 +1,343 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <iframe title="wireframe-1B7U26ZNTHZDSeB8dm7K" srcdoc="&lt;html lang=&quot;pt-BR&quot; class=&quot;h-full&quot;&gt;
+
+  &lt;head&gt;
+    &lt;script&gt;
+      window.FontAwesomeConfig = {
+        autoReplaceSvg: 'nest'
+      };
+    &lt;/script&gt;
+    &lt;script
+      src=&quot;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js&quot;
+      crossorigin=&quot;anonymous&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;/script&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot;
+      content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot;&gt;
+    &lt;title&gt;Fica Bem - Convidar Amigas&lt;/title&gt;
+    &lt;script src=&quot;https://cdn.tailwindcss.com&quot;&gt;&lt;/script&gt;
+    &lt;link
+      href=&quot;https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&amp;amp;family=Inter:wght@300;400;500;600;700&amp;amp;display=swap&quot;
+      rel=&quot;stylesheet&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot;
+      href=&quot;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css&quot;&gt;
+    &lt;script&gt;
+      tailwind.config = {
+        theme:
+        {
+          extend:
+          {
+            fontFamily:
+            {
+              sans: ['Inter', 'sans-serif'],
+              serif: ['Playfair Display', 'serif'],
+            },
+            colors:
+            {
+              brand:
+              {
+                dark: '#2f6759',
+                light: '#5f927d',
+                accent: '#4e9983'
+              }
+            },
+            backgroundImage:
+            {
+              'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+            }
+          }
+        }
+      }
+    &lt;/script&gt;
+    &lt;style&gt;
+      body
+      {
+        margin: 0;
+        padding: 0;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      .glass-effect
+      {
+        background: rgba(47, 103, 89, 0.4);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+      }
+
+      .glass-card
+      {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
+      }
+
+      .chip-active
+      {
+        background-color: #4e9983;
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        box-shadow: 0 0 15px rgba(78, 153, 131, 0.6);
+        color: white;
+      }
+
+      .chip-inactive
+      {
+        background: rgba(47, 103, 89, 0.4);
+        backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .no-scrollbar::-webkit-scrollbar
+      {
+        display: none;
+      }
+
+      .no-scrollbar
+      {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      /* Input Styling */
+      input:focus
+      {
+        outline: none;
+        border-color: rgba(255, 255, 255, 0.5);
+        box-shadow: 0 0 0 2px rgba(78, 153, 131, 0.3);
+      }
+    &lt;/style&gt;
+  &lt;/head&gt;
+
+  &lt;body
+    class=&quot;h-full w-full m-0 p-0 bg-brand-dark text-white flex flex-col selection:bg-white selection:text-brand-dark overflow-hidden&quot;&gt;
+    &lt;main id=&quot;convidar-amigas-main&quot;
+      class=&quot;w-full h-full max-w-[430px] mx-auto flex flex-col relative sm:shadow-2xl sm:border-x sm:border-white/10 bg-brand-dark overflow-y-auto overflow-x-hidden pb-24 no-scrollbar&quot;&gt;
+      &lt;!-- Header Overlay --&gt;
+      &lt;header id=&quot;route-header&quot;
+        class=&quot;sticky top-0 left-0 w-full pt-6 px-4 pb-4 z-30 flex justify-between items-center bg-brand-dark/95 backdrop-blur-md border-b border-white/10&quot;&gt;
+        &lt;button
+          class=&quot;w-10 h-10 rounded-full glass-effect flex items-center justify-center text-white/80 hover:text-white transition-colors shadow-lg&quot;&gt;&lt;i
+            class=&quot;fa-solid fa-arrow-left&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+        &lt;div class=&quot;flex flex-col items-center&quot;&gt;
+          &lt;h1 class=&quot;font-serif text-lg font-bold text-white drop-shadow-md&quot;&gt;
+            Convidar Amigas&lt;/h1&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;w-10 h-10&quot;&gt;&lt;/div&gt; &lt;!-- Spacer for centering --&gt;
+      &lt;/header&gt;&lt;!-- Hero Section: Invite via QR/Link --&gt;
+      &lt;section id=&quot;hero-invite&quot; class=&quot;px-4 pt-6 pb-4 flex flex-col gap-6&quot;&gt;
+        &lt;div class=&quot;text-center&quot;&gt;
+          &lt;h2 class=&quot;font-serif text-2xl font-bold text-white mb-2&quot;&gt;Juntas somos
+            mais fortes&lt;/h2&gt;
+          &lt;p class=&quot;font-sans text-sm text-white/70 px-4&quot;&gt;Convide suas amigas
+            para o Fica Bem e construa uma rede de segurança compartilhada.&lt;/p&gt;
+        &lt;/div&gt;&lt;!-- QR Code Card --&gt;
+        &lt;div
+          class=&quot;glass-card rounded-[24px] p-6 flex flex-col items-center gap-5 relative overflow-hidden&quot;&gt;
+          &lt;!-- Decorative background elements --&gt;
+          &lt;div
+            class=&quot;absolute -top-10 -right-10 w-32 h-32 bg-brand-accent/20 rounded-full blur-2xl&quot;&gt;
+          &lt;/div&gt;
+          &lt;div
+            class=&quot;absolute -bottom-10 -left-10 w-32 h-32 bg-white/5 rounded-full blur-2xl&quot;&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;bg-white p-4 rounded-[16px] shadow-lg relative z-10&quot;&gt;&lt;img
+              src=&quot;https://storage.googleapis.com/uxpilot-auth.appspot.com/2d94809668-578610c2d176147075c1.png&quot;
+              alt=&quot;A clean, high-contrast QR code design, black on white background, minimalist, sharp edges, suitable for scanning&quot;
+              class=&quot;w-40 h-40 object-cover rounded-[8px]&quot;&gt;&lt;/div&gt;
+          &lt;div class=&quot;w-full&quot;&gt;
+            &lt;p class=&quot;font-sans text-xs text-white/60 text-center mb-2&quot;&gt;Ou
+              compartilhe seu link exclusivo:&lt;/p&gt;
+            &lt;div
+              class=&quot;flex items-center gap-2 bg-black/20 rounded-[12px] p-1 pl-4 border border-white/10&quot;&gt;
+              &lt;span
+                class=&quot;font-sans text-sm text-white/80 truncate flex-1&quot;&gt;ficabem.app/invite/MARIA92&lt;/span&gt;&lt;button
+                class=&quot;bg-brand-accent text-white px-4 py-2 rounded-[8px] font-sans text-xs font-semibold hover:bg-brand-accent/90 transition-colors shadow-sm&quot;&gt;
+                Copiar
+              &lt;/button&gt;&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;&lt;!-- Social Sharing Actions --&gt;
+        &lt;div class=&quot;grid grid-cols-3 gap-3&quot;&gt;&lt;/div&gt;
+      &lt;/section&gt;&lt;!-- Divider --&gt;
+      &lt;div class=&quot;w-full px-4 py-2&quot;&gt;
+        &lt;div class=&quot;h-px w-full bg-white/10&quot;&gt;&lt;/div&gt;
+      &lt;/div&gt;&lt;!-- Referral Code Entry --&gt;
+      &lt;section id=&quot;have-code-section&quot; class=&quot;px-4 py-4&quot;&gt;
+        &lt;div class=&quot;glass-card rounded-[16px] p-5 border-brand-accent/30&quot;&gt;
+          &lt;div class=&quot;flex items-start gap-4&quot;&gt;
+            &lt;div
+              class=&quot;w-10 h-10 rounded-full bg-brand-accent/20 flex items-center justify-center text-brand-accent shrink-0 mt-1&quot;&gt;
+              &lt;i class=&quot;fa-solid fa-ticket text-lg&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+            &lt;div class=&quot;flex flex-col gap-3 w-full&quot;&gt;
+              &lt;div&gt;
+                &lt;h3 class=&quot;font-sans text-sm font-semibold text-white&quot;&gt;Recebi um
+                  convite&lt;/h3&gt;
+                &lt;p class=&quot;font-sans text-xs text-white/60 mt-1&quot;&gt;Insira o código
+                  que sua amiga compartilhou com você.&lt;/p&gt;
+              &lt;/div&gt;
+              &lt;div class=&quot;flex gap-2&quot;&gt;&lt;input type=&quot;text&quot;
+                  placeholder=&quot;Ex: MARIA92&quot;
+                  class=&quot;flex-1 bg-black/20 border border-white/10 rounded-[12px] px-4 py-3 font-sans text-sm text-white placeholder-white/40 transition-all uppercase tracking-wider&quot;&gt;&lt;button
+                  class=&quot;bg-brand-accent text-white px-5 py-3 rounded-[12px] font-sans text-sm font-semibold hover:bg-brand-accent/90 transition-colors shadow-sm&quot;&gt;
+                  Validar
+                &lt;/button&gt;&lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/section&gt;&lt;!-- Pending Invitations List --&gt;
+      &lt;section id=&quot;pending-invites&quot; class=&quot;px-4 py-4 flex flex-col gap-4&quot;&gt;
+        &lt;div class=&quot;flex justify-between items-end px-1&quot;&gt;
+          &lt;h3 class=&quot;font-sans text-base font-semibold text-white&quot;&gt;Convites
+            Pendentes&lt;/h3&gt;&lt;span class=&quot;font-sans text-xs text-white/50&quot;&gt;2
+            aguardando&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;flex flex-col gap-3&quot;&gt;
+          &lt;!-- Invite Item 1 --&gt;
+          &lt;div
+            class=&quot;glass-effect rounded-[16px] p-4 flex items-center justify-between border-white/5&quot;&gt;
+            &lt;div class=&quot;flex items-center gap-3&quot;&gt;
+              &lt;div
+                class=&quot;w-12 h-12 rounded-full bg-black/20 flex items-center justify-center text-white/40 border border-white/10&quot;&gt;
+                &lt;i class=&quot;fa-solid fa-user text-lg&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+              &lt;div class=&quot;flex flex-col&quot;&gt;&lt;span
+                  class=&quot;font-sans text-sm font-medium text-white&quot;&gt;+55 11
+                  98765-4321&lt;/span&gt;&lt;span
+                  class=&quot;font-sans text-[10px] text-white/50&quot;&gt;Enviado há 2
+                  dias&lt;/span&gt;&lt;/div&gt;
+            &lt;/div&gt;&lt;button
+              class=&quot;px-3 py-1.5 rounded-[8px] bg-white/10 hover:bg-white/20 transition-colors border border-white/10 font-sans text-xs font-medium text-white&quot;&gt;
+              Lembrar
+            &lt;/button&gt;
+          &lt;/div&gt;&lt;!-- Invite Item 2 --&gt;
+          &lt;div
+            class=&quot;glass-effect rounded-[16px] p-4 flex items-center justify-between border-white/5&quot;&gt;
+            &lt;div class=&quot;flex items-center gap-3&quot;&gt;
+              &lt;div
+                class=&quot;w-12 h-12 rounded-full bg-black/20 flex items-center justify-center text-white/40 border border-white/10 overflow-hidden&quot;&gt;
+                &lt;img
+                  src=&quot;https://storage.googleapis.com/uxpilot-auth.appspot.com/8dd3504595-eb25778c23b60e7f0737.png&quot;
+                  alt=&quot;A soft, abstract gradient placeholder for an avatar, muted teal and dark green, minimalist&quot;
+                  class=&quot;w-full h-full object-cover opacity-60&quot;&gt;&lt;/div&gt;
+              &lt;div class=&quot;flex flex-col&quot;&gt;&lt;span
+                  class=&quot;font-sans text-sm font-medium text-white&quot;&gt;ana.clara@email.com&lt;/span&gt;&lt;span
+                  class=&quot;font-sans text-[10px] text-white/50&quot;&gt;Enviado há 5
+                  dias&lt;/span&gt;&lt;/div&gt;
+            &lt;/div&gt;&lt;button
+              class=&quot;px-3 py-1.5 rounded-[8px] bg-white/10 hover:bg-white/20 transition-colors border border-white/10 font-sans text-xs font-medium text-white&quot;&gt;
+              Lembrar
+            &lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;&lt;button
+          class=&quot;w-full py-3 mt-2 font-sans text-sm font-medium text-brand-accent hover:text-brand-accent/80 transition-colors&quot;&gt;
+          Ver histórico completo
+        &lt;/button&gt;
+      &lt;/section&gt;
+      &lt;!-- Bottom Navigation Bar (Consistent with previous screens) --&gt;
+      &lt;nav id=&quot;bottom-nav&quot;
+        class=&quot;w-full h-20 bg-brand-dark/95 backdrop-blur-lg border-t border-white/10 fixed bottom-0 left-0 flex justify-around items-center px-4 pb-4 pt-2 z-50 max-w-[430px] mx-auto sm:left-auto sm:right-auto&quot;&gt;
+        &lt;a href=&quot;#&quot;
+          class=&quot;flex flex-col items-center gap-1 text-brand-accent transition-colors relative&quot;&gt;&lt;i
+            class=&quot;fa-solid fa-house text-lg&quot;&gt;&lt;/i&gt;&lt;span
+            class=&quot;font-sans text-[10px] font-medium&quot;&gt;Feed&lt;/span&gt;
+          &lt;div class=&quot;absolute -top-3 w-1 h-1 rounded-full bg-brand-accent&quot;&gt;
+          &lt;/div&gt;
+        &lt;/a&gt;&lt;a href=&quot;#&quot;
+          class=&quot;flex flex-col items-center gap-1 text-white/50 hover:text-white/80 transition-colors&quot;&gt;&lt;i
+            class=&quot;fa-solid fa-map-location-dot text-lg&quot;&gt;&lt;/i&gt;&lt;span
+            class=&quot;font-sans text-[10px] font-medium&quot;&gt;Explorar&lt;/span&gt;&lt;/a&gt;&lt;a
+          href=&quot;#&quot;
+          class=&quot;flex flex-col items-center gap-1 text-white/50 hover:text-white/80 transition-colors&quot;&gt;&lt;i
+            class=&quot;fa-solid fa-trophy text-lg&quot;&gt;&lt;/i&gt;&lt;span
+            class=&quot;font-sans text-[10px] font-medium&quot;&gt;Ranking&lt;/span&gt;&lt;/a&gt;&lt;a
+          href=&quot;#&quot;
+          class=&quot;flex flex-col items-center gap-1 text-white/50 hover:text-white/80 transition-colors&quot;&gt;&lt;i
+            class=&quot;fa-regular fa-user text-lg&quot;&gt;&lt;/i&gt;&lt;span
+            class=&quot;font-sans text-[10px] font-medium&quot;&gt;Perfil&lt;/span&gt;&lt;/a&gt;&lt;/nav&gt;
+    &lt;/main&gt;
+  
+  &lt;script&gt;
+    (function() {
+      function blockEvent(e) {
+        if (!e) return false;
+        if (typeof e.preventDefault === 'function') e.preventDefault();
+        if (typeof e.stopPropagation === 'function') e.stopPropagation();
+        if (typeof e.stopImmediatePropagation === 'function') e.stopImmediatePropagation();
+        return false;
+      }
+
+      // Block all anchor navigations (including http(s), mailto, tel, hash, fragments)
+      document.addEventListener('click', function(e) {
+        var a = e.target &amp;&amp; e.target.closest ? e.target.closest('a[href]') : null;
+        if (!a) return;
+        return blockEvent(e);
+      }, true);
+
+      // Neutralize programmatic navigation attempts
+      try { window.open = function() { return null }; } catch (_) {}
+      try {
+        var noop = function(){};
+        history.pushState = noop;
+        history.replaceState = noop;
+      } catch (_) {}
+      try {
+        if (window.location) {
+          window.location.assign = function(){};
+          window.location.replace = function(){};
+        }
+      } catch (_) {}
+    })();
+  &lt;/script&gt;
+&lt;script&gt;
+(function() {
+  function _uxpResizeCharts() {
+    if (window.Plotly) {
+      document.querySelectorAll('.plot-container.plotly').forEach(function(pc) {
+        var gd = pc.parentElement;
+        if (!gd) return;
+        var rect = gd.getBoundingClientRect();
+        if (rect.width &lt;= 0 || rect.height &lt;= 0) return;
+        try { window.Plotly.relayout(gd, { width: Math.round(rect.width), height: Math.round(rect.height) }); } catch(e) {}
+      });
+    }
+    if (window.ApexCharts &amp;&amp; window.Apex &amp;&amp; window.Apex._chartInstances) {
+      window.Apex._chartInstances.forEach(function(inst) {
+        try { (inst.chart || inst).updateOptions({}, false, false); } catch(e) {}
+      });
+    }
+    if (window.Chart) {
+      try { Object.values(window.Chart.instances || {}).forEach(function(c) { c.resize(); }); } catch(e) {}
+    }
+  }
+
+  window.addEventListener('load', function() {
+    setTimeout(function() { _uxpResizeCharts(); setTimeout(_uxpResizeCharts, 500); }, 300);
+    try {
+      var _lastW = 0, _lastH = 0, _timer = 0;
+      new ResizeObserver(function() {
+        var w = document.documentElement.clientWidth;
+        var h = document.documentElement.clientHeight;
+        if (w === _lastW &amp;&amp; h === _lastH) return;
+        _lastW = w; _lastH = h;
+        clearTimeout(_timer);
+        _timer = setTimeout(_uxpResizeCharts, 150);
+      }).observe(document.documentElement);
+    } catch(e) {}
+  });
+})();
+&lt;/script&gt;&lt;/body&gt;
+
+&lt;/html&gt;" frameborder="0"
+        style="width: 375px; height: 840px; min-height: 840px; border: 2px solid rgb(209, 213, 219); border-radius: 0.5rem; display: block;"></iframe>
+</body>
+
+</html>

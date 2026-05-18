@@ -1,0 +1,516 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <iframe title="wireframe-kg5cBkIYVz4XjeQFoU8v" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;pt-BR&quot;&gt;
+&lt;head&gt;
+    &lt;script&gt;
+        window.FontAwesomeConfig = {
+          autoReplaceSvg: 'nest'
+        };
+      &lt;/script&gt;
+    &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js&quot; crossorigin=&quot;anonymous&quot; referrerpolicy=&quot;no-referrer&quot;&gt;&lt;/script&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot;&gt;
+    &lt;title&gt;Rota - Fica Bem&lt;/title&gt;
+    &lt;script src=&quot;https://cdn.tailwindcss.com&quot;&gt;&lt;/script&gt;
+    &lt;link href=&quot;https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css&quot; integrity=&quot;sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==&quot; crossorigin=&quot;anonymous&quot; referrerpolicy=&quot;no-referrer&quot; /&gt;
+    &lt;script&gt;
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            300: '#86efac',
+                            400: '#4ade80',
+                            500: '#5f927d',
+                            600: '#2f6759',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                        }
+                    }
+                }
+            }
+        }
+    &lt;/script&gt;
+    &lt;style&gt;
+        body { margin: 0; padding: 0; background-color: #2f6759; -webkit-font-smoothing: antialiased; }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        
+        .custom-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        .soft-shadow {
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Map specific styles */
+        .map-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 0;
+            background-color: #1a3c33; /* Darker map base */
+        }
+
+        /* Bottom Sheet Styles */
+        .bottom-sheet {
+            background: rgba(47, 103, 89, 0.95);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 32px 32px 0 0;
+            box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.3);
+            transform: translateY(0);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .bottom-sheet.collapsed {
+            transform: translateY(calc(100% - 140px));
+        }
+
+        .drag-handle {
+            width: 40px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 9999px;
+            margin: 0 auto;
+        }
+
+        /* Route Toggle Switch */
+        .route-toggle {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 9999px;
+            padding: 4px;
+            display: flex;
+            position: relative;
+        }
+        .route-toggle-btn {
+            flex: 1;
+            text-align: center;
+            padding: 8px 0;
+            border-radius: 9999px;
+            font-size: 13px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.6);
+            transition: all 0.3s ease;
+            z-index: 2;
+        }
+        .route-toggle-btn.active {
+            color: #2f6759;
+        }
+        .route-toggle-slider {
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            width: calc(50% - 4px);
+            height: calc(100% - 8px);
+            background: #86efac;
+            border-radius: 9999px;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1;
+            box-shadow: 0 2px 8px rgba(134, 239, 172, 0.3);
+        }
+
+        /* FAB */
+        .fab-emergency {
+            position: absolute;
+            right: 24px;
+            bottom: 160px; /* Above bottom sheet collapsed state */
+            width: 56px;
+            height: 56px;
+            background: #ef4444; /* Red for emergency, keeping it semantic but soft */
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            box-shadow: 0 8px 24px rgba(239, 68, 68, 0.4);
+            z-index: 40;
+            animation: pulse-soft 2s infinite;
+        }
+
+        @keyframes pulse-soft {
+            0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(239, 68, 68, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .modal-content {
+            transform: translateY(100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body class=&quot;text-white min-h-[100dvh] flex flex-col items-center justify-center relative overflow-hidden m-0 p-0&quot;&gt;
+    
+    &lt;!-- Main Container (Mobile Constrained) --&gt;
+    &lt;main id=&quot;app-rota&quot; class=&quot;w-full max-w-[375px] h-[840px] max-h-[100dvh] relative z-10 flex flex-col bg-[#2f6759] mx-auto overflow-hidden&quot;&gt;
+        
+        &lt;!-- Map Background Layer (Simulated) --&gt;
+        &lt;div class=&quot;map-container overflow-hidden&quot;&gt;
+            &lt;!-- Simulated Map Image with Brand Tint --&gt;
+            &lt;div class=&quot;absolute inset-0 bg-[#1a3c33] mix-blend-multiply opacity-60 z-10 pointer-events-none&quot;&gt;&lt;/div&gt;
+            &lt;img class=&quot;w-full h-full object-cover&quot; src=&quot;https://storage.googleapis.com/uxpilot-auth.appspot.com/8ce12478cc-f68a75c08b7e0b8e1b77.png&quot; alt=&quot;A clean, minimalist city street map view, dark mode style with soft green and teal tones, showing a route path, mobile app map interface, high contrast roads&quot; /&gt;
+            
+            &lt;!-- Route Line Overlay --&gt;
+            &lt;svg class=&quot;absolute inset-0 w-full h-full z-20 pointer-events-none&quot; viewBox=&quot;0 0 375 840&quot; preserveAspectRatio=&quot;none&quot;&gt;
+                &lt;path d=&quot;M 180 600 C 180 500, 220 450, 200 350 C 180 250, 150 200, 150 100&quot; fill=&quot;none&quot; stroke=&quot;#86efac&quot; stroke-width=&quot;6&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; class=&quot;drop-shadow-[0_0_8px_rgba(134,239,172,0.6)]&quot; /&gt;
+                
+                &lt;!-- Start Point --&gt;
+                &lt;circle cx=&quot;180&quot; cy=&quot;600&quot; r=&quot;8&quot; fill=&quot;#ffffff&quot; stroke=&quot;#2f6759&quot; stroke-width=&quot;4&quot; /&gt;
+                &lt;!-- End Point --&gt;
+                &lt;circle cx=&quot;150&quot; cy=&quot;100&quot; r=&quot;10&quot; fill=&quot;#86efac&quot; stroke=&quot;#ffffff&quot; stroke-width=&quot;3&quot; class=&quot;drop-shadow-lg&quot; /&gt;
+            &lt;/svg&gt;
+
+            &lt;!-- Safe Point Marker (Apoio) --&gt;
+            &lt;div class=&quot;absolute top-[380px] left-[240px] z-20 flex flex-col items-center transform -translate-x-1/2 -translate-y-full&quot;&gt;
+                &lt;div class=&quot;bg-white text-brand-900 text-[10px] font-bold px-2 py-1 rounded-md shadow-lg mb-1&quot;&gt;Café Seguro&lt;/div&gt;
+                &lt;div class=&quot;w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-lg border-2 border-brand-300&quot;&gt;
+                    &lt;i class=&quot;fa-solid fa-mug-hot text-[14px] text-brand-600&quot;&gt;&lt;/i&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Top Action Bar (Floating) --&gt;
+        &lt;header id=&quot;rota-header&quot; class=&quot;absolute top-0 w-full px-6 pt-12 pb-4 z-30 flex items-center justify-between pointer-events-none&quot;&gt;
+            &lt;button class=&quot;w-10 h-10 rounded-full glass-panel flex items-center justify-center hover:bg-white/20 transition-colors shadow-lg pointer-events-auto&quot; aria-label=&quot;Voltar&quot;&gt;
+                &lt;i class=&quot;fa-solid fa-chevron-left text-[16px] text-white&quot;&gt;&lt;/i&gt;
+            &lt;/button&gt;
+            &lt;div class=&quot;glass-panel px-4 py-2 rounded-full flex items-center gap-2 pointer-events-auto shadow-lg&quot;&gt;
+                &lt;div class=&quot;w-2 h-2 rounded-full bg-brand-300 animate-pulse&quot;&gt;&lt;/div&gt;
+                &lt;span class=&quot;text-[12px] font-semibold text-white tracking-wide&quot;&gt;Compartilhando&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;button class=&quot;w-10 h-10 rounded-full glass-panel flex items-center justify-center hover:bg-white/20 transition-colors shadow-lg pointer-events-auto&quot; aria-label=&quot;Opções&quot;&gt;
+                &lt;i class=&quot;fa-solid fa-ellipsis-vertical text-[16px] text-white&quot;&gt;&lt;/i&gt;
+            &lt;/button&gt;
+        &lt;/header&gt;
+
+        &lt;!-- Quick Access Sidebar (Floating Right) --&gt;
+        &lt;div class=&quot;absolute right-6 top-[120px] z-30 flex flex-col gap-3&quot;&gt;
+            &lt;button class=&quot;w-11 h-11 rounded-full glass-panel flex items-center justify-center hover:bg-white/20 transition-colors shadow-lg&quot; aria-label=&quot;Check-in&quot;&gt;
+                &lt;i class=&quot;fa-solid fa-location-dot text-[16px] text-white&quot;&gt;&lt;/i&gt;
+            &lt;/button&gt;
+            &lt;button class=&quot;w-11 h-11 rounded-full glass-panel flex items-center justify-center hover:bg-white/20 transition-colors shadow-lg&quot; aria-label=&quot;Pontos de Apoio&quot;&gt;
+                &lt;i class=&quot;fa-solid fa-shield-heart text-[16px] text-brand-300&quot;&gt;&lt;/i&gt;
+            &lt;/button&gt;
+            &lt;button class=&quot;w-11 h-11 rounded-full glass-panel flex items-center justify-center hover:bg-white/20 transition-colors shadow-lg&quot; aria-label=&quot;Centralizar&quot;&gt;
+                &lt;i class=&quot;fa-solid fa-crosshairs text-[16px] text-white&quot;&gt;&lt;/i&gt;
+            &lt;/button&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Emergency FAB --&gt;
+        &lt;button class=&quot;fab-emergency&quot; aria-label=&quot;Emergência&quot;&gt;
+            &lt;i class=&quot;fa-solid fa-phone text-[20px]&quot;&gt;&lt;/i&gt;
+        &lt;/button&gt;
+
+        &lt;!-- Bottom Sheet (Route Status &amp; Controls) --&gt;
+        &lt;div id=&quot;route-bottom-sheet&quot; class=&quot;bottom-sheet absolute bottom-[84px] w-full z-40 flex flex-col max-h-[60vh]&quot;&gt;
+            &lt;div class=&quot;w-full py-3 flex justify-center shrink-0 cursor-pointer&quot; onclick=&quot;document.getElementById('route-bottom-sheet').classList.toggle('collapsed')&quot;&gt;
+                &lt;div class=&quot;drag-handle&quot;&gt;&lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class=&quot;px-6 pb-6 overflow-y-auto hide-scrollbar flex-1 space-y-6&quot;&gt;
+                
+                &lt;!-- ETA &amp; Distance Header --&gt;
+                &lt;div class=&quot;flex items-end justify-between&quot;&gt;
+                    &lt;div&gt;
+                        &lt;h2 class=&quot;text-[32px] font-bold text-white leading-none mb-1&quot;&gt;12 min&lt;/h2&gt;
+                        &lt;p class=&quot;text-[14px] text-white/70&quot;&gt;1.2 km • Chegada às 18:45&lt;/p&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;bg-brand-300/20 border border-brand-300/30 px-3 py-1.5 rounded-lg flex items-center gap-1.5&quot;&gt;
+                        &lt;i class=&quot;fa-solid fa-person-walking text-brand-300 text-[14px]&quot;&gt;&lt;/i&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Route Toggle --&gt;
+                &lt;div class=&quot;route-toggle w-full h-[44px]&quot;&gt;
+                    &lt;div class=&quot;route-toggle-slider transform translate-x-0&quot;&gt;&lt;/div&gt; &lt;!-- translate-x-full for right --&gt;
+                    &lt;button class=&quot;route-toggle-btn active&quot; onclick=&quot;this.previousElementSibling.style.transform='translate-x-0'; this.classList.add('active'); this.nextElementSibling.classList.remove('active');&quot;&gt;
+                        Mais Segura
+                    &lt;/button&gt;
+                    &lt;button class=&quot;route-toggle-btn&quot; onclick=&quot;this.previousElementSibling.previousElementSibling.style.transform='translateX(100%)'; this.classList.add('active'); this.previousElementSibling.classList.remove('active');&quot;&gt;
+                        Mais Rápida
+                    &lt;/button&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Destination Info --&gt;
+                &lt;div class=&quot;bg-white/5 border border-white/10 rounded-[16px] p-4 flex items-center gap-4&quot;&gt;
+                    &lt;div class=&quot;w-10 h-10 rounded-full bg-brand-300/20 flex items-center justify-center shrink-0&quot;&gt;
+                        &lt;i class=&quot;fa-solid fa-flag-checkered text-brand-300 text-[16px]&quot;&gt;&lt;/i&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;flex-1 min-w-0&quot;&gt;
+                        &lt;h3 class=&quot;text-[15px] font-medium text-white truncate&quot;&gt;Metrô Vila Madalena&lt;/h3&gt;
+                        &lt;p class=&quot;text-[13px] text-white/60 truncate&quot;&gt;R. Heitor Penteado, s/n&lt;/p&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Active Sharing / Contacts --&gt;
+                &lt;div class=&quot;space-y-3&quot;&gt;
+                    &lt;div class=&quot;flex items-center justify-between&quot;&gt;
+                        &lt;h3 class=&quot;text-[14px] font-medium text-white/90&quot;&gt;Compartilhando com&lt;/h3&gt;
+                        &lt;button class=&quot;text-[12px] text-brand-300 font-medium&quot; onclick=&quot;document.getElementById('share-modal').classList.add('active')&quot;&gt;Adicionar&lt;/button&gt;
+                    &lt;/div&gt;
+                    
+                    &lt;div class=&quot;flex gap-3 overflow-x-auto hide-scrollbar pb-1&quot;&gt;
+                        &lt;!-- Contact 1 --&gt;
+                        &lt;div class=&quot;flex flex-col items-center gap-1.5 shrink-0&quot;&gt;
+                            &lt;div class=&quot;w-12 h-12 rounded-full border-2 border-brand-300 p-[2px] relative&quot;&gt;
+                                &lt;div class=&quot;w-full h-full rounded-full bg-white/10 overflow-hidden&quot;&gt;
+                                    &lt;img src=&quot;https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-1.jpg&quot; alt=&quot;Mãe&quot; class=&quot;w-full h-full object-cover&quot;&gt;
+                                &lt;/div&gt;
+                                &lt;div class=&quot;absolute -bottom-1 -right-1 w-4 h-4 bg-brand-300 rounded-full border-2 border-[#2f6759] flex items-center justify-center&quot;&gt;
+                                    &lt;i class=&quot;fa-solid fa-check text-[#2f6759] text-[8px]&quot;&gt;&lt;/i&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;span class=&quot;text-[11px] text-white/80&quot;&gt;Mãe&lt;/span&gt;
+                        &lt;/div&gt;
+                        
+                        &lt;!-- Contact 2 --&gt;
+                        &lt;div class=&quot;flex flex-col items-center gap-1.5 shrink-0&quot;&gt;
+                            &lt;div class=&quot;w-12 h-12 rounded-full border-2 border-white/20 p-[2px] relative opacity-60&quot;&gt;
+                                &lt;div class=&quot;w-full h-full rounded-full bg-white/10 overflow-hidden flex items-center justify-center text-white/50 text-[18px]&quot;&gt;
+                                    &lt;i class=&quot;fa-regular fa-user&quot;&gt;&lt;/i&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;span class=&quot;text-[11px] text-white/50&quot;&gt;Ana&lt;/span&gt;
+                        &lt;/div&gt;
+                        
+                        &lt;!-- Share Link CTA --&gt;
+                        &lt;div class=&quot;flex flex-col items-center gap-1.5 shrink-0&quot; onclick=&quot;document.getElementById('share-modal').classList.add('active')&quot;&gt;
+                            &lt;div class=&quot;w-12 h-12 rounded-full border border-dashed border-white/30 bg-white/5 flex items-center justify-center text-white/70 hover:bg-white/10 hover:border-white/50 transition-colors cursor-pointer&quot;&gt;
+                                &lt;i class=&quot;fa-solid fa-link text-[16px]&quot;&gt;&lt;/i&gt;
+                            &lt;/div&gt;
+                            &lt;span class=&quot;text-[11px] text-white/70&quot;&gt;Link&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Event Log Drawer (Preview) --&gt;
+                &lt;div class=&quot;bg-white/5 border border-white/10 rounded-[16px] p-4&quot;&gt;
+                    &lt;div class=&quot;flex items-center justify-between mb-3&quot;&gt;
+                        &lt;h3 class=&quot;text-[14px] font-medium text-white/90&quot;&gt;Registro da Rota&lt;/h3&gt;
+                        &lt;button class=&quot;text-[12px] text-white/50 hover:text-white transition-colors&quot;&gt;Ver tudo&lt;/button&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;space-y-3 relative before:absolute before:inset-y-1 before:left-[7px] before:w-[2px] before:bg-white/10&quot;&gt;
+                        &lt;div class=&quot;flex gap-3 relative z-10&quot;&gt;
+                            &lt;div class=&quot;w-4 h-4 rounded-full bg-brand-300 border-4 border-[#2f6759] shrink-0 mt-0.5&quot;&gt;&lt;/div&gt;
+                            &lt;div&gt;
+                                &lt;p class=&quot;text-[13px] text-white font-medium&quot;&gt;Rota iniciada&lt;/p&gt;
+                                &lt;span class=&quot;text-[11px] text-white/50&quot;&gt;18:33&lt;/span&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;flex gap-3 relative z-10&quot;&gt;
+                            &lt;div class=&quot;w-4 h-4 rounded-full bg-white/20 border-4 border-[#2f6759] shrink-0 mt-0.5&quot;&gt;&lt;/div&gt;
+                            &lt;div&gt;
+                                &lt;p class=&quot;text-[13px] text-white/80&quot;&gt;Localização compartilhada com Mãe&lt;/p&gt;
+                                &lt;span class=&quot;text-[11px] text-white/50&quot;&gt;18:33&lt;/span&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Finish Route CTA --&gt;
+                &lt;button class=&quot;w-full bg-white/10 border border-white/20 text-white font-bold text-[16px] py-4 rounded-[16px] hover:bg-white/20 transition-all duration-200 mt-2&quot;&gt;
+                    Encerrar Rota
+                &lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Bottom Navigation Shell (Consistent with prior screens context) --&gt;
+        &lt;nav id=&quot;bottom-nav&quot; class=&quot;absolute bottom-0 w-full h-[84px] bg-[#2f6759]/95 backdrop-blur-xl border-t border-white/10 z-50 pb-4 px-6 flex items-center justify-between&quot;&gt;
+            
+            &lt;button class=&quot;flex flex-col items-center justify-center gap-1.5 w-16 h-full text-white/50 hover:text-white/80 transition-colors&quot; aria-label=&quot;Feed&quot;&gt;
+                &lt;i class=&quot;fa-solid fa-house text-[20px]&quot;&gt;&lt;/i&gt;
+                &lt;span class=&quot;text-[11px] font-medium&quot;&gt;Feed&lt;/span&gt;
+            &lt;/button&gt;
+            
+            &lt;button class=&quot;flex flex-col items-center justify-center gap-1.5 w-16 h-full relative&quot; aria-label=&quot;Explorar&quot;&gt;
+                &lt;div class=&quot;absolute -top-[1px] w-8 h-[3px] bg-white rounded-b-full&quot;&gt;&lt;/div&gt;
+                &lt;i class=&quot;fa-solid fa-compass text-[20px] text-white&quot;&gt;&lt;/i&gt;
+                &lt;span class=&quot;text-[11px] font-medium text-white&quot;&gt;Explorar&lt;/span&gt;
+            &lt;/button&gt;
+            
+            &lt;button class=&quot;flex flex-col items-center justify-center gap-1.5 w-16 h-full text-white/50 hover:text-white/80 transition-colors&quot; aria-label=&quot;Perfil&quot;&gt;
+                &lt;i class=&quot;fa-regular fa-user text-[20px]&quot;&gt;&lt;/i&gt;
+                &lt;span class=&quot;text-[11px] font-medium&quot;&gt;Perfil&lt;/span&gt;
+            &lt;/button&gt;
+
+        &lt;/nav&gt;
+
+        &lt;!-- Share Modal Overlay --&gt;
+        &lt;div id=&quot;share-modal&quot; class=&quot;modal-overlay fixed inset-0 z-[60] flex items-end justify-center bg-[#14532d]/80 backdrop-blur-sm&quot;&gt;
+            &lt;div class=&quot;modal-content w-full max-w-[375px] bg-[#2f6759] rounded-t-[32px] p-6 flex flex-col shadow-2xl border-t border-white/10 relative&quot;&gt;
+                
+                &lt;div class=&quot;w-10 h-1 bg-white/20 rounded-full mx-auto mb-6&quot;&gt;&lt;/div&gt;
+                
+                &lt;h2 class=&quot;text-[20px] font-bold text-white mb-2&quot;&gt;Compartilhar Rota&lt;/h2&gt;
+                &lt;p class=&quot;text-[14px] text-white/70 mb-6&quot;&gt;Envie sua localização em tempo real para contatos de confiança ou copie o link.&lt;/p&gt;
+                
+                &lt;div class=&quot;space-y-4 mb-6&quot;&gt;
+                    &lt;!-- Contact List Item --&gt;
+                    &lt;div class=&quot;flex items-center justify-between bg-white/5 p-3 rounded-[16px] border border-white/5&quot;&gt;
+                        &lt;div class=&quot;flex items-center gap-3&quot;&gt;
+                            &lt;div class=&quot;w-10 h-10 rounded-full bg-white/10 overflow-hidden&quot;&gt;
+                                &lt;img src=&quot;https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-5.jpg&quot; alt=&quot;Ana Paula&quot; class=&quot;w-full h-full object-cover&quot;&gt;
+                            &lt;/div&gt;
+                            &lt;div&gt;
+                                &lt;p class=&quot;text-[14px] font-medium text-white&quot;&gt;Ana Paula&lt;/p&gt;
+                                &lt;p class=&quot;text-[12px] text-white/50&quot;&gt;Contato Frequente&lt;/p&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;button class=&quot;w-8 h-8 rounded-full bg-brand-300/20 text-brand-300 flex items-center justify-center border border-brand-300/30&quot;&gt;
+                            &lt;i class=&quot;fa-solid fa-plus text-[14px]&quot;&gt;&lt;/i&gt;
+                        &lt;/button&gt;
+                    &lt;/div&gt;
+
+                    &lt;!-- Contact List Item --&gt;
+                    &lt;div class=&quot;flex items-center justify-between bg-white/5 p-3 rounded-[16px] border border-white/5&quot;&gt;
+                        &lt;div class=&quot;flex items-center gap-3&quot;&gt;
+                            &lt;div class=&quot;w-10 h-10 rounded-full bg-white/10 overflow-hidden&quot;&gt;
+                                &lt;img src=&quot;https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-6.jpg&quot; alt=&quot;Juliana&quot; class=&quot;w-full h-full object-cover&quot;&gt;
+                            &lt;/div&gt;
+                            &lt;div&gt;
+                                &lt;p class=&quot;text-[14px] font-medium text-white&quot;&gt;Juliana&lt;/p&gt;
+                                &lt;p class=&quot;text-[12px] text-white/50&quot;&gt;Irmã&lt;/p&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;button class=&quot;w-8 h-8 rounded-full bg-brand-300/20 text-brand-300 flex items-center justify-center border border-brand-300/30&quot;&gt;
+                            &lt;i class=&quot;fa-solid fa-plus text-[14px]&quot;&gt;&lt;/i&gt;
+                        &lt;/button&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;div class=&quot;flex gap-3&quot;&gt;
+                    &lt;button class=&quot;flex-1 bg-white/10 border border-white/20 text-white font-semibold text-[15px] py-3.5 rounded-[16px] flex items-center justify-center gap-2 hover:bg-white/20 transition-colors&quot;&gt;
+                        &lt;i class=&quot;fa-regular fa-copy&quot;&gt;&lt;/i&gt; Copiar Link
+                    &lt;/button&gt;
+                    &lt;button class=&quot;flex-1 bg-brand-300 text-brand-900 font-bold text-[15px] py-3.5 rounded-[16px] flex items-center justify-center gap-2 hover:bg-brand-200 transition-colors shadow-[0_4px_12px_rgba(134,239,172,0.3)]&quot;&gt;
+                        &lt;i class=&quot;fa-solid fa-share-nodes&quot;&gt;&lt;/i&gt; Enviar
+                    &lt;/button&gt;
+                &lt;/div&gt;
+                
+                &lt;button onclick=&quot;document.getElementById('share-modal').classList.remove('active')&quot; class=&quot;w-full mt-4 py-3 text-[14px] text-white/60 font-medium hover:text-white transition-colors&quot;&gt;
+                    Cancelar
+                &lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+    &lt;/main&gt;
+
+
+  &lt;script&gt;
+    (function() {
+      function blockEvent(e) {
+        if (!e) return false;
+        if (typeof e.preventDefault === 'function') e.preventDefault();
+        if (typeof e.stopPropagation === 'function') e.stopPropagation();
+        if (typeof e.stopImmediatePropagation === 'function') e.stopImmediatePropagation();
+        return false;
+      }
+
+      // Block all anchor navigations (including http(s), mailto, tel, hash, fragments)
+      document.addEventListener('click', function(e) {
+        var a = e.target &amp;&amp; e.target.closest ? e.target.closest('a[href]') : null;
+        if (!a) return;
+        return blockEvent(e);
+      }, true);
+
+      // Neutralize programmatic navigation attempts
+      try { window.open = function() { return null }; } catch (_) {}
+      try {
+        var noop = function(){};
+        history.pushState = noop;
+        history.replaceState = noop;
+      } catch (_) {}
+      try {
+        if (window.location) {
+          window.location.assign = function(){};
+          window.location.replace = function(){};
+        }
+      } catch (_) {}
+    })();
+  &lt;/script&gt;
+&lt;script&gt;
+(function() {
+  function _uxpResizeCharts() {
+    if (window.Plotly) {
+      document.querySelectorAll('.plot-container.plotly').forEach(function(pc) {
+        var gd = pc.parentElement;
+        if (!gd) return;
+        var rect = gd.getBoundingClientRect();
+        if (rect.width &lt;= 0 || rect.height &lt;= 0) return;
+        try { window.Plotly.relayout(gd, { width: Math.round(rect.width), height: Math.round(rect.height) }); } catch(e) {}
+      });
+    }
+    if (window.ApexCharts &amp;&amp; window.Apex &amp;&amp; window.Apex._chartInstances) {
+      window.Apex._chartInstances.forEach(function(inst) {
+        try { (inst.chart || inst).updateOptions({}, false, false); } catch(e) {}
+      });
+    }
+    if (window.Chart) {
+      try { Object.values(window.Chart.instances || {}).forEach(function(c) { c.resize(); }); } catch(e) {}
+    }
+  }
+
+  window.addEventListener('load', function() {
+    setTimeout(function() { _uxpResizeCharts(); setTimeout(_uxpResizeCharts, 500); }, 300);
+    try {
+      var _lastW = 0, _lastH = 0, _timer = 0;
+      new ResizeObserver(function() {
+        var w = document.documentElement.clientWidth;
+        var h = document.documentElement.clientHeight;
+        if (w === _lastW &amp;&amp; h === _lastH) return;
+        _lastW = w; _lastH = h;
+        clearTimeout(_timer);
+        _timer = setTimeout(_uxpResizeCharts, 150);
+      }).observe(document.documentElement);
+    } catch(e) {}
+  });
+})();
+&lt;/script&gt;&lt;/body&gt;
+&lt;/html&gt;" frameborder="0" style="width: 375px; height: 840px; min-height: 630px; border: 2px solid rgb(209, 213, 219); border-radius: 0.5rem; display: block;"></iframe>
+</body>
+</html>
