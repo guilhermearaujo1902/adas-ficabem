@@ -1,91 +1,83 @@
 /**
- * Tela: Explorar locais (explorar.html)
- * Funcionalidades (roteiro):
- * - Filtrar por categorias
- * - Alternar lista/mapa (visual)
- * - Clique em local → detalhe.html
+ * explorar.html — Filtros, lista/mapa, clique → detalhe
  */
-
 (function initExplorarPage() {
   document.addEventListener("DOMContentLoaded", () => {
-    bindCategoryChips();
+    FicaBemApp.syncPlacesFromDom();
+    bindFilterButton();
     bindViewToggle();
-    bindPlaceCards();
-    renderPlacesList();
+    bindArticles();
+    renderPlacesList(FicaBemApp.getSavedFilter());
   });
 
-  /**
-   * Filtra locais pelos chips de categoria.
-   */
-  function bindCategoryChips() {
-    document.querySelectorAll("button").forEach((chip) => {
-      const text = (chip.textContent || "").trim();
-      if (!text.match(/Café|Bar|Transporte|Restaurante|Cowork/i)) return;
-      chip.addEventListener("click", () => {
-        document.querySelectorAll("button").forEach((b) => b.classList.remove("chip--active"));
-        chip.classList.add("chip--active");
-        const map = { Cafés: "cafes", Bares: "bares", Transporte: "transporte", Restaurantes: "restaurantes" };
-        const key = Object.keys(map).find((k) => text.includes(k.slice(0, 4)));
-        renderPlacesList(map[key] || null);
+  function bindFilterButton() {
+    document
+      .getElementById("btn-filtro-avancado")
+      ?.addEventListener("click", () => FicaBemNav.go("filtro"));
+  }
+
+  function bindViewToggle() {
+    const toggles = document.querySelectorAll("#explorar-view-toggle button");
+    toggles.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        toggles.forEach((b) => {
+          b.classList.remove("is-active");
+          b.setAttribute("aria-selected", "false");
+        });
+        btn.classList.add("is-active");
+        btn.setAttribute("aria-selected", "true");
+
+        const isMap = (btn.textContent || "").toLowerCase().includes("mapa");
+        document.body.classList.toggle("view-map", isMap);
+        const content = document.getElementById("explorar-content");
+        if (content) {
+          content.classList.toggle("hidden", isMap);
+        }
+        let mapView = document.getElementById("explorar-map-view");
+        if (isMap && !mapView) {
+          mapView = document.createElement("section");
+          mapView.id = "explorar-map-view";
+          mapView.className =
+            "content flex flex-col items-center justify-center text-white/70 min-h-[200px]";
+          mapView.innerHTML =
+            '<i class="fa-regular fa-map text-4xl mb-3"></i><p class="text-sm font-sans">Visualização em mapa (simulada)</p>';
+          document.getElementById("auth-welcome")?.insertBefore(
+            mapView,
+            document.getElementById("bottom-nav")
+          );
+        }
+        if (mapView) mapView.classList.toggle("hidden", !isMap);
       });
     });
   }
 
-  /**
-   * Alterna visualização lista/mapa (apenas classes CSS).
-   */
-  function bindViewToggle() {
-    const toggles = document.querySelectorAll('[class*="lista"], [class*="mapa"], button');
-    toggles.forEach((btn) => {
-      const t = (btn.textContent || "").toLowerCase();
-      if (t.includes("lista") || t.includes("mapa")) {
-        btn.addEventListener("click", () => {
-          document.body.classList.toggle("view-map", t.includes("mapa"));
-        });
-      }
+  function bindArticles() {
+    document.querySelectorAll("#explorar-content article").forEach((article, index) => {
+      const name = article.querySelector("h3")?.textContent?.trim();
+      if (!name) return;
+      const place = FicaBemDB.ensurePlace({ name });
+      article.dataset.placeId = place.id;
+      article.style.cursor = "pointer";
+      article.addEventListener("click", (e) => {
+        if (e.target.closest("button")) return;
+        FicaBemDB.startReviewForPlace(place.id);
+        FicaBemNav.go("detalhe", { place: place.id });
+      });
     });
   }
 
-  /**
-   * Delega clique em cards para detalhe.
-   */
-  function bindPlaceCards() {
-    document.addEventListener("click", (e) => {
-      const card = e.target.closest("[data-place-id], .place-card");
-      if (!card) return;
-      const id = card.dataset.placeId;
-      if (id) FicaBemNav.go("detalhe", { place: id });
-    });
-  }
-
-  /**
-   * Lista locais do localStorage na tela.
-   * @param {string|null} category - Filtro opcional
-   */
   function renderPlacesList(category) {
-    const main = document.querySelector("main");
-    if (!main) return;
-
-    let container = document.getElementById("explorar-places-list");
-    if (!container) {
-      container = document.createElement("section");
-      container.id = "explorar-places-list";
-      container.className = "px-6 py-4 flex flex-col gap-3";
-      main.appendChild(container);
-    }
+    const section = document.getElementById("explorar-content");
+    if (!section) return;
 
     const places = FicaBemDB.getPlaces(category);
-    container.innerHTML = places
-      .map(
-        (p) => `
-      <article class="place-card" data-place-id="${p.id}">
-        <div class="flex-1">
-          <h3 class="font-serif font-semibold">${p.name}</h3>
-          <p class="text-xs text-white/60">${p.neighborhood} • Nota ${p.rating}</p>
-        </div>
-        <i class="fa-solid fa-chevron-right text-white/40"></i>
-      </article>`
-      )
-      .join("");
+    const existing = section.querySelectorAll("article");
+    existing.forEach((el, i) => {
+      if (places[i]) {
+        el.dataset.placeId = places[i].id;
+        const h3 = el.querySelector("h3");
+        if (h3) h3.textContent = places[i].name;
+      }
+    });
   }
 })();

@@ -21,7 +21,10 @@
 
   /* Mesmas dimensões do iframe legado */
   --phone-width: 375px;
-  --phone-height: 840px;
+  --phone-height: 770px;
+  --phone-content-padding-x: 1.5rem; /* 24px — padding horizontal simétrico do conteúdo */
+  --phone-bottom-nav-height: 72px;
+  --phone-content-padding-bottom: calc(var(--phone-bottom-nav-height) + var(--space-md));
   --phone-radius: 44px;
   --screen-radius: 36px;
 

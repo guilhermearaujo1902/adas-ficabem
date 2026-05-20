@@ -15,11 +15,9 @@
     <div class="phone-notch" aria-hidden="true"></div>
     <div class="phone-screen">
       <div class="phone-screen-inner h-full w-full m-0 p-0 bg-brand-dark text-white flex flex-col selection:bg-white selection:text-brand-dark overflow-hidden">
-      <main id="convidar-amigas-main"
-            class="w-full h-full max-w-[430px] mx-auto flex flex-col relative sm:shadow-2xl sm:border-x sm:border-white/10 bg-brand-dark overflow-y-auto overflow-x-hidden pb-24 no-scrollbar">
-            <!-- Header Overlay -->
+      <main id="auth-welcome" class="flex flex-col bg-brand-dark">
             <header id="route-header"
-              class="sticky top-0 left-0 w-full pt-6 px-4 pb-4 z-30 flex justify-between items-center bg-brand-dark/95 backdrop-blur-md border-b border-white/10">
+              class="w-full pt-6 pb-4 z-30 flex justify-between items-center shrink-0 bg-brand-dark/95 backdrop-blur-md border-b border-white/10">
               <button
                 class="w-10 h-10 rounded-full glass-effect flex items-center justify-center text-white/80 hover:text-white transition-colors shadow-lg"><i
                   class="fa-solid fa-arrow-left"></i></button>
@@ -28,12 +26,13 @@
                   Convidar Amigas</h1>
               </div>
               <div class="w-10 h-10"></div> <!-- Spacer for centering -->
-            </header><!-- Hero Section: Invite via QR/Link -->
-            <section id="hero-invite" class="px-4 pt-6 pb-4 flex flex-col gap-6">
+            </header>
+            <div class="content">
+            <section id="hero-invite" class="pt-6 pb-4 flex flex-col gap-6">
               <div class="text-center">
                 <h2 class="font-serif text-2xl font-bold text-white mb-2">Juntas somos
                   mais fortes</h2>
-                <p class="font-sans text-sm text-white/70 px-4">Convide suas amigas
+                <p class="font-sans text-sm text-white/70">Convide suas amigas
                   para o Fica Bem e construa uma rede de segurança compartilhada.</p>
               </div><!-- QR Code Card -->
               <div
@@ -49,47 +48,57 @@
                     src="https://storage.googleapis.com/uxpilot-auth.appspot.com/2d94809668-578610c2d176147075c1.png"
                     alt="A clean, high-contrast QR code design, black on white background, minimalist, sharp edges, suitable for scanning"
                     class="w-40 h-40 object-cover rounded-[8px]"></div>
-                <div class="w-full">
+                <div class="w-full min-w-0">
                   <p class="font-sans text-xs text-white/60 text-center mb-2">Ou
                     compartilhe seu link exclusivo:</p>
                   <div
-                    class="flex items-center gap-2 bg-black/20 rounded-[12px] p-1 pl-4 border border-white/10">
+                    class="flex items-center gap-2 min-w-0 bg-black/20 rounded-[12px] p-1 pl-4 border border-white/10">
                     <span
-                      class="font-sans text-sm text-white/80 truncate flex-1">ficabem.app/invite/MARIA92</span><button
-                      class="bg-brand-accent text-white px-4 py-2 rounded-[8px] font-sans text-xs font-semibold hover:bg-brand-accent/90 transition-colors shadow-sm">
+                      class="font-sans text-sm text-white/80 truncate flex-1 min-w-0">ficabem.app/invite/MARIA92</span>
+                    <button
+                      id="btn-copy-link"
+                      type="button"
+                      class="shrink-0 bg-brand-accent text-white px-3 py-2 rounded-[8px] font-sans text-xs font-semibold hover:bg-brand-accent/90 transition-colors shadow-sm">
                       Copiar
-                    </button></div>
+                    </button>
+                  </div>
                 </div>
               </div><!-- Social Sharing Actions -->
               <div class="grid grid-cols-3 gap-3"></div>
             </section><!-- Divider -->
-            <div class="w-full px-4 py-2">
+            <div class="w-full py-2">
               <div class="h-px w-full bg-white/10"></div>
             </div><!-- Referral Code Entry -->
-            <section id="have-code-section" class="px-4 py-4">
-              <div class="glass-card rounded-[16px] p-5 border-brand-accent/30">
-                <div class="flex items-start gap-4">
+            <section id="have-code-section" class="py-4">
+              <div class="glass-card rounded-[16px] p-5 border-brand-accent/30 overflow-hidden">
+                <div class="flex items-start gap-4 min-w-0">
                   <div
                     class="w-10 h-10 rounded-full bg-brand-accent/20 flex items-center justify-center text-brand-accent shrink-0 mt-1">
                     <i class="fa-solid fa-ticket text-lg"></i></div>
-                  <div class="flex flex-col gap-3 w-full">
+                  <div class="flex-1 min-w-0 flex flex-col gap-3">
                     <div>
                       <h3 class="font-sans text-sm font-semibold text-white">Recebi um
                         convite</h3>
                       <p class="font-sans text-xs text-white/60 mt-1">Insira o código
                         que sua amiga compartilhou com você.</p>
                     </div>
-                    <div class="flex gap-2"><input type="text"
+                    <div class="flex flex-col gap-2 min-w-0">
+                      <input
+                        type="text"
                         placeholder="Ex: MARIA92"
-                        class="flex-1 bg-black/20 border border-white/10 rounded-[12px] px-4 py-3 font-sans text-sm text-white placeholder-white/40 transition-all uppercase tracking-wider"><button
-                        class="bg-brand-accent text-white px-5 py-3 rounded-[12px] font-sans text-sm font-semibold hover:bg-brand-accent/90 transition-colors shadow-sm">
+                        class="w-full min-w-0 bg-black/20 border border-white/10 rounded-[12px] px-4 py-3 font-sans text-sm text-white placeholder-white/40 transition-all uppercase tracking-wider">
+                      <button
+                        id="btn-validate-invite"
+                        type="button"
+                        class="w-full bg-brand-accent text-white px-4 py-3 rounded-[12px] font-sans text-sm font-semibold hover:bg-brand-accent/90 transition-colors shadow-sm">
                         Validar
-                      </button></div>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
             </section><!-- Pending Invitations List -->
-            <section id="pending-invites" class="px-4 py-4 flex flex-col gap-4">
+            <section id="pending-invites" class="py-4 flex flex-col gap-4">
               <div class="flex justify-between items-end px-1">
                 <h3 class="font-sans text-base font-semibold text-white">Convites
                   Pendentes</h3><span class="font-sans text-xs text-white/50">2
@@ -136,8 +145,43 @@
                 Ver histórico completo
               </button>
             </section>
-            <!-- Bottom Navigation Bar (Consistent with previous screens) -->
+            </div>
             <nav id="bottom-nav" class="bottom-nav" data-component="bottom-nav"></nav>
+
+            <div
+              id="convite-bottom-sheet"
+              class="modal-overlay"
+              aria-hidden="true"
+              role="dialog"
+              aria-labelledby="convite-sheet-title">
+              <div class="modal-content w-full max-w-[375px] bg-[#2f6759] rounded-t-[32px] p-6 flex flex-col shadow-2xl border-t border-white/10">
+                <div class="w-10 h-1 bg-white/20 rounded-full mx-auto mb-6" aria-hidden="true"></div>
+                <div
+                  data-sheet-icon
+                  class="w-14 h-14 rounded-full bg-brand-300/20 flex items-center justify-center mb-4 mx-auto border border-brand-300/30">
+                  <i class="fa-solid fa-circle-check text-[24px] text-brand-300"></i>
+                </div>
+                <h2
+                  id="convite-sheet-title"
+                  data-sheet-title
+                  class="text-[20px] font-bold text-white mb-2 text-center"></h2>
+                <p
+                  data-sheet-message
+                  class="text-[14px] text-white/70 mb-6 text-center leading-relaxed"></p>
+                <button
+                  type="button"
+                  data-sheet-primary
+                  class="w-full bg-brand-300 text-brand-900 font-bold text-[16px] py-3.5 rounded-[16px] hover:bg-brand-200 transition-colors shadow-[0_4px_12px_rgba(134,239,172,0.3)]">
+                  Entendi
+                </button>
+                <button
+                  type="button"
+                  data-sheet-cancel
+                  class="w-full mt-4 py-3 text-[14px] text-white/60 font-medium hover:text-white transition-colors">
+                  Fechar
+                </button>
+              </div>
+            </div>
           </main>
       </div>
     </div>
@@ -145,6 +189,7 @@
   </div>
   <script src="../js/storage.js"></script>
   <script src="../js/navigation.js"></script>
+  <script src="../js/app-core.js"></script>
   <script src="../js/components/bottom-nav.js"></script>
   <script src="../js/pages/convite.js"></script>
 </body>

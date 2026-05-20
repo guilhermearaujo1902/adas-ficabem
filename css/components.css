@@ -7,6 +7,18 @@
  * (valores extraídos de cada wireframe legado).
  */
 
+/* Botões com glass-panel: mesmo radius dos CTAs primários (14px) */
+.phone-screen-inner button.glass-panel:not(.rounded-full) {
+  border-radius: 14px;
+}
+
+/* Botões internos (chips, ações secundárias — não CTAs full-width nem nav) */
+.phone-screen-inner #auth-welcome .content button:not(.bottom-nav__link):not(.w-full),
+.phone-screen-inner #auth-welcome > header button:not(.w-full) {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
 /* Botões */
 .btn {
   display: inline-flex;
@@ -114,12 +126,9 @@
   background: #fff;
 }
 
-/* Navegação inferior */
+/* Navegação inferior (filho direto de #auth-welcome; ver layout.css) */
 .bottom-nav {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  position: relative;
   height: 72px;
   display: flex;
   justify-content: space-around;
@@ -128,7 +137,7 @@
   background: rgba(47, 103, 89, 0.95);
   backdrop-filter: blur(12px);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  z-index: 50;
+  flex-shrink: 0;
 }
 
 .bottom-nav__link {
@@ -236,4 +245,233 @@
 .app-logo__title em {
   font-style: italic;
   font-weight: 300;
+}
+
+/* Carrossel horizontal (filtros, alertas, chips) */
+.horizontal-scroll {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.75rem;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.horizontal-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.horizontal-scroll > * {
+  flex-shrink: 0;
+}
+
+/* Estende o scroll até as bordas do telefone (compensa padding do header/content) */
+.horizontal-scroll--bleed {
+  margin-left: calc(-1 * var(--phone-content-padding-x));
+  margin-right: calc(-1 * var(--phone-content-padding-x));
+  padding-left: var(--phone-content-padding-x);
+  padding-right: var(--phone-content-padding-x);
+}
+
+#safety-alerts-carousel .horizontal-scroll {
+  gap: 1rem;
+}
+
+#alerts-scroll > article {
+  width: 200px;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+/* Explorar — busca e filtros */
+#explorar-header .explorar-search {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  height: 3rem;
+  padding: 0 1rem;
+  margin-bottom: 1rem;
+  border-radius: 16px;
+  box-sizing: border-box;
+}
+
+#explorar-header .explorar-search input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  padding: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #fff;
+  font-size: 15px;
+  font-family: var(--font-sans);
+}
+
+#explorar-header .explorar-search input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+#explorar-header .explorar-search__icon {
+  flex-shrink: 0;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 14px;
+}
+
+#explorar-header .explorar-search__filter {
+  flex-shrink: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  line-height: 1;
+}
+
+#explorar-header .explorar-search__filter:hover {
+  color: #fff;
+}
+
+#explorar-header .explorar-view-toggle {
+  display: inline-flex;
+  align-self: center;
+  margin: 0 auto 0.5rem;
+  padding: 4px;
+  border-radius: 9999px;
+  background: rgba(47, 103, 89, 0.9);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+#explorar-header .explorar-view-toggle button {
+  width: 5rem;
+  height: 2rem;
+  border: none;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-family: var(--font-sans);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  cursor: pointer;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+}
+
+#explorar-header .explorar-view-toggle button.is-active {
+  background: #fff;
+  color: #2f6759;
+  font-weight: 600;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Tela de rota: mapa + overlays dentro de .content */
+#auth-welcome.rota-screen > .content.rota-content {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+#auth-welcome.rota-screen .map-container {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-color: #1a3c33;
+}
+
+#auth-welcome.rota-screen .fab-emergency {
+  position: absolute;
+  right: 1.5rem;
+  bottom: calc(45vh + 1rem);
+  width: 3.5rem;
+  height: 3.5rem;
+  background: #ef4444;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(239, 68, 68, 0.4);
+  z-index: 40;
+  border: none;
+  cursor: pointer;
+}
+
+#auth-welcome.rota-screen .bottom-sheet {
+  margin-top: auto;
+  position: relative;
+  z-index: 40;
+  background: rgba(47, 103, 89, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 32px 32px 0 0;
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.3);
+  transform: translateY(0);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#auth-welcome.rota-screen .bottom-sheet.collapsed {
+  transform: translateY(calc(100% - 140px));
+}
+
+#auth-welcome.rota-screen .drag-handle {
+  width: 40px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 9999px;
+  margin: 0 auto;
+}
+
+#auth-welcome.rota-screen .route-toggle {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 9999px;
+  padding: 4px;
+  display: flex;
+  position: relative;
+}
+
+#auth-welcome.rota-screen .route-toggle-btn {
+  flex: 1;
+  text-align: center;
+  padding: 8px 0;
+  border-radius: 9999px;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.6);
+  transition: all 0.3s ease;
+  z-index: 2;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+#auth-welcome.rota-screen .route-toggle-btn.active {
+  color: #2f6759;
+}
+
+#auth-welcome.rota-screen .route-toggle-slider {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: calc(50% - 4px);
+  height: calc(100% - 8px);
+  background: #86efac;
+  border-radius: 9999px;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+  box-shadow: 0 2px 8px rgba(134, 239, 172, 0.3);
+}
+
+#auth-welcome.rota-screen #share-modal.modal-overlay {
+  background: rgba(20, 83, 45, 0.8);
+  backdrop-filter: blur(4px);
 }

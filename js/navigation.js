@@ -1,9 +1,5 @@
 /**
- * =============================================================================
  * FICA BEM — Navegação entre telas
- * =============================================================================
- * Centraliza rotas e proteção de páginas que exigem login.
- *
  * @namespace FicaBemNav
  */
 
@@ -43,11 +39,6 @@ const FicaBemNav = (function () {
     "avaliacao-7",
   ]);
 
-  /**
-   * Redireciona para uma rota nomeada.
-   * @param {string} routeName - Chave em ROUTES (ex: "feed")
-   * @param {Object} [query] - Parâmetros de query string opcionais
-   */
   function go(routeName, query) {
     const base = ROUTES[routeName];
     if (!base) {
@@ -63,10 +54,6 @@ const FicaBemNav = (function () {
     window.location.href = base + params;
   }
 
-  /**
-   * Verifica se há usuário logado; redireciona para login se necessário.
-   * @param {string} pageId - Valor de data-page da tela atual
-   */
   function requireAuth(pageId) {
     if (!AUTH_REQUIRED.has(pageId)) return;
     if (!FicaBemDB.getCurrentUser()) {
@@ -74,18 +61,10 @@ const FicaBemNav = (function () {
     }
   }
 
-  /**
-   * Obtém parâmetro da URL (ex: ?place=place-1).
-   * @param {string} key - Nome do parâmetro
-   * @returns {string|null} Valor ou null
-   */
   function getQueryParam(key) {
     return new URLSearchParams(window.location.search).get(key);
   }
 
-  /**
-   * Inicializa proteção de rota na carga da página.
-   */
   function initAuthGuard() {
     const pageId = document.body.dataset.page;
     if (pageId) requireAuth(pageId);

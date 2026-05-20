@@ -1,23 +1,40 @@
 /**
- * Avaliação — Etapa 6/7: Recomendação e contexto
- * Salva se recomenda o local e avança para revisão.
+ * avaliacao-6.html — Recomendação → revisão
  */
-
 (function initAvaliacao6() {
   document.addEventListener("DOMContentLoaded", () => {
+    AvaliacaoFlow.bindCancel();
     AvaliacaoFlow.bindSkip(6);
+    bindRecommend();
 
     AvaliacaoFlow.bindNext("avaliacao7", () => {
-      const data = AvaliacaoFlow.collectFormData();
-      let recommend = null;
-      document.querySelectorAll("button, input").forEach((el) => {
-        const t = (el.textContent || el.value || "").toLowerCase();
-        if (el.classList.contains("ring-2") || el.checked) {
-          if (t.includes("sim")) recommend = true;
-          if (t.includes("não") || t.includes("nao")) recommend = false;
-        }
+      FicaBemDB.updateDraftReview({
+        step6: {
+          ...AvaliacaoFlow.collectFormData(),
+          recommend: getRecommendValue(),
+        },
       });
-      FicaBemDB.updateDraftReview({ step6: { ...data, recommend } });
     });
   });
+
+  function bindRecommend() {
+    document.querySelectorAll("button").forEach((btn) => {
+      const t = (btn.textContent || "").toLowerCase();
+      if (t === "sim" || t === "não" || t === "nao") {
+        btn.addEventListener("click", () => {
+          document
+            .querySelectorAll("[data-recommend]")
+            .forEach((b) => b.classList.remove("ring-2", "ring-brand-300"));
+          btn.classList.add("ring-2", "ring-brand-300");
+          btn.dataset.recommend = t.includes("sim") ? "yes" : "no";
+        });
+      }
+    });
+  }
+
+  function getRecommendValue() {
+    const selected = document.querySelector("[data-recommend='yes'], [data-recommend='no']");
+    if (!selected) return null;
+    return selected.dataset.recommend === "yes";
+  }
 })();

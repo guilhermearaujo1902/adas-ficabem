@@ -1,23 +1,13 @@
 /**
- * Tela: Boas-vindas (login.html)
- * Funcionalidades (roteiro):
- * - Botão "Entrar" → feed (login simulado com usuária demo se necessário)
- * - Botão "Tenho convite" → tela de convite
+ * login.html — Entrar → feed | Tenho convite → convite
  */
-
 (function initLoginPage() {
   document.addEventListener("DOMContentLoaded", () => {
     const footer = document.getElementById("welcome-actions");
     if (!footer) return;
 
-    const buttons = footer.querySelectorAll("button");
-    const btnEntrar = buttons[0];
-    const btnConvite = buttons[1];
+    const [btnEntrar, btnConvite] = footer.querySelectorAll("button");
 
-    /**
-     * Garante uma usuária logada para demonstração acadêmica.
-     * Cria perfil demo se ainda não existir ninguém cadastrado.
-     */
     function ensureDemoSession() {
       let user = FicaBemDB.getCurrentUser();
       if (user) return user;
@@ -32,20 +22,17 @@
         name: "Mariana",
         email: "mariana@ficabem.app",
         password: "demo123",
+        username: "mariana",
       });
     }
 
-    if (btnEntrar) {
-      btnEntrar.addEventListener("click", () => {
-        ensureDemoSession();
-        FicaBemNav.go("feed");
-      });
-    }
+    btnEntrar?.addEventListener("click", () => {
+      ensureDemoSession();
+      FicaBemNav.go("feed");
+    });
 
-    if (btnConvite) {
-      btnConvite.addEventListener("click", () => {
-        FicaBemNav.go("convite");
-      });
-    }
+    btnConvite?.addEventListener("click", () => {
+      FicaBemNav.go("convite");
+    });
   });
 })();

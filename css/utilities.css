@@ -87,12 +87,12 @@
 .border-white\/5{border-color:color-mix(in srgb, #fff 5%, transparent)}
 .border-yellow-500\/30{border-color:rgba(234,179,8,0.3)}
 .bottom-0{bottom:0}
-.bottom-\[-20%\]{bottom:-20%}
+.bottom-\[-20\%\]{bottom:-20%}
 .bottom-\[84px\]{bottom:84px}
 .cursor-pointer{cursor:pointer}
 .custom-scrollbar{-ms-overflow-style:none;scrollbar-width:none}.custom-scrollbar::-webkit-scrollbar{display:none}
 .drop-shadow-2xl{filter:drop-shadow(0 25px 25px rgb(0 0 0 / 0.15))}
-.duration-200{transition-duration:20000ms}
+.duration-200{transition-duration:200ms}
 .fixed{position:fixed}
 .flex{display:flex}
 .flex-1{flex:1 1 0%}
@@ -146,8 +146,8 @@
 .h-\[44px\]{height:44px}
 .h-\[4px\]{height:4px}
 .h-\[52px\]{height:52px}
-.h-\[60%\]{height:60%}
-.h-\[80%\]{height:80%}
+.h-\[60\%\]{height:60%}
+.h-\[80\%\]{height:80%}
 .h-\[840px\]{height:840px}
 .h-\[84px\]{height:84px}
 .h-full{height:100%}
@@ -188,7 +188,7 @@
 .leading-snug{line-height:1.375}
 .leading-tight{line-height:1.25}
 .left-0{left:0}
-.left-\[-20%\]{left:-20%}
+.left-\[-20\%\]{left:-20%}
 .left-\[240px\]{left:240px}
 .m-0{margin:0}
 .max-h-\[100dvh\]{max-height:100dvh}
@@ -198,7 +198,7 @@
 .max-w-\[327px\]{max-width:327px}
 .max-w-\[375px\]{max-width:375px}
 .max-w-\[430px\]{max-width:430px}
-.max-w-\[90%\]{max-width:90%}
+.max-w-\[90\%\]{max-width:90%}
 .mb-0\.5{margin-bottom:0.125rem}
 .mb-1{margin-bottom:0.25rem}
 .mb-1\.5{margin-bottom:0.375rem}
@@ -265,31 +265,31 @@
 .pt-3{padding-top:0.75rem}
 .pt-4{padding-top:1rem}
 .pt-6{padding-top:1.5rem}
-.px-1{padding-left:0.25rem;padding-right}
-.px-1\.5{padding-left:0.375rem;padding-right}
-.px-2{padding-left:0.5rem;padding-right}
-.px-2\.5{padding-left:0.625rem;padding-right}
-.px-3{padding-left:0.75rem;padding-right}
-.px-4{padding-left:1rem;padding-right}
-.px-5{padding-left:1.25rem;padding-right}
-.px-6{padding-left:1.5rem;padding-right}
-.py-0\.5{padding-top:0.125rem;padding-bottom}
-.py-1{padding-top:0.25rem;padding-bottom}
-.py-1\.5{padding-top:0.375rem;padding-bottom}
-.py-10{padding-top:2.5rem;padding-bottom}
-.py-2{padding-top:0.5rem;padding-bottom}
-.py-2\.5{padding-top:0.625rem;padding-bottom}
-.py-3{padding-top:0.75rem;padding-bottom}
-.py-3\.5{padding-top:0.875rem;padding-bottom}
-.py-4{padding-top:1rem;padding-bottom}
-.py-6{padding-top:1.5rem;padding-bottom}
+.px-1{padding-left:0.25rem;padding-right:0.25rem}
+.px-1\.5{padding-left:0.375rem;padding-right:0.375rem}
+.px-2{padding-left:0.5rem;padding-right:0.5rem}
+.px-2\.5{padding-left:0.625rem;padding-right:0.625rem}
+.px-3{padding-left:0.75rem;padding-right:0.75rem}
+.px-4{padding-left:1rem;padding-right:1rem}
+.px-5{padding-left:1.25rem;padding-right:1.25rem}
+.px-6{padding-left:1.5rem;padding-right:1.5rem}
+.py-0\.5{padding-top:0.125rem;padding-bottom:0.125rem}
+.py-1{padding-top:0.25rem;padding-bottom:0.25rem}
+.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}
+.py-10{padding-top:2.5rem;padding-bottom:2.5rem}
+.py-2{padding-top:0.5rem;padding-bottom:0.5rem}
+.py-2\.5{padding-top:0.625rem;padding-bottom:0.625rem}
+.py-3{padding-top:0.75rem;padding-bottom:0.75rem}
+.py-3\.5{padding-top:0.875rem;padding-bottom:0.875rem}
+.py-4{padding-top:1rem;padding-bottom:1rem}
+.py-6{padding-top:1.5rem;padding-bottom:1.5rem}
 .relative{position:relative}
 .right-0{right:0}
-.right-\[-10%\]{right:-10%}
+.right-\[-10\%\]{right:-10%}
 .rounded{border-radius:0.25rem}
 .rounded-2xl{border-radius:1rem}
 .rounded-3xl{border-radius:1.5rem}
-.rounded-\[100%\]{border-radius:100%}
+.rounded-\[100\%\]{border-radius:100%}
 .rounded-\[12px\]{border-radius:12px}
 .rounded-\[14px\]{border-radius:14px}
 .rounded-\[16px\]{border-radius:16px}
@@ -301,9 +301,9 @@
 .rounded-lg{border-radius:0.5rem}
 .rounded-md{border-radius:0.375rem}
 .rounded-xl{border-radius:0.75rem}
-.shadow-lg{0 10px 15px rgba(0,0,0,.1)}
-.shadow-md{0 4px 6px rgba(0,0,0,.1)}
-.shadow-sm{0 1px 2px rgba(0,0,0,.05)}
+.shadow-lg{box-shadow:0 10px 15px rgba(0,0,0,.1)}
+.shadow-md{box-shadow:0 4px 6px rgba(0,0,0,.1)}
+.shadow-sm{box-shadow:0 1px 2px rgba(0,0,0,.05)}
 .shrink-0{flex-shrink:0}
 .snap-start{scroll-snap-align:start}
 .space-y-1>*+*{margin-top:0.25rem}
@@ -317,8 +317,8 @@
 .sticky{position:sticky}
 .text-2xl{font-size:1.5rem}
 .text-3xl{font-size:1.875rem}
-.text-\[#2f6759\]{font-size:#2f6759}
-.text-\[#4e9983\]{font-size:#4e9983}
+.text-\[#2f6759\]{color:#2f6759}
+.text-\[#4e9983\]{color:#4e9983}
 .text-\[10px\]{font-size:10px}
 .text-\[11px\]{font-size:11px}
 .text-\[12px\]{font-size:12px}
@@ -364,7 +364,7 @@
 .to-\[#5f927d\]{--tw-gradient-to:#5f927d}
 .to-transparent{--tw-gradient-to:transparent}
 .top-0{top:0}
-.top-\[-10%\]{top:-10%}
+.top-\[-10\%\]{top:-10%}
 .top-\[120px\]{top:120px}
 .top-\[14px\]{top:14px}
 .top-\[380px\]{top:380px}
@@ -396,11 +396,11 @@
 .w-6{width:1.5rem}
 .w-64{width:16.0rem}
 .w-8{width:2rem}
-.w-\[140%\]{width:140%}
+.w-\[140\%\]{width:140%}
 .w-\[200px\]{width:200px}
 .w-\[220px\]{width:220px}
-.w-\[80%\]{width:80%}
-.w-\[calc(100%-3rem)\]{width:calc(100%-3rem)}
+.w-\[80\%\]{width:80%}
+.w-\[calc\(100\%-3rem\)\]{width:calc(100% - 3rem)}
 .w-full{width:100%}
 .whitespace-nowrap{white-space:nowrap}
 .z-0{z-index:0}

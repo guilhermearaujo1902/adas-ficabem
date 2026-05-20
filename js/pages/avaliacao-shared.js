@@ -1,45 +1,57 @@
 /**
- * Funções compartilhadas pelo fluxo de avaliação (7 etapas).
- * Usado pelos scripts avaliacao-1.js … avaliacao-7.js
+ * Fluxo de avaliação em 7 etapas (compartilhado).
  */
 
 const AvaliacaoFlow = {
-  /**
-   * Vincula botão "Próximo" ou "Continuar" à próxima etapa.
-   * @param {string} nextRoute - Nome da rota em FicaBemNav
-   * @param {Function} [onSave] - Callback para salvar dados antes de navegar
-   */
   bindNext(nextRoute, onSave) {
-    const btn = this.findButton(["Próximo", "Continuar", "proximo"]);
+    const btn = FicaBemApp.findPrimaryActionButton(["próximo", "continuar"]);
     if (!btn) return;
     btn.addEventListener("click", (e) => {
       e.preventDefault();
       if (typeof onSave === "function") onSave();
       FicaBemNav.go(nextRoute);
     });
+
+    const headerNext = document.querySelector(
+      '#avaliar-header button[aria-label="Próximo"]'
+    );
+    if (headerNext && headerNext !== btn) {
+      headerNext.addEventListener("click", (e) => {
+        e.preventDefault();
+        if (typeof onSave === "function") onSave();
+        FicaBemNav.go(nextRoute);
+      });
+    }
   },
 
-  /**
-   * Vincula botão "Pular" direto para revisão final (etapa 7).
-   * @param {number} fromStep - Número da etapa atual (1-6)
-   */
   bindSkip(fromStep) {
-    const btn = this.findButton(["Pular", "pular"]);
+    const btn =
+      document.querySelector('#avaliar-header button[aria-label="Pular"]') ||
+      FicaBemApp.findButton(["pular"]);
     if (!btn) return;
     btn.addEventListener("click", (e) => {
       e.preventDefault();
       const draft = FicaBemDB.getDraftReview();
-      draft.skippedSteps = draft.skippedSteps || [];
-      if (!draft.skippedSteps.includes(fromStep)) draft.skippedSteps.push(fromStep);
-      FicaBemDB.updateDraftReview({ skippedSteps: draft.skippedSteps });
+      const skipped = draft.skippedSteps || [];
+      if (!skipped.includes(fromStep)) skipped.push(fromStep);
+      FicaBemDB.updateDraftReview({ skippedSteps: skipped });
       FicaBemNav.go("avaliacao7");
     });
   },
 
-  /**
-   * Coleta valores de inputs, textareas e selects do formulário visível.
-   * @returns {Object} Pares nome/valor simplificados
-   */
+  bindCancel() {
+    const btn = document.querySelector(
+      '#avaliar-header button[aria-label="Cancelar"], #avaliar-header button[aria-label="Voltar"]'
+    );
+    if (!btn) return;
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      if (confirm("Deseja sair da avaliação? O rascunho será mantido.")) {
+        FicaBemNav.go("explorar");
+      }
+    });
+  },
+
   collectFormData() {
     const data = {};
     document.querySelectorAll("input, textarea, select").forEach((el, i) => {
@@ -47,20 +59,61 @@ const AvaliacaoFlow = {
       if (el.type === "checkbox") data[key] = el.checked;
       else if (el.type === "radio") {
         if (el.checked) data[key] = el.value;
-      } else data[key] = el.value;
+      } else if (el.type !== "file") data[key] = el.value;
     });
     return data;
   },
 
-  /**
-   * Localiza botão pelo texto.
-   * @param {string[]} labels
-   * @returns {HTMLButtonElement|null}
-   */
+  collectSentiments() {
+    const active = document.querySelectorAll(".sentiment-chip.active, .sentiment-chip.border-brand-300");
+    if (active.length) {
+      return Array.from(active).map((el) => el.textContent.trim());
+    }
+    return Array.from(document.querySelectorAll(".sentiment-chip"))
+      .filter((el) => el.classList.contains("active"))
+      .map((el) => el.textContent.trim());
+  },
+
+  collectChipSelections(selector) {
+    return Array.from(document.querySelectorAll(selector))
+      .filter((el) => el.classList.contains("active") || el.classList.contains("border-brand-300"))
+      .map((el) => el.textContent.trim());
+  },
+
+  collectVisibility() {
+    let visibility = "public";
+    document.querySelectorAll('input[type="radio"], button, [data-visibility]').forEach((el) => {
+      const t = (
+        el.dataset.visibility ||
+        el.value ||
+        el.textContent ||
+        ""
+      ).toLowerCase();
+      if ((el.checked || el.classList.contains("ring-2") || el.classList.contains("active")) && t.includes("anôn")) {
+        visibility = "anonymous";
+      }
+    });
+    return visibility;
+  },
+
+  bindListRowSelection() {
+    document.querySelectorAll(".list-row").forEach((row) => {
+      row.addEventListener("click", () => {
+        document.querySelectorAll(".list-row").forEach((r) => {
+          r.classList.remove("ring-2", "ring-brand-300");
+        });
+        row.classList.add("ring-2", "ring-brand-300");
+        const name = row.querySelector(".font-semibold, .font-medium")?.textContent?.trim();
+        if (name) {
+          const place = FicaBemDB.ensurePlace({ name });
+          FicaBemDB.updateDraftReview({ placeId: place.id, placeName: place.name });
+        }
+      });
+    });
+  },
+
   findButton(labels) {
-    return Array.from(document.querySelectorAll("button")).find((btn) =>
-      labels.some((l) => (btn.textContent || "").trim().includes(l))
-    );
+    return FicaBemApp.findButton(labels);
   },
 };
 

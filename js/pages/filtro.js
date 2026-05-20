@@ -1,22 +1,28 @@
 /**
- * Tela: Filtro por setor (filtro.html)
- * Funcionalidades complementares:
- * - Aplicar filtros e retornar ao feed ou explorar
+ * filtro.html — Aplicar filtros → feed / explorar
  */
-
 (function initFiltroPage() {
   document.addEventListener("DOMContentLoaded", () => {
-    const applyBtn = Array.from(document.querySelectorAll("button")).find((b) =>
-      /aplicar|confirmar|filtrar/i.test(b.textContent || "")
-    );
-
-    if (applyBtn) {
-      applyBtn.addEventListener("click", () => {
-        const selected = document.querySelector('input[type="radio"]:checked, .chip--active');
-        const value = selected?.value || selected?.textContent || "todos";
-        sessionStorage.setItem("ficabem_filter_category", value);
-        FicaBemNav.go("feed");
-      });
-    }
+    bindBack();
+    bindApply();
   });
+
+  function bindBack() {
+    document
+      .querySelector("#setor-header button")
+      ?.addEventListener("click", () => FicaBemNav.go("explorar"));
+  }
+
+  function bindApply() {
+    const applyBtn = FicaBemApp.findButton(["aplicar", "confirmar", "filtrar"]);
+    applyBtn?.addEventListener("click", () => {
+      const active = document.querySelector(
+        ".chip--active, button.bg-white, [aria-pressed='true']"
+      );
+      const label = active?.textContent || "todos";
+      const category = FicaBemApp.categoryFromLabel(label) || "todos";
+      FicaBemApp.setSavedFilter(category);
+      FicaBemNav.go("feed");
+    });
+  }
 })();

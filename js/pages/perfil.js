@@ -1,59 +1,50 @@
 /**
- * Tela: Perfil da usuária (perfil.html)
- * Funcionalidades (roteiro):
- * - Exibir dados cadastrados, contagem de avaliações e salvas
- * - Horários seguros e categorias evitadas
- * - "Convidar Amigas" → convite.html
+ * perfil.html — Dados, estatísticas, Convidar Amigas
  */
-
 (function initPerfilPage() {
   document.addEventListener("DOMContentLoaded", () => {
     renderProfile();
-    bindConvidarButton();
+    bindConvidar();
   });
 
-  /**
-   * Preenche a tela com dados do usuário logado.
-   */
   function renderProfile() {
     const user = FicaBemDB.getCurrentUser();
     if (!user) return;
 
-    const nameEl = document.querySelector("#profile-header h2, #profile-header h3, section h2");
-    if (nameEl) nameEl.textContent = user.name;
+    const h2 = document.querySelector("#profile-header h2");
+    if (h2) h2.textContent = user.name;
 
-    const emailEl = document.querySelector("#profile-header p");
-    if (emailEl && user.email) emailEl.textContent = user.email;
+    const sub = document.querySelector("#profile-header p.text-white\\/70");
+    if (sub) {
+      sub.textContent = user.username
+        ? `@${user.username.replace(/^@/, "")} • Exploradora`
+        : "Exploradora Urbana";
+    }
 
-    document.querySelectorAll("[data-stat-reviews]").forEach((el) => {
-      el.textContent = user.reviewsCount || 0;
-    });
+    const stats = document.querySelectorAll("#contribution-stats .font-serif.text-2xl");
+    if (stats[0]) stats[0].textContent = user.reviewsCount || 0;
+    if (stats[1]) stats[1].textContent = user.routesCount || 0;
+    if (stats[2]) stats[2].textContent = user.savedCount || 0;
 
-    document.querySelectorAll("[data-stat-saved]").forEach((el) => {
-      el.textContent = user.savedCount || 0;
-    });
+    const hours = document.querySelector(
+      "#security-preferences .fa-clock"
+    )?.closest(".flex")?.querySelector("p.text-\\[10px\\]");
+    if (hours && user.safeHours?.length) {
+      hours.textContent = user.safeHours.join(" • ");
+    }
 
-    // Atualiza números em cards genéricos (wireframe)
-    document.querySelectorAll("span.font-bold, .font-bold").forEach((el) => {
-      if ((el.textContent || "").match(/^\d+$/)) {
-        const label = el.parentElement?.textContent?.toLowerCase() || "";
-        if (label.includes("avalia")) el.textContent = user.reviewsCount || 0;
-        if (label.includes("salv")) el.textContent = user.savedCount || 0;
-      }
-    });
+    const cats = document.querySelector(
+      "#security-preferences .fa-layer-group"
+    )?.closest(".flex")?.querySelector("p.text-\\[10px\\]");
+    if (cats && user.avoidedCategories?.length) {
+      cats.textContent = user.avoidedCategories.join(", ");
+    }
   }
 
-  /**
-   * Navega para tela de convite.
-   */
-  function bindConvidarButton() {
-    document.querySelectorAll("button, a").forEach((el) => {
-      if ((el.textContent || "").toLowerCase().includes("convidar")) {
-        el.addEventListener("click", (e) => {
-          e.preventDefault();
-          FicaBemNav.go("convite");
-        });
-      }
-    });
+  function bindConvidar() {
+    document
+      .querySelector("#action-menu .fa-user-plus")
+      ?.closest("button")
+      ?.addEventListener("click", () => FicaBemNav.go("convite"));
   }
 })();

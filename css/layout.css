@@ -10,7 +10,6 @@
   background: linear-gradient(145deg, #1a3d34 0%, #2f6759 40%, #5f927d 100%);
 }
 
-/* Moldura do dispositivo (bezel + notch) */
 .phone-device {
   position: relative;
   width: calc(var(--phone-width) + 24px);
@@ -35,7 +34,6 @@
   pointer-events: none;
 }
 
-/* Viewport interna = mesmo tamanho do iframe legado */
 .phone-screen {
   width: var(--phone-width);
   height: var(--phone-height);
@@ -45,7 +43,13 @@
   background: #2f6759;
 }
 
-/* Substitui <body> do wireframe legado */
+.phone-screen-inner,
+.phone-screen-inner *,
+.phone-screen-inner *::before,
+.phone-screen-inner *::after {
+  box-sizing: border-box;
+}
+
 .phone-screen-inner {
   width: 100%;
   height: 100%;
@@ -55,6 +59,113 @@
   -moz-osx-font-smoothing: grayscale;
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+}
+
+/**
+ * Shell do app: header (topo) + .content (scroll) + nav (rodapé).
+ * Sem padding no main — recuo fica no header e no .content.
+ */
+#auth-welcome {
+  width: 100%;
+  height: 100%;
+  max-width: var(--phone-width);
+  max-height: 100%;
+  margin-inline: auto;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+
+#auth-welcome > header {
+  flex-shrink: 0;
+  position: relative;
+  z-index: 30;
+  width: 100%;
+  padding-left: var(--phone-content-padding-x);
+  padding-right: var(--phone-content-padding-x);
+  overflow: visible;
+}
+
+#auth-welcome > .content {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+  padding-left: var(--phone-content-padding-x);
+  padding-right: var(--phone-content-padding-x);
+  padding-bottom: var(--phone-content-padding-bottom);
+}
+
+/* Telas sem nav (login, criar perfil) */
+#auth-welcome.auth-welcome--no-nav > .content {
+  padding-bottom: var(--space-lg);
+}
+
+#auth-welcome > .bottom-nav {
+  flex-shrink: 0;
+  position: relative;
+  width: 100%;
+  margin: 0;
+  z-index: 40;
+}
+
+/* Telas full-bleed: .content sem padding lateral (mapa, hero) */
+#auth-welcome.auth-welcome--bleed > .content {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+#auth-welcome.auth-welcome--bleed > .content > section:not(#visual-header-info) {
+  padding-left: var(--phone-content-padding-x);
+  padding-right: var(--phone-content-padding-x);
+}
+
+#auth-welcome.auth-welcome--bleed > header {
+  padding-left: var(--phone-content-padding-x);
+  padding-right: var(--phone-content-padding-x);
+}
+
+/* Modais / bottom sheet (filhos diretos do main) */
+#auth-welcome > .modal-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 60;
+  display: none;
+  align-items: flex-end;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  background: rgba(20, 83, 45, 0.8);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+#auth-welcome > .modal-overlay.active {
+  display: flex;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#auth-welcome > .modal-overlay .modal-content {
+  transform: translateY(100%);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#auth-welcome > .modal-overlay.active .modal-content {
+  transform: translateY(0);
 }
 
 .phone-home-indicator {
@@ -70,12 +181,11 @@
   pointer-events: none;
 }
 
-/* main do legado: não forçar altura diferente */
-.phone-screen-inner > main {
+.phone-screen-inner > main,
+.phone-screen-inner > #auth-welcome {
   box-sizing: border-box;
 }
 
-/* Dentro do viewport 840px, 100dvh do legado vira 100% */
 .phone-screen .min-h-\[100dvh\] {
   min-height: 100% !important;
 }
@@ -87,4 +197,9 @@
 
 .phone-screen .max-h-\[100dvh\] {
   max-height: 100% !important;
+}
+
+/* Login sem barra inferior visível */
+#auth-welcome.auth-welcome--no-nav > .bottom-nav {
+  display: none;
 }

@@ -2,6 +2,8 @@
 
 Aplicativo web mobile-first de rede de confiança e proteção para mulheres. Interface simulada em um **frame de celular centralizado** na tela do navegador.
 
+Stack: **HTML**, **CSS** e **JavaScript** (sem backend; persistência em `localStorage`).
+
 ## Estrutura de pastas
 
 ```
@@ -12,31 +14,30 @@ adas-ficabem/
 │   ├── base.css            # Reset e estilos globais
 │   ├── layout.css          # Simulador de celular
 │   ├── components.css      # Botões, cards, nav, formulários
-│   ├── utilities.css       # Utilitários (gerado dos wireframes)
+│   ├── utilities.css       # Utilitários de layout (Tailwind-like)
 │   └── main.css            # Importa todos os módulos
 ├── js/
 │   ├── storage.js          # Banco simulado (localStorage)
 │   ├── navigation.js       # Rotas e proteção de login
+│   ├── app-core.js         # Utilitários compartilhados
 │   ├── components/
 │   │   └── bottom-nav.js   # Barra inferior compartilhada
 │   └── pages/              # Um script por tela com lógica
 ├── pages/                  # Telas HTML integradas
-├── scripts/
-│   ├── build-pages.py      # Gera pages/ a partir dos wireframes
-│   └── generate-utilities.py
-├── legacy-wireframes/      # HTML originais exportados (referência)
-└── roteiro.docx            # Especificação funcional
+├── legacy-wireframes/      # HTML originais exportados (referência visual)
+└── roteiro.txt             # Especificação funcional resumida
 ```
 
 ## Como executar
 
-Abra com um servidor local (recomendado) ou diretamente o arquivo:
+Use um servidor local estático (recomendado para `localStorage` e imports relativos):
 
 ```bash
-# Python
-python3 -m http.server 8080
-# Acesse http://localhost:8080
+npx --yes serve .
+# Acesse a URL exibida no terminal (ex.: http://localhost:3000)
 ```
+
+Alternativa: abra `index.html` diretamente no navegador (alguns recursos podem variar conforme o browser).
 
 ## Fluxo principal (roteiro)
 
@@ -54,14 +55,9 @@ Chave: `ficabem_app_v1`
 
 Armazena usuárias, locais, avaliações, convites e rascunho da avaliação em andamento. API global: `FicaBemDB` (ver comentários em `js/storage.js`).
 
-## Regenerar páginas
+## Wireframes legados
 
-Após alterar wireframes em `legacy-wireframes/`:
-
-```bash
-python3 scripts/generate-utilities.py
-python3 scripts/build-pages.py
-```
+A pasta `legacy-wireframes/` guarda os HTML exportados originais. As telas ativas ficam em `pages/` e são editadas manualmente em HTML/CSS/JS.
 
 ## Créditos
 

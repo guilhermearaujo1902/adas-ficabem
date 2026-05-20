@@ -14,7 +14,7 @@
   <div class="phone-device" aria-label="Simulador de aplicativo mobile">
     <div class="phone-notch" aria-hidden="true"></div>
     <div class="phone-screen">
-      <div class="phone-screen-inner text-white min-h-[100dvh] flex flex-col items-center justify-center relative overflow-hidden m-0 p-0">
+      <div class="phone-screen-inner text-white h-full w-full flex flex-col relative overflow-hidden m-0 p-0">
       <!-- Background Elements -->
           <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
               <div class="absolute top-[-10%] left-[-20%] w-[140%] h-[60%] bg-gradient-to-b from-brand-500/40 to-transparent rounded-[100%] blur-3xl opacity-60"></div>
@@ -22,10 +22,10 @@
           </div>
       
           <!-- Main Container (Mobile Constrained) -->
-          <main id="app-explorar" class="w-full max-w-[375px] h-[840px] max-h-[100dvh] relative z-10 flex flex-col bg-[#2f6759] mx-auto overflow-hidden">
+          <main id="auth-welcome" class="flex flex-col bg-[#2f6759]">
               
               <!-- Header / Search -->
-              <header id="explorar-header" class="w-full px-6 pt-12 pb-4 z-20 shrink-0 bg-[#2f6759]/90 backdrop-blur-md border-b border-white/5 relative">
+              <header id="explorar-header" class="w-full pt-12 pb-4 z-20 shrink-0 bg-[#2f6759]/90 backdrop-blur-md border-b border-white/5">
                   <div class="flex items-center justify-between mb-6">
                       <div class="font-medium text-[22px] tracking-wide text-white/90">
                           Fica <span class="italic font-light">Bem</span>
@@ -37,44 +37,48 @@
                   </div>
       
                   <!-- Search Bar -->
-                  <div class="relative w-full mb-4">
-                      <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-white/40 text-[14px]"></i>
-                      <input type="text" placeholder="Buscar locais seguros..." 
-                          class="w-full h-12 pl-10 pr-12 rounded-[16px] glass-panel text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all text-[15px] shadow-[0_4px_12px_rgba(0,0,0,0.05)]">
-                      <button class="absolute right-4 top-1/2 -translate-y-1/2 text-white/60 hover:text-white transition-colors">
+                  <div class="explorar-search glass-panel shadow-sm">
+                      <i class="fa-solid fa-magnifying-glass explorar-search__icon" aria-hidden="true"></i>
+                      <input
+                        type="search"
+                        placeholder="Buscar locais seguros..."
+                        aria-label="Buscar locais seguros">
+                      <button
+                        type="button"
+                        id="btn-filtro-avancado"
+                        class="explorar-search__filter"
+                        aria-label="Filtros avançados">
                           <i class="fa-solid fa-sliders text-[14px]"></i>
                       </button>
                   </div>
       
                   <!-- Filters -->
-                  <div class="flex overflow-x-auto hide-scrollbar gap-2 pb-2 -mx-6 px-6 snap-x">
-                      <button class="snap-start shrink-0 h-8 px-4 rounded-full bg-white text-brand-600 font-medium text-[12px] flex items-center gap-1.5 shadow-[0_4px_14px_0_rgba(0,0,0,0.1)]">
+                  <div id="explorar-filters-scroll" class="horizontal-scroll horizontal-scroll--bleed pb-2 mb-3">
+                      <button type="button" class="h-8 px-4 rounded-full bg-white text-brand-600 font-medium text-[12px] flex items-center gap-1.5 shadow-sm">
                           <i class="fa-solid fa-shield-halved text-[11px]"></i> Mais Seguro
                       </button>
-                      <button class="snap-start shrink-0 h-8 px-4 rounded-full glass-panel text-white font-medium text-[12px] flex items-center gap-1.5 hover:bg-white/10">
+                      <button type="button" class="h-8 px-4 rounded-full glass-panel text-white font-medium text-[12px] flex items-center gap-1.5 hover:bg-white/10">
                           <i class="fa-solid fa-location-dot text-[11px]"></i> Distância
                       </button>
-                      <button class="snap-start shrink-0 h-8 px-4 rounded-full glass-panel text-white font-medium text-[12px] flex items-center gap-1.5 hover:bg-white/10">
+                      <button type="button" class="h-8 px-4 rounded-full glass-panel text-white font-medium text-[12px] flex items-center gap-1.5 hover:bg-white/10">
                           <i class="fa-solid fa-star text-[11px]"></i> Score Mínimo
                       </button>
-                      <button class="snap-start shrink-0 h-8 px-4 rounded-full glass-panel text-white font-medium text-[12px] flex items-center gap-1.5 hover:bg-white/10">
+                      <button type="button" class="h-8 px-4 rounded-full glass-panel text-white font-medium text-[12px] flex items-center gap-1.5 hover:bg-white/10">
                           <i class="fa-regular fa-clock text-[11px]"></i> Aberto Agora
                       </button>
                   </div>
                   
-                  <!-- View Toggle -->
-                  <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 z-30 flex bg-brand-600/90 backdrop-blur-md p-1 rounded-full border border-white/10 shadow-[0_8px_24px_rgba(0,0,0,0.2)]">
-                      <button class="w-20 h-8 rounded-full bg-white text-brand-600 text-[12px] font-semibold flex items-center justify-center gap-1.5 shadow-sm">
+                  <div id="explorar-view-toggle" class="explorar-view-toggle" role="tablist" aria-label="Modo de visualização">
+                      <button type="button" class="is-active" role="tab" aria-selected="true">
                           <i class="fa-solid fa-list-ul"></i> Lista
                       </button>
-                      <button class="w-20 h-8 rounded-full text-white/80 hover:text-white text-[12px] font-medium flex items-center justify-center gap-1.5 transition-colors">
+                      <button type="button" role="tab" aria-selected="false">
                           <i class="fa-regular fa-map"></i> Mapa
                       </button>
                   </div>
               </header>
       
-              <!-- Main Scrollable Content (List View Active) -->
-              <section id="explorar-content" class="flex-1 overflow-y-auto hide-scrollbar pt-10 pb-[100px] z-10 w-full px-6 space-y-4">
+              <div id="explorar-content" class="content pt-4 space-y-4">
                   
                   <div class="flex items-center justify-between mb-2">
                       <h2 class="text-[16px] font-semibold text-white">Resultados próximos</h2>
@@ -168,9 +172,8 @@
                       </button>
                   </article>
       
-              </section>
+              </div>
       
-              <!-- Bottom Navigation Shell (Consistent with prior screens context) -->
               <nav id="bottom-nav" class="bottom-nav" data-component="bottom-nav"></nav>
       
           </main>
@@ -180,6 +183,7 @@
   </div>
   <script src="../js/storage.js"></script>
   <script src="../js/navigation.js"></script>
+  <script src="../js/app-core.js"></script>
   <script src="../js/components/bottom-nav.js"></script>
   <script src="../js/pages/explorar.js"></script>
 </body>

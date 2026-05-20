@@ -1,94 +1,160 @@
 /**
- * Tela: Convidar amigas / validar convite (convite.html)
- * Funcionalidades (roteiro):
- * - Validar código de convite → criar perfil
- * - Compartilhar QR/link (simulado)
- * - Listar convites pendentes do localStorage
+ * convite.html — Validar convite → criar perfil | Compartilhar QR/link
  */
-
 (function initConvitePage() {
-  const INVITE_CODE_KEY = "ficabem_pending_invite_code";
+  const SHEET_ID = "convite-bottom-sheet";
 
   document.addEventListener("DOMContentLoaded", () => {
+    bindBack();
     renderPendingInvites();
-    bindValidateButton();
-    bindShareActions();
+    bindValidate();
+    bindShare();
   });
 
-  /**
-   * Exibe convites pendentes na interface.
-   */
+  function openSheet(options) {
+    return FicaBemApp.openBottomSheet({ sheetId: SHEET_ID, ...options });
+  }
+
+  function bindBack() {
+    document.querySelector("#route-header button")?.addEventListener("click", (e) => {
+      e.preventDefault();
+      if (FicaBemDB.getCurrentUser()) FicaBemNav.go("perfil");
+      else FicaBemNav.go("login");
+    });
+  }
+
+  function escapeHtml(str) {
+    return String(str)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
+  }
+
+  function formatSentAt(iso) {
+    if (!iso) return "";
+    const days = Math.floor((Date.now() - new Date(iso)) / 86400000);
+    if (days <= 0) return "Enviado hoje";
+    return `Enviado há ${days} dia${days > 1 ? "s" : ""}`;
+  }
+
   function renderPendingInvites() {
-    const list = document.querySelector("#pending-invites-list, [data-pending-invites]");
-    if (!list) return;
+    const container = document.querySelector("#pending-invites .flex.flex-col.gap-3");
+    if (!container) return;
 
     const pending = FicaBemDB.getPendingInvites();
+    const countEl = document.querySelector("#pending-invites span.text-white\\/50");
+
+    if (countEl) countEl.textContent = `${pending.length} aguardando`;
+
     if (!pending.length) {
-      list.innerHTML = "<p class=\"text-white/60 text-sm\">Nenhum convite pendente.</p>";
+      container.innerHTML =
+        '<p class="text-white/60 text-sm font-sans">Nenhum convite pendente.</p>';
       return;
     }
 
-    list.innerHTML = pending
-      .map(
-        (inv) =>
-          `<div class="glass-panel rounded-xl p-3 mb-2">
-            <span class="text-sm font-mono">${inv.code}</span>
-            <span class="text-xs text-white/50 block">Status: ${inv.status}</span>
-          </div>`
-      )
+    container.innerHTML = pending
+      .map((inv) => {
+        const label = inv.label || inv.email || inv.code;
+        const ago = formatSentAt(inv.sentAt);
+        const agoHtml = ago
+          ? `<span class="font-sans text-[10px] text-white/40">${escapeHtml(ago)}</span>`
+          : "";
+        return [
+          '<div class="glass-effect rounded-[16px] p-4 flex items-center justify-between border-white/5">',
+          '<div class="flex items-center gap-3">',
+          '<div class="w-12 h-12 rounded-full bg-black/20 flex items-center justify-center text-white/40 border border-white/10">',
+          '<i class="fa-solid fa-ticket text-lg"></i>',
+          "</div>",
+          '<div class="flex flex-col">',
+          `<span class="font-sans text-sm font-medium text-white">${escapeHtml(label)}</span>`,
+          `<span class="font-sans text-[10px] text-white/50 font-mono">${escapeHtml(inv.code)}</span>`,
+          agoHtml,
+          "</div>",
+          "</div>",
+          `<button type="button" class="px-3 py-1.5 rounded-[8px] bg-white/10 border border-white/10 font-sans text-xs text-white" data-remind="${inv.id}" data-remind-label="${escapeHtml(label)}">`,
+          "Lembrar",
+          "</button>",
+          "</div>",
+        ]
+          .join("");
+      })
       .join("");
+
+    container.querySelectorAll("[data-remind]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const label = btn.getAttribute("data-remind-label") || "sua amiga";
+        openSheet({
+          title: "Lembrete enviado",
+          message: `Enviamos um lembrete para ${label}. Ela receberá uma notificação para aceitar o convite.`,
+          iconClass: "fa-solid fa-bell",
+          primaryText: "Entendi",
+          showCancel: false,
+        });
+      });
+    });
   }
 
-  /**
-   * Localiza campo de código e botão validar.
-   */
-  function bindValidateButton() {
-    const input =
-      document.querySelector('input[type="text"][placeholder*="código"]') ||
-      document.querySelector('input[type="text"]');
-    const validateBtn = findButtonByText(["Validar", "validar", "Confirmar"]);
-
-    if (!validateBtn) return;
-
-    validateBtn.addEventListener("click", () => {
-      const code = input ? input.value : "";
+  function bindValidate() {
+    const input = document.querySelector("#have-code-section input[type='text']");
+    document.getElementById("btn-validate-invite")?.addEventListener("click", () => {
+      const code = input?.value || "";
       if (!FicaBemDB.validateInvite(code)) {
-        alert("Código de convite inválido. Use: FICABEM2025");
+        openSheet({
+          title: "Código inválido",
+          message:
+            "Não encontramos esse convite. Confira o código e tente novamente. Exemplos válidos: FICABEM2025 ou MARIA92.",
+          iconClass: "fa-solid fa-circle-xmark",
+          primaryText: "Tentar novamente",
+          cancelText: "Fechar",
+          showCancel: true,
+        });
         return;
       }
-      sessionStorage.setItem(INVITE_CODE_KEY, code.trim());
-      FicaBemNav.go("criarPerfil");
+
+      FicaBemDB.storePendingInviteCode(code);
+      openSheet({
+        title: "Convite válido!",
+        message: "Ótimo! Agora você pode criar seu perfil e entrar na rede Fica Bem.",
+        iconClass: "fa-solid fa-circle-check",
+        primaryText: "Criar perfil",
+        showCancel: false,
+        onPrimary: ({ close }) => {
+          close();
+          FicaBemNav.go("criarPerfil");
+        },
+      });
     });
   }
 
-  /**
-   * Simula compartilhamento de link/QR para convidar amigas.
-   */
-  function bindShareActions() {
+  function bindShare() {
     const user = FicaBemDB.getCurrentUser();
     const invite = user ? FicaBemDB.createInvite(user.id) : { code: "FICABEM2025" };
-    const shareUrl = `${window.location.origin}/pages/convite.html?code=${invite.code}`;
 
-    document.querySelectorAll("button, a").forEach((el) => {
-      const text = (el.textContent || "").toLowerCase();
-      if (text.includes("copiar") || text.includes("compartilhar") || text.includes("link")) {
-        el.addEventListener("click", (e) => {
-          e.preventDefault();
-          navigator.clipboard?.writeText(shareUrl);
-          alert(`Link copiado!\n${shareUrl}`);
+    const linkEl = document.querySelector("#hero-invite .truncate");
+    const shareUrl = `${location.origin}${location.pathname.replace(/[^/]+$/, "")}convite.html?code=${invite.code}`;
+    if (linkEl) linkEl.textContent = `ficabem.app/invite/${invite.code}`;
+
+    document.getElementById("btn-copy-link")?.addEventListener("click", (e) => {
+      e.preventDefault();
+      const copy = () => {
+        openSheet({
+          title: "Link copiado!",
+          message: `O link foi copiado para a área de transferência. Compartilhe com suas amigas para entrarem no Fica Bem.`,
+          iconClass: "fa-regular fa-copy",
+          primaryText: "Entendi",
+          showCancel: false,
         });
+      };
+
+      if (navigator.clipboard?.writeText) {
+        navigator.clipboard.writeText(shareUrl).then(copy).catch(copy);
+      } else {
+        copy();
       }
     });
-  }
 
-  /**
-   * Busca botão pelo texto visível.
-   * @param {string[]} labels - Textos aceitos
-   * @returns {HTMLElement|null}
-   */
-  function findButtonByText(labels) {
-    return Array.from(document.querySelectorAll("button")).find((btn) =>
-      labels.some((l) => (btn.textContent || "").trim().includes(l))
-    );
+    const prefill = new URLSearchParams(location.search).get("code");
+    const codeInput = document.querySelector("#have-code-section input[type='text']");
+    if (prefill && codeInput) codeInput.value = prefill;
   }
 })();

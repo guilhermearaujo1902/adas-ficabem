@@ -1,10 +1,9 @@
 /**
- * Avaliação — Etapa 5/7: Fotos e autoria
- * Registra consentimento de uso das imagens.
+ * avaliacao-5.html — Fotos e autoria → etapa 6
  */
-
 (function initAvaliacao5() {
   document.addEventListener("DOMContentLoaded", () => {
+    AvaliacaoFlow.bindCancel();
     AvaliacaoFlow.bindSkip(5);
 
     AvaliacaoFlow.bindNext("avaliacao6", () => {
@@ -13,7 +12,9 @@
       FicaBemDB.updateDraftReview({
         step5: {
           photoConsent: consent ? consent.checked : false,
-          photos: files?.files?.length ? Array.from(files.files).map((f) => f.name) : [],
+          photos: files?.files?.length
+            ? Array.from(files.files).map((f) => f.name)
+            : [],
         },
       });
     });

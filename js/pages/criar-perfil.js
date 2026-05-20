@@ -1,64 +1,87 @@
 /**
- * Tela: Criar conta (criar-perfil.html)
- * Funcionalidades (roteiro):
- * - Preencher formulário e "Criar conta" → feed
- * - Persiste usuária no localStorage e consome convite se houver
+ * criar-perfil.html — Criar conta → feed (consome convite)
  */
-
 (function initCriarPerfilPage() {
-  const INVITE_CODE_KEY = "ficabem_pending_invite_code";
-
   document.addEventListener("DOMContentLoaded", () => {
-    const form = document.querySelector("form") || document.querySelector("main");
-    const btnCriar = findButtonByText(["Criar conta", "Criar Conta"]);
-
-    if (btnCriar) {
-      btnCriar.addEventListener("click", (e) => {
-        e.preventDefault();
-        handleCreateAccount();
-      });
-    }
+    bindBack();
+    bindInterestPills();
+    bindForm();
   });
 
-  /**
-   * Lê campos do formulário e grava novo usuário.
-   */
-  function handleCreateAccount() {
-    const inputs = document.querySelectorAll("input");
-    const data = { name: "", email: "", password: "" };
+  function bindBack() {
+    document
+      .querySelector("#step-header button")
+      ?.addEventListener("click", () => FicaBemNav.go("convite"));
+  }
 
-    inputs.forEach((input) => {
-      const ph = (input.placeholder || "").toLowerCase();
-      const name = (input.name || "").toLowerCase();
-      if (ph.includes("nome") || name.includes("nome")) data.name = input.value;
-      if (ph.includes("e-mail") || ph.includes("email") || input.type === "email")
-        data.email = input.value;
-      if (input.type === "password") data.password = input.value;
+  function bindInterestPills() {
+    document.querySelectorAll(".interest-pill input[type='checkbox']").forEach((input) => {
+      input.addEventListener("change", () => {
+        const checked = document.querySelectorAll(
+          ".interest-pill input[type='checkbox']:checked"
+        );
+        if (checked.length > 3) {
+          input.checked = false;
+          FicaBemApp.showToast("Selecione até 3 áreas de interesse.");
+        }
+      });
     });
+  }
 
-    if (!data.name) data.name = "Nova Usuária";
-    if (!data.email) data.email = `user${Date.now()}@ficabem.app`;
-    if (!data.password) data.password = "123456";
+  function bindForm() {
+    const form = document.getElementById("create-account-form");
+    const btn = FicaBemApp.findButton(["criar conta"]);
 
-    if (FicaBemDB.findUserByEmail(data.email)) {
-      alert("Este e-mail já está cadastrado.");
+    const submit = (e) => {
+      e?.preventDefault();
+      handleCreateAccount();
+    };
+
+    form?.addEventListener("submit", submit);
+    btn?.addEventListener("click", submit);
+  }
+
+  function handleCreateAccount() {
+    const name = document.getElementById("name")?.value?.trim();
+    const username = document.getElementById("username")?.value?.trim();
+    const password = document.getElementById("password")?.value;
+
+    if (!name || !username || !password) {
+      alert("Preencha nome, usuário e senha.");
       return;
     }
 
-    FicaBemDB.createUser(data);
-
-    const inviteCode = sessionStorage.getItem(INVITE_CODE_KEY);
-    if (inviteCode) {
-      FicaBemDB.consumeInvite(inviteCode);
-      sessionStorage.removeItem(INVITE_CODE_KEY);
+    if (password.length < 8) {
+      alert("A senha deve ter no mínimo 8 caracteres.");
+      return;
     }
 
-    FicaBemNav.go("feed");
-  }
+    const email = `${username.replace(/^@/, "")}@ficabem.app`;
 
-  function findButtonByText(labels) {
-    return Array.from(document.querySelectorAll("button")).find((btn) =>
-      labels.some((l) => (btn.textContent || "").includes(l))
-    );
+    if (FicaBemDB.findUserByEmail(email)) {
+      alert("Este usuário já está cadastrado.");
+      return;
+    }
+
+    const interests = Array.from(
+      document.querySelectorAll(".interest-pill input:checked")
+    ).map((i) => i.value);
+
+    FicaBemDB.createUser({ name, username, email, password, interests });
+
+    const inviteCode = FicaBemDB.getPendingInviteCode();
+    if (inviteCode) {
+      FicaBemDB.consumeInvite(inviteCode);
+      FicaBemDB.clearPendingInviteCode();
+    }
+
+    const modal = document.getElementById("success-modal");
+    if (modal) {
+      modal.classList.remove("hidden");
+      modal.classList.add("active");
+      setTimeout(() => FicaBemNav.go("feed"), 1200);
+    } else {
+      FicaBemNav.go("feed");
+    }
   }
 })();
