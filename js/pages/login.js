@@ -1,5 +1,5 @@
 /**
- * login.html — Login e cadastro (localStorage)
+ * login.html — Login (localStorage)
  */
 (function initLoginPage() {
   document.addEventListener("DOMContentLoaded", () => {
@@ -9,38 +9,9 @@
       console.error("[login]", err);
     }
 
-    const tabParam = new URLSearchParams(window.location.search).get("tab");
-    if (tabParam === "register") switchTab("register");
-
-    bindTabs();
     bindPasswordToggles();
     bindLoginForm();
-    bindRegisterForm();
   });
-
-  function bindTabs() {
-    document.querySelectorAll(".auth-tabs__btn").forEach((btn) => {
-      btn.addEventListener("click", () => switchTab(btn.dataset.tab));
-    });
-  }
-
-  function switchTab(tab) {
-    const isRegister = tab === "register";
-    document.querySelectorAll(".auth-tabs__btn").forEach((btn) => {
-      const active = btn.dataset.tab === tab;
-      btn.classList.toggle("is-active", active);
-      btn.setAttribute("aria-selected", active ? "true" : "false");
-    });
-
-    const loginPanel = document.getElementById("panel-login");
-    const registerPanel = document.getElementById("panel-register");
-    loginPanel?.classList.toggle("hidden", isRegister);
-    registerPanel?.classList.toggle("hidden", !isRegister);
-    if (loginPanel) loginPanel.hidden = isRegister;
-    if (registerPanel) registerPanel.hidden = !isRegister;
-
-    clearErrors();
-  }
 
   function bindPasswordToggles() {
     document.querySelectorAll(".password-field__toggle, .auth-toggle-password").forEach((btn) => {
@@ -67,13 +38,13 @@
       const password = document.getElementById("login-password")?.value;
 
       if (!identifier || !password) {
-        showError("login", "Preencha e-mail/usuário e senha.");
+        showError("Preencha e-mail/usuário e senha.");
         return;
       }
 
       const result = FicaBemDB.loginWithCredentials(identifier, password);
       if (!result.ok) {
-        showError("login", result.error);
+        showError(result.error);
         return;
       }
 
@@ -88,53 +59,8 @@
     });
   }
 
-  function bindRegisterForm() {
-    const form = document.getElementById("form-register");
-    const usernameInput = document.getElementById("register-username");
-
-    usernameInput?.addEventListener("input", () => {
-      usernameInput.value = usernameInput.value.replace(/^@+/, "").replace(/\s/g, "");
-    });
-
-    form?.addEventListener("submit", (e) => {
-      e.preventDefault();
-      clearErrors();
-
-      const name = document.getElementById("register-name")?.value?.trim();
-      const email = document.getElementById("register-email")?.value?.trim();
-      const username = document.getElementById("register-username")?.value?.trim();
-      const password = document.getElementById("register-password")?.value;
-      const confirm = document.getElementById("register-password-confirm")?.value;
-
-      if (!name || !email || !username || !password || !confirm) {
-        showError("register", "Preencha todos os campos.");
-        return;
-      }
-
-      if (password !== confirm) {
-        showError("register", "As senhas não coincidem.");
-        return;
-      }
-
-      const result = FicaBemDB.registerUser({ name, email, username, password });
-      if (!result.ok) {
-        showError("register", result.error);
-        return;
-      }
-
-      if (typeof FicaBemApp !== "undefined") {
-        FicaBemApp.showToast("Conta criada com sucesso!");
-      }
-      if (typeof FicaBemNav !== "undefined") {
-        FicaBemNav.go("feed");
-      } else {
-        window.location.href = "feed.html";
-      }
-    });
-  }
-
-  function showError(panel, message) {
-    const el = document.getElementById(panel === "register" ? "register-error" : "login-error");
+  function showError(message) {
+    const el = document.getElementById("login-error");
     if (!el) return;
     el.textContent = message;
     el.classList.remove("hidden");
@@ -142,6 +68,5 @@
 
   function clearErrors() {
     document.getElementById("login-error")?.classList.add("hidden");
-    document.getElementById("register-error")?.classList.add("hidden");
   }
 })();

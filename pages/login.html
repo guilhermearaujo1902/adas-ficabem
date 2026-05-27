@@ -20,7 +20,7 @@
               <div class="absolute bottom-[-20%] right-[-10%] w-[80%] h-[80%] bg-gradient-to-t from-brand-900/50 to-transparent rounded-[100%] blur-3xl opacity-80"></div>
           </div>
 
-          <main id="auth-welcome" class="flex flex-col auth-welcome--no-nav auth-page">
+          <main id="auth-welcome" class="flex flex-col bg-[#2f6759] auth-welcome--no-nav">
               <header class="w-full flex items-center justify-between pt-10 pb-4 z-20 shrink-0">
                   <a href="../index.html" id="auth-back" aria-label="Voltar" class="w-10 h-10 rounded-full flex items-center justify-center bg-white/10 hover:bg-white/20 transition-colors backdrop-blur-md border border-white/10">
                       <i class="fa-solid fa-chevron-left text-white"></i>
@@ -35,16 +35,11 @@
                   <div class="text-center mb-6">
                       <h1 class="text-[26px] font-semibold text-white tracking-tight mb-2">Acesse sua conta</h1>
                       <p class="text-[14px] text-white/70 max-w-[280px] mx-auto">
-                          Entre com seu e-mail ou crie uma conta para começar a explorar com segurança.
+                          Entre com seu e-mail ou usuário para continuar com segurança.
                       </p>
                   </div>
 
-                  <div id="auth-tabs" class="auth-tabs" role="tablist" aria-label="Login ou cadastro">
-                      <button type="button" class="auth-tabs__btn is-active" role="tab" aria-selected="true" data-tab="login">Entrar</button>
-                      <button type="button" class="auth-tabs__btn" role="tab" aria-selected="false" data-tab="register">Criar conta</button>
-                  </div>
-
-                  <section id="panel-login" class="auth-panel mt-6" role="tabpanel">
+                  <section id="panel-login" class="auth-panel mt-2" role="tabpanel">
                       <form id="form-login" class="space-y-4" novalidate>
                           <div class="space-y-1">
                               <label for="login-identifier" class="text-[13px] font-medium text-white/90 ml-1">E-mail ou usuário</label>
@@ -69,59 +64,10 @@
                               <i class="fa-solid fa-arrow-right text-[14px]"></i>
                           </button>
                       </form>
-                  </section>
-
-                  <section id="panel-register" class="auth-panel mt-6 hidden" role="tabpanel" hidden>
-                      <form id="form-register" class="space-y-4" novalidate>
-                          <div class="space-y-1">
-                              <label for="register-name" class="text-[13px] font-medium text-white/90 ml-1">Nome completo</label>
-                              <input type="text" id="register-name" name="name" required autocomplete="name"
-                                placeholder="Como quer ser chamada?"
-                                class="w-full h-12 px-4 rounded-[14px] glass-panel text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-brand-500 text-[15px]">
-                          </div>
-                          <div class="space-y-1">
-                              <label for="register-email" class="text-[13px] font-medium text-white/90 ml-1">E-mail</label>
-                              <input type="email" id="register-email" name="email" required autocomplete="email"
-                                placeholder="voce@email.com"
-                                class="w-full h-12 px-4 rounded-[14px] glass-panel text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-brand-500 text-[15px]">
-                          </div>
-                          <div class="space-y-1">
-                              <label for="register-username" class="text-[13px] font-medium text-white/90 ml-1">Nome de usuário</label>
-                              <div class="relative">
-                                  <span class="absolute left-4 top-1/2 -translate-y-1/2 text-white/40 font-medium">@</span>
-                                  <input type="text" id="register-username" name="username" required autocomplete="username"
-                                    placeholder="seu.apelido"
-                                    class="w-full h-12 pl-8 pr-4 rounded-[14px] glass-panel text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-brand-500 text-[15px]">
-                              </div>
-                          </div>
-                          <div class="space-y-1">
-                              <label for="register-password" class="text-[13px] font-medium text-white/90 ml-1">Senha</label>
-                              <div class="password-field">
-                                  <input type="password" id="register-password" name="password" required autocomplete="new-password"
-                                    placeholder="Mínimo 8 caracteres"
-                                    class="password-field__input glass-panel text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-brand-500 text-[15px]">
-                                  <button type="button" class="password-field__toggle auth-toggle-password" data-target="register-password" aria-label="Mostrar senha">
-                                      <i class="fa-regular fa-eye text-[18px]"></i>
-                                  </button>
-                              </div>
-                          </div>
-                          <div class="space-y-1">
-                              <label for="register-password-confirm" class="text-[13px] font-medium text-white/90 ml-1">Confirmar senha</label>
-                              <div class="password-field">
-                                  <input type="password" id="register-password-confirm" name="passwordConfirm" required autocomplete="new-password"
-                                    placeholder="Repita a senha"
-                                    class="password-field__input glass-panel text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-brand-500 text-[15px]">
-                                  <button type="button" class="password-field__toggle auth-toggle-password" data-target="register-password-confirm" aria-label="Mostrar senha">
-                                      <i class="fa-regular fa-eye text-[18px]"></i>
-                                  </button>
-                              </div>
-                          </div>
-                          <p id="register-error" class="text-[13px] text-red-300 hidden" role="alert"></p>
-                          <button type="submit" class="w-full h-[52px] bg-white text-brand-600 rounded-[14px] font-semibold text-[16px] shadow-[0_4px_14px_0_rgba(0,0,0,0.1)] hover:bg-brand-50 transition-colors flex items-center justify-center gap-2 active:scale-[0.98]">
-                              Criar conta
-                              <i class="fa-solid fa-user-plus text-[14px]"></i>
-                          </button>
-                      </form>
+                      <p class="text-center text-[13px] text-white/70 mt-4">
+                          Ainda não tem conta?
+                          <a href="criar-perfil.html" class="text-brand-300 font-medium hover:text-white" style="text-decoration:none">Criar perfil</a>
+                      </p>
                   </section>
 
                   <p class="text-[11px] text-white/40 text-center mt-6">

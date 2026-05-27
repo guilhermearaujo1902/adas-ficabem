@@ -4,6 +4,7 @@
 (function initExplorarPage() {
   document.addEventListener("DOMContentLoaded", () => {
     FicaBemApp.syncPlacesFromDom();
+    stripScoreBadges();
     removeRelevanciaSort();
     bindFilterButton();
     bindFilterChips();
@@ -12,6 +13,12 @@
     bindBookmarks();
     renderPlacesList(FicaBemApp.getSavedFilter());
   });
+
+  function stripScoreBadges() {
+    document
+      .querySelectorAll("#explorar-content article .absolute.top-1\\.5")
+      .forEach((el) => el.remove());
+  }
 
   function removeRelevanciaSort() {
     document

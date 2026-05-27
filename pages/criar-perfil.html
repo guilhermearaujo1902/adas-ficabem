@@ -82,31 +82,23 @@
                   <div class="space-y-1"><label for="username"
                       class="text-[13px] font-medium text-white/90 ml-1">Nome de
                       usuário (@)</label>
-                    <div class="relative"><span
-                        class="absolute left-4 top-1/2 -translate-y-1/2 text-white/40 font-medium">@</span><input
-                        type="text" id="username" placeholder="seu.apelido"
+                    <div class="input-with-prefix">
+                      <span class="input-with-prefix__symbol">@</span>
+                      <input type="text" id="username" placeholder="seu.apelido"
                         required=""
-                        class="w-full h-12 pl-8 pr-4 rounded-[14px] glass-panel text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all text-[15px]">
+                        class="input-with-prefix__input glass-panel text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-brand-500 text-[15px]">
                     </div>
                   </div>
                   <div class="space-y-1"><label for="password"
                       class="text-[13px] font-medium text-white/90 ml-1">Senha</label>
-                    <div class="relative"><input type="password" id="password"
+                    <div class="password-field">
+                      <input type="password" id="password"
                         placeholder="Mínimo 8 caracteres" required=""
-                        class="w-full h-12 pl-4 pr-12 rounded-[14px] glass-panel text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all text-[15px]"><button
-                        type="button"
-                        class="absolute right-4 top-1/2 -translate-y-1/2 text-white/60 hover:text-white"><svg
-                          width="20" height="20" viewBox="0 0 24 24" fill="none"
-                          xmlns="http://www.w3.org/2000/svg">
-                          <path
-                            d="M1 12C1 12 5 4 12 4C19 4 23 12 23 12C23 12 19 20 12 20C5 20 1 12 1 12Z"
-                            stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round"></path>
-                          <path
-                            d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z"
-                            stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round"></path>
-                        </svg></button></div>
+                        class="password-field__input glass-panel text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-brand-500 text-[15px]">
+                      <button type="button" class="password-field__toggle" data-target="password" aria-label="Mostrar senha">
+                        <i class="fa-regular fa-eye text-[18px]"></i>
+                      </button>
+                    </div>
                   </div>
                 </div><!-- Interests Grid -->
                 <div id="interest_selection_grid" class="space-y-3 mt-2">
@@ -115,40 +107,21 @@
                       interesse</label><span
                       class="text-[11px] font-medium text-white/50 bg-white/5 px-2 py-0.5 rounded-full">Selecione
                       até 3</span></div>
-                  <div class="flex flex-wrap gap-2"><label
-                      class="interest-pill cursor-pointer"><input type="checkbox"
-                        name="interests" value="seguranca" class="hidden">
-                      <div
-                        class="glass-panel px-4 py-2 rounded-[14px] text-[13px] font-medium text-white/80 transition-colors border border-white/10 hover:bg-white/10">
-                        Segurança
-                      </div>
-                    </label><label class="interest-pill cursor-pointer"><input
-                        type="checkbox" name="interests" value="acolhimento"
-                        class="hidden">
-                      <div
-                        class="glass-panel px-4 py-2 rounded-[14px] text-[13px] font-medium text-white/80 transition-colors border border-white/10 hover:bg-white/10">
-                        Acolhimento
-                      </div>
-                    </label><label class="interest-pill cursor-pointer"><input
-                        type="checkbox" name="interests" value="rotas" class="hidden">
-                      <div
-                        class="glass-panel px-4 py-2 rounded-[14px] text-[13px] font-medium text-white/80 transition-colors border border-white/10 hover:bg-white/10">
-                        Rotas Seguras
-                      </div>
-                    </label><label class="interest-pill cursor-pointer"><input
-                        type="checkbox" name="interests" value="comunidade"
-                        class="hidden">
-                      <div
-                        class="glass-panel px-4 py-2 rounded-[14px] text-[13px] font-medium text-white/80 transition-colors border border-white/10 hover:bg-white/10">
-                        Comunidade
-                      </div>
-                    </label><label class="interest-pill cursor-pointer"><input
-                        type="checkbox" name="interests" value="eventos"
-                        class="hidden">
-                      <div
-                        class="glass-panel px-4 py-2 rounded-[14px] text-[13px] font-medium text-white/80 transition-colors border border-white/10 hover:bg-white/10">
-                        Eventos
-                      </div>
+                  <div class="flex flex-wrap gap-2"><label class="interest-pill">
+                      <input type="checkbox" name="interests" value="seguranca">
+                      <span class="interest-pill__box glass-panel">Segurança</span>
+                    </label><label class="interest-pill">
+                      <input type="checkbox" name="interests" value="acolhimento">
+                      <span class="interest-pill__box glass-panel">Acolhimento</span>
+                    </label><label class="interest-pill">
+                      <input type="checkbox" name="interests" value="rotas">
+                      <span class="interest-pill__box glass-panel">Rotas Seguras</span>
+                    </label><label class="interest-pill">
+                      <input type="checkbox" name="interests" value="comunidade">
+                      <span class="interest-pill__box glass-panel">Comunidade</span>
+                    </label><label class="interest-pill">
+                      <input type="checkbox" name="interests" value="eventos">
+                      <span class="interest-pill__box glass-panel">Eventos</span>
                     </label></div>
                 </div><!-- SSO Divider -->
                 <div id="account_security_sso" class="relative py-4">

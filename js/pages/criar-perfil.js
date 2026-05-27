@@ -33,24 +33,18 @@
   }
 
   function bindPasswordToggle() {
-    const input = document.getElementById("password");
-    const btn = input?.parentElement?.querySelector("button[type='button']");
-    if (!input || !btn) return;
-
-    btn.setAttribute("aria-label", "Mostrar senha");
-    btn.addEventListener("click", (e) => {
-      e.preventDefault();
-      const show = input.type === "password";
-      input.type = show ? "text" : "password";
-      btn.innerHTML = show
-        ? '<i class="fa-regular fa-eye-slash text-[18px]"></i>'
-        : '<i class="fa-regular fa-eye text-[18px]"></i>';
-      btn.setAttribute("aria-label", show ? "Ocultar senha" : "Mostrar senha");
+    document.querySelectorAll(".password-field__toggle").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const input = document.getElementById(btn.dataset.target);
+        if (!input) return;
+        const show = input.type === "password";
+        input.type = show ? "text" : "password";
+        btn.innerHTML = show
+          ? '<i class="fa-regular fa-eye-slash text-[18px]"></i>'
+          : '<i class="fa-regular fa-eye text-[18px]"></i>';
+        btn.setAttribute("aria-label", show ? "Ocultar senha" : "Mostrar senha");
+      });
     });
-
-    if (!btn.querySelector(".fa-eye")) {
-      btn.innerHTML = '<i class="fa-regular fa-eye text-[18px]"></i>';
-    }
   }
 
   function prefillFromCurrentUser() {
@@ -65,11 +59,15 @@
   function bindInterestPills() {
     document.querySelectorAll(".interest-pill input[type='checkbox']").forEach((input) => {
       input.addEventListener("change", () => {
+        const label = input.closest(".interest-pill");
+        label?.classList.toggle("is-active", input.checked);
+
         const checked = document.querySelectorAll(
           ".interest-pill input[type='checkbox']:checked"
         );
         if (checked.length > 3) {
           input.checked = false;
+          label?.classList.remove("is-active");
           FicaBemApp.showToast("Selecione até 3 áreas de interesse.");
         }
       });

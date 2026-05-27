@@ -38,24 +38,25 @@
                   </div>
       
                   <!-- Search Bar -->
-                  <div class="relative w-full mb-4">
-                      <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-white/40 text-[14px]"></i>
-                      <input type="text" placeholder="Buscar em bares e restaurantes..." 
-                          class="w-full h-12 pl-10 pr-12 rounded-[16px] glass-panel text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all text-[15px] shadow-[0_4px_12px_rgba(0,0,0,0.05)]">
+                  <div class="search-field mb-4">
+                      <i class="fa-solid fa-magnifying-glass search-field__icon" aria-hidden="true"></i>
+                      <input type="search" id="filtro-search" placeholder="Buscar em bares e restaurantes..."
+                          aria-label="Buscar em bares e restaurantes"
+                          class="search-field__input glass-panel text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-brand-500 text-[15px] shadow-[0_4px_12px_rgba(0,0,0,0.05)]">
                   </div>
       
                   <!-- Filters -->
-                  <div class="flex overflow-x-auto hide-scrollbar gap-2 pb-2 -mx-6 px-6 snap-x">
-                      <button class="snap-start shrink-0 h-8 px-4 rounded-full bg-white text-brand-600 font-medium text-[12px] flex items-center gap-1.5 shadow-[0_4px_14px_0_rgba(0,0,0,0.1)]">
+                  <div id="filtro-chips" class="flex overflow-x-auto hide-scrollbar gap-2 pb-2 -mx-6 px-6 snap-x">
+                      <button type="button" data-filter="todos" class="snap-start shrink-0 h-8 px-4 rounded-full bg-white text-brand-600 font-medium text-[12px] flex items-center gap-1.5 shadow-[0_4px_14px_0_rgba(0,0,0,0.1)]">
                           <i class="fa-solid fa-shield-halved text-[11px]"></i> Mais Seguros
                       </button>
-                      <button class="snap-start shrink-0 h-8 px-4 rounded-full glass-panel text-white font-medium text-[12px] flex items-center gap-1.5 hover:bg-white/10">
+                      <button type="button" data-filter="aberto" class="snap-start shrink-0 h-8 px-4 rounded-full glass-panel text-white font-medium text-[12px] flex items-center gap-1.5 hover:bg-white/10">
                           <i class="fa-regular fa-clock text-[11px]"></i> Abertos Agora
                       </button>
-                      <button class="snap-start shrink-0 h-8 px-4 rounded-full glass-panel text-white font-medium text-[12px] flex items-center gap-1.5 hover:bg-white/10">
+                      <button type="button" data-filter="wifi" class="snap-start shrink-0 h-8 px-4 rounded-full glass-panel text-white font-medium text-[12px] flex items-center gap-1.5 hover:bg-white/10">
                           <i class="fa-solid fa-wifi text-[11px]"></i> Com Wi-Fi
                       </button>
-                      <button class="snap-start shrink-0 h-8 px-4 rounded-full glass-panel text-white font-medium text-[12px] flex items-center gap-1.5 hover:bg-white/10">
+                      <button type="button" data-filter="movimentado" class="snap-start shrink-0 h-8 px-4 rounded-full glass-panel text-white font-medium text-[12px] flex items-center gap-1.5 hover:bg-white/10">
                           <i class="fa-solid fa-users text-[11px]"></i> Movimentado
                       </button>
                   </div>
@@ -65,14 +66,11 @@
               <div id="setor-content" class="content pt-6 space-y-4">
                   
                   <div class="flex items-center justify-between mb-4">
-                      <h2 class="text-[14px] font-medium text-white/80">42 locais encontrados</h2>
-                      <div class="text-[12px] text-white flex items-center gap-1.5 cursor-pointer bg-white/10 px-3 py-1.5 rounded-full">
-                          Score <i class="fa-solid fa-arrow-down-short-wide text-[10px]"></i>
-                      </div>
+                      <h2 id="filtro-count" class="text-[14px] font-medium text-white/80">42 locais encontrados</h2>
                   </div>
       
                   <!-- List View Format inspired by Ref -->
-                  <div class="w-full glass-panel rounded-[24px] soft-shadow border border-white/10 overflow-hidden">
+                  <div id="filtro-places-list" class="w-full glass-panel rounded-[24px] soft-shadow border border-white/10 overflow-hidden">
                       
                       <!-- List Item 1 -->
                       <div class="list-row w-full p-4 flex gap-4 items-center relative">

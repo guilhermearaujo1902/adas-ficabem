@@ -41,10 +41,14 @@
     const container = document.querySelector("#pending-invites .flex.flex-col.gap-3");
     if (!container) return;
 
-    const pending = FicaBemDB.getPendingInvites();
+    const pending = FicaBemDB.getPendingInvites().slice(0, 3);
     const countEl = document.querySelector("#pending-invites span.text-white\\/50");
+    const total = FicaBemDB.getPendingInvites().length;
 
-    if (countEl) countEl.textContent = `${pending.length} aguardando`;
+    if (countEl) {
+      countEl.textContent =
+        total > 3 ? `${total} aguardando (exibindo 3)` : `${total} aguardando`;
+    }
 
     if (!pending.length) {
       container.innerHTML =

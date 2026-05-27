@@ -375,19 +375,44 @@ input.peer:checked + div .icon-check {
   display: none;
 }
 
-/* Página de login / autenticação */
-body[data-page="login"] .phone-screen,
-body[data-page="login"] .phone-screen-inner {
-  background-color: #809587;
+/* Index — sem scroll lateral */
+body[data-page="index"] .phone-screen-inner,
+body[data-page="index"] #auth-welcome,
+body[data-page="index"] #auth-welcome > .content {
+  overflow-x: hidden;
 }
 
-body[data-page="login"] .auth-page,
-body[data-page="login"] #auth-welcome.auth-page {
-  background-color: #809587;
+body[data-page="index"] #welcome-actions a#btn-convite {
+  border-radius: 14px;
 }
 
-body[data-page="login"] .auth-tabs__btn.is-active {
-  color: #5a6b60;
+/* Campo com prefixo (@) dentro da caixa */
+.input-with-prefix {
+  position: relative;
+  width: 100%;
+  height: 3rem;
+}
+
+.input-with-prefix__symbol {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(255, 255, 255, 0.45);
+  font-weight: 500;
+  pointer-events: none;
+  z-index: 2;
+  line-height: 1;
+}
+
+.input-with-prefix__input {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding-left: 2rem;
+  padding-right: 1rem;
+  border-radius: 14px;
+  border: none;
 }
 
 /* Campo de senha com ícone dentro do input */
@@ -395,6 +420,8 @@ body[data-page="login"] .auth-tabs__btn.is-active {
   position: relative;
   width: 100%;
   height: 3rem;
+  overflow: hidden;
+  border-radius: 14px;
 }
 
 .password-field__input {
@@ -404,17 +431,20 @@ body[data-page="login"] .auth-tabs__btn.is-active {
   padding: 0 2.75rem 0 1rem;
   border-radius: 14px;
   border: none;
+  display: block;
 }
 
 .password-field__toggle {
   position: absolute;
-  right: 0.625rem;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 2;
-  width: 2rem;
+  right: 0.5rem;
+  left: auto;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
   height: 2rem;
-  margin: 0;
+  width: 2rem;
+  transform: none;
+  z-index: 3;
   padding: 0 !important;
   min-height: 0 !important;
   border: none;
@@ -434,6 +464,119 @@ body[data-page="login"] .auth-tabs__btn.is-active {
 .phone-screen-inner #auth-welcome .content button.password-field__toggle {
   padding: 0 !important;
   min-height: unset;
+}
+
+/* Busca com ícone dentro do campo */
+.search-field {
+  position: relative;
+  width: 100%;
+  height: 3rem;
+}
+
+.search-field__icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 14px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.search-field__input {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding: 0 1rem 0 2.5rem;
+  border-radius: 16px;
+  border: none;
+}
+
+/* Áreas de interesse — só caixas clicáveis */
+.interest-pill {
+  cursor: pointer;
+}
+
+.interest-pill input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.interest-pill__box {
+  display: block;
+  padding: 0.5rem 1rem;
+  border-radius: 14px;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.interest-pill input:checked + .interest-pill__box,
+.interest-pill.is-active .interest-pill__box {
+  background-color: #5f927d;
+  border-color: #5f927d;
+  color: #fff;
+}
+
+/* Explorar — lista sem scrollbar visível */
+body[data-page="explorar"] #explorar-content.content {
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+body[data-page="explorar"] #explorar-content.content::-webkit-scrollbar {
+  display: none;
+}
+
+body[data-page="explorar"] #explorar-map-view {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 0;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+body[data-page="explorar"] #explorar-map-view .explorar-map__canvas {
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+/* Filtro — lista rolável */
+body[data-page="filtro"] #auth-welcome {
+  min-height: 0;
+}
+
+body[data-page="filtro"] #setor-content.content {
+  flex: 1;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  min-height: 0;
+}
+
+body[data-page="filtro"] #setor-content.content::-webkit-scrollbar {
+  display: none;
+}
+
+body[data-page="filtro"] #filtro-places-list {
+  max-height: none;
+}
+
+/* Rota — sem botão de emergência no mapa */
+#auth-welcome.rota-screen .fab-emergency {
+  display: none !important;
 }
 
 /* Feed — locais em carrossel */
