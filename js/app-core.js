@@ -235,6 +235,38 @@ const FicaBemApp = (function () {
     });
   }
 
+  /**
+   * Filtros: 2 chips visíveis + botão que expande os demais.
+   * @param {object} options
+   * @param {string} options.rowId
+   * @param {(active: HTMLElement, all: HTMLElement[]) => void} [options.onChipSelect]
+   */
+  function initExpandableFilterRow({ rowId, onChipSelect }) {
+    const row = document.getElementById(rowId);
+    if (!row) return { chips: [] };
+
+    const toggle = row.querySelector(".filter-row__toggle");
+    const extra = row.querySelector(".filter-row__extra");
+    const chips = Array.from(row.querySelectorAll("[data-filter-chip]"));
+
+    if (toggle && extra) {
+      toggle.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const expanded = row.classList.toggle("is-expanded");
+        toggle.setAttribute("aria-expanded", expanded ? "true" : "false");
+        extra.hidden = !expanded;
+      });
+    }
+
+    chips.forEach((chip) => {
+      chip.addEventListener("click", () => {
+        if (onChipSelect) onChipSelect(chip, chips);
+      });
+    });
+
+    return { chips };
+  }
+
   function showToast(message) {
     let toast = document.getElementById("ficabem-toast");
     if (!toast) {
@@ -261,6 +293,7 @@ const FicaBemApp = (function () {
     getSavedFilter,
     setSavedFilter,
     setActiveChip,
+    initExpandableFilterRow,
     bindPlaceNavigation,
     bindPasswordToggles,
     syncPasswordToggleIcon,

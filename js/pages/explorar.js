@@ -33,19 +33,25 @@
       ?.addEventListener("click", () => FicaBemNav.go("filtro"));
   }
 
+  function setExplorarChipActive(chip) {
+    chip.classList.add("bg-white", "text-brand-600", "shadow-sm");
+    chip.classList.remove("glass-panel", "text-white");
+  }
+
+  function setExplorarChipInactive(chip) {
+    chip.classList.remove("bg-white", "text-brand-600", "shadow-sm");
+    chip.classList.add("glass-panel", "text-white");
+  }
+
   function bindFilterChips() {
-    const chips = document.querySelectorAll("#explorar-filters-scroll button");
-    chips.forEach((chip, i) => {
-      chip.addEventListener("click", () => {
-        chips.forEach((c) => {
-          c.classList.remove("bg-white", "text-brand-600", "shadow-sm");
-          c.classList.add("glass-panel", "text-white");
-        });
-        chip.classList.add("bg-white", "text-brand-600", "shadow-sm");
-        chip.classList.remove("glass-panel", "text-white");
-      });
-      if (i === 0) chip.click();
+    const { chips } = FicaBemApp.initExpandableFilterRow({
+      rowId: "explorar-filters-row",
+      onChipSelect: (active, allChips) => {
+        allChips.forEach(setExplorarChipInactive);
+        setExplorarChipActive(active);
+      },
     });
+    if (chips[0]) setExplorarChipActive(chips[0]);
   }
 
   function bindViewToggle() {
@@ -78,7 +84,6 @@
           }
           mapView.classList.remove("hidden");
           renderMapPins();
-          renderMapPlaceStrip();
         } else if (mapView) {
           mapView.classList.add("hidden");
         }
@@ -96,32 +101,8 @@
         <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/8ce12478cc-f68a75c08b7e0b8e1b77.png" alt="Mapa da região" />
         <div id="explorar-map-pins"></div>
       </div>
-      <p class="text-xs text-white/50 mt-3 text-center w-full">Toque em um pin ou no card abaixo</p>
-      <div id="explorar-map-places" class="horizontal-scroll horizontal-scroll--bleed pb-2" aria-label="Locais no mapa"></div>`;
+      <p class="text-xs text-white/50 mt-3 text-center w-full">Toque em um pin no mapa para ver o local</p>`;
     return section;
-  }
-
-  function renderMapPlaceStrip() {
-    const strip = document.getElementById("explorar-map-places");
-    if (!strip) return;
-
-    const places = FicaBemDB.getPlaces().slice(0, 8);
-    strip.innerHTML = places
-      .map(
-        (p) => `
-      <button type="button" class="explorar-map-place-chip glass-panel" data-place-id="${p.id}">
-        <h4>${p.name}</h4>
-        <p>${p.neighborhood || "Próximo"}</p>
-      </button>`
-      )
-      .join("");
-
-    strip.querySelectorAll("[data-place-id]").forEach((chip) => {
-      chip.addEventListener("click", () => {
-        FicaBemDB.startReviewForPlace(chip.dataset.placeId);
-        FicaBemNav.go("detalhe", { place: chip.dataset.placeId });
-      });
-    });
   }
 
   function renderMapPins() {

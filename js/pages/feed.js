@@ -18,8 +18,6 @@
     bindRotaCta();
     bindVerMapa();
     renderAlerts();
-    FicaBemApp.setSavedFilter(null);
-    renderPlaces(null);
     renderReviewsInFeed();
   });
 
@@ -31,22 +29,31 @@
     }
   }
 
-  function bindCategoryFilters() {
-    const chips = document.querySelectorAll("#feed-filters-scroll button");
-    chips.forEach((chip) => {
-      chip.addEventListener("click", () => {
-        chips.forEach((c) => {
-          c.classList.remove("bg-white", "text-brand-dark", "font-semibold", "shadow-sm");
-          c.classList.add("bg-white/10", "border", "border-white/20", "text-white", "font-medium");
-        });
-        chip.classList.add("bg-white", "text-brand-dark", "font-semibold", "shadow-sm");
-        chip.classList.remove("bg-white/10", "border", "border-white/20", "text-white", "font-medium");
+  function setFeedChipActive(chip) {
+    chip.classList.add("bg-white", "text-brand-dark", "font-semibold", "shadow-sm");
+    chip.classList.remove("bg-white/10", "border", "border-white/20", "text-white", "font-medium");
+  }
 
-        const category = FicaBemApp.categoryFromLabel(chip.textContent);
+  function setFeedChipInactive(chip) {
+    chip.classList.remove("bg-white", "text-brand-dark", "font-semibold", "shadow-sm");
+    chip.classList.add("bg-white/10", "border", "border-white/20", "text-white", "font-medium");
+  }
+
+  function bindCategoryFilters() {
+    const { chips } = FicaBemApp.initExpandableFilterRow({
+      rowId: "feed-filters-row",
+      onChipSelect: (active, allChips) => {
+        allChips.forEach(setFeedChipInactive);
+        setFeedChipActive(active);
+        const category = FicaBemApp.categoryFromLabel(active.textContent);
         FicaBemApp.setSavedFilter(category);
         renderPlaces(category);
-      });
+      },
     });
+    if (chips[0]) {
+      setFeedChipActive(chips[0]);
+      renderPlaces(FicaBemApp.categoryFromLabel(chips[0].textContent));
+    }
   }
 
   function bindRotaCta() {
@@ -140,8 +147,8 @@
     const container = document.getElementById("trending-places-list");
     if (!container) return;
 
-    container.classList.add("horizontal-scroll", "horizontal-scroll--bleed", "pb-2");
-    container.classList.remove("flex-col", "gap-4");
+    container.classList.add("stack-list");
+    container.classList.remove("horizontal-scroll", "horizontal-scroll--bleed");
 
     const places = FicaBemDB.getPlaces(category);
 

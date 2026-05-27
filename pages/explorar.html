@@ -52,16 +52,25 @@
                       </button>
                   </div>
       
-                  <!-- Filters -->
-                  <div id="explorar-filters-scroll" class="horizontal-scroll horizontal-scroll--bleed pb-2 mb-3">
-                      <button type="button" class="h-8 px-4 rounded-full bg-white text-brand-600 font-medium text-[12px] flex items-center gap-1.5 shadow-sm">
-                          <i class="fa-solid fa-shield-halved text-[11px]"></i> Mais Seguro
-                      </button>
-                      <button type="button" class="h-8 px-4 rounded-full glass-panel text-white font-medium text-[12px] flex items-center gap-1.5 hover:bg-white/10">
-                          <i class="fa-solid fa-location-dot text-[11px]"></i> Distância
-                      </button>
-                      <button type="button" class="h-8 px-4 rounded-full glass-panel text-white font-medium text-[12px] flex items-center gap-1.5 hover:bg-white/10">
-                          <i class="fa-regular fa-clock text-[11px]"></i> Aberto Agora
+                  <!-- Filtros (2 visíveis + expandir) -->
+                  <div id="explorar-filters-row" class="filter-row filter-row--expandable mb-3">
+                      <div class="filter-row__main">
+                          <div class="filter-row__visible">
+                              <button type="button" data-filter-chip class="h-8 px-4 rounded-full bg-white text-brand-600 font-medium text-[12px] inline-flex items-center gap-1.5 shadow-sm">
+                                  <i class="fa-solid fa-shield-halved text-[11px]"></i> Mais Seguro
+                              </button>
+                              <button type="button" data-filter-chip class="h-8 px-4 rounded-full glass-panel text-white font-medium text-[12px] inline-flex items-center gap-1.5 hover:bg-white/10">
+                                  <i class="fa-solid fa-location-dot text-[11px]"></i> Distância
+                              </button>
+                          </div>
+                          <div id="explorar-filters-extra" class="filter-row__extra" hidden>
+                              <button type="button" data-filter-chip class="h-8 px-4 rounded-full glass-panel text-white font-medium text-[12px] inline-flex items-center gap-1.5 hover:bg-white/10">
+                                  <i class="fa-regular fa-clock text-[11px]"></i> Aberto Agora
+                              </button>
+                          </div>
+                      </div>
+                      <button type="button" class="filter-row__toggle glass-panel" aria-label="Mais filtros" aria-expanded="false" aria-controls="explorar-filters-extra">
+                          <i class="fa-solid fa-filter text-[12px] text-white"></i>
                       </button>
                   </div>
                   
