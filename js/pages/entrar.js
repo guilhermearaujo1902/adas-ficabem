@@ -1,22 +1,30 @@
 /**
- * login.html — Login e cadastro (localStorage)
+ * entrar.html — Login e cadastro (localStorage)
  */
-(function initLoginPage() {
+(function initEntrarPage() {
   document.addEventListener("DOMContentLoaded", () => {
-    try {
-      FicaBemDB.seedDemoUser();
-    } catch (err) {
-      console.error("[login]", err);
+    FicaBemDB.seedDemoUser();
+
+    if (FicaBemDB.getCurrentUser()) {
+      FicaBemNav.go("feed");
+      return;
     }
 
-    const tabParam = new URLSearchParams(window.location.search).get("tab");
+    const tabParam = FicaBemNav.getQueryParam("tab");
     if (tabParam === "register") switchTab("register");
 
+    bindBack();
     bindTabs();
     bindPasswordToggles();
     bindLoginForm();
     bindRegisterForm();
   });
+
+  function bindBack() {
+    document.getElementById("auth-back")?.addEventListener("click", () => {
+      FicaBemNav.go("index");
+    });
+  }
 
   function bindTabs() {
     document.querySelectorAll(".auth-tabs__btn").forEach((btn) => {
@@ -43,7 +51,7 @@
   }
 
   function bindPasswordToggles() {
-    document.querySelectorAll(".password-field__toggle, .auth-toggle-password").forEach((btn) => {
+    document.querySelectorAll(".auth-toggle-password").forEach((btn) => {
       btn.addEventListener("click", () => {
         const input = document.getElementById(btn.dataset.target);
         if (!input) return;
@@ -77,14 +85,8 @@
         return;
       }
 
-      if (typeof FicaBemApp !== "undefined") {
-        FicaBemApp.showToast(`Bem-vinda, ${result.user.name.split(" ")[0]}!`);
-      }
-      if (typeof FicaBemNav !== "undefined") {
-        FicaBemNav.go("feed");
-      } else {
-        window.location.href = "feed.html";
-      }
+      FicaBemApp.showToast(`Bem-vinda, ${result.user.name.split(" ")[0]}!`);
+      FicaBemNav.go("feed");
     });
   }
 
@@ -122,14 +124,8 @@
         return;
       }
 
-      if (typeof FicaBemApp !== "undefined") {
-        FicaBemApp.showToast("Conta criada com sucesso!");
-      }
-      if (typeof FicaBemNav !== "undefined") {
-        FicaBemNav.go("feed");
-      } else {
-        window.location.href = "feed.html";
-      }
+      FicaBemApp.showToast("Conta criada com sucesso!");
+      FicaBemNav.go("feed");
     });
   }
 

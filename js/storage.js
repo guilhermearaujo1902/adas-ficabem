@@ -188,10 +188,10 @@ const FicaBemDB = (function () {
   function createUser(userData) {
     const state = loadState();
     const user = {
-      id: generateId("user"),
+      id: userData.id || generateId("user"),
       name: userData.name || "",
-      username: userData.username || "",
-      email: userData.email || "",
+      username: normalizeUsername(userData.username || ""),
+      email: normalizeEmail(userData.email || ""),
       password: userData.password || "",
       avatar: userData.avatar || "",
       interests: userData.interests || [],
@@ -221,11 +221,40 @@ const FicaBemDB = (function () {
     return state.users[idx];
   }
 
+  function normalizeEmail(email) {
+    return String(email).toLowerCase().trim();
+  }
+
+  function normalizeUsername(username) {
+    return String(username).replace(/^@+/, "").toLowerCase().trim();
+  }
+
+  function normalizeIdentifier(identifier) {
+    const raw = String(identifier).trim();
+    if (!raw) return { type: "empty", value: "" };
+    if (raw.includes("@")) {
+      return { type: "email", value: normalizeEmail(raw) };
+    }
+    return { type: "username", value: normalizeUsername(raw) };
+  }
+
   function findUserByEmail(email) {
     const state = loadState();
-    return state.users.find(
-      (u) => u.email.toLowerCase() === String(email).toLowerCase().trim()
-    );
+    const norm = normalizeEmail(email);
+    return state.users.find((u) => normalizeEmail(u.email) === norm) || null;
+  }
+
+  function findUserByUsername(username) {
+    const state = loadState();
+    const norm = normalizeUsername(username);
+    return state.users.find((u) => normalizeUsername(u.username) === norm) || null;
+  }
+
+  function findUserByIdentifier(identifier) {
+    const parsed = normalizeIdentifier(identifier);
+    if (parsed.type === "email") return findUserByEmail(parsed.value);
+    if (parsed.type === "username") return findUserByUsername(parsed.value);
+    return null;
   }
 
   function loginWithEmail(email) {
@@ -237,12 +266,85 @@ const FicaBemDB = (function () {
     return null;
   }
 
-  function loginWithCredentials(email, password) {
-    const user = findUserByEmail(email);
+  function loginWithCredentials(identifier, password) {
+    const user = findUserByIdentifier(identifier);
     if (!user) return { ok: false, error: "Usuário não encontrado." };
     if (user.password !== password) return { ok: false, error: "Senha incorreta." };
     setCurrentUser(user.id);
     return { ok: true, user };
+  }
+
+  function registerUser({ name, email, username, password }) {
+    const trimmedName = String(name || "").trim();
+    const normEmail = normalizeEmail(email);
+    const normUsername = normalizeUsername(username);
+    const pwd = String(password || "");
+
+    if (!trimmedName || !normEmail || !normUsername || !pwd) {
+      return { ok: false, error: "Preencha todos os campos obrigatórios." };
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(normEmail)) {
+      return { ok: false, error: "Informe um e-mail válido." };
+    }
+
+    if (pwd.length < 8) {
+      return { ok: false, error: "A senha deve ter no mínimo 8 caracteres." };
+    }
+
+    if (normUsername.length < 3) {
+      return { ok: false, error: "O usuário deve ter pelo menos 3 caracteres." };
+    }
+
+    if (!/^[a-z0-9._-]+$/.test(normUsername)) {
+      return {
+        ok: false,
+        error: "Use apenas letras minúsculas, números, ponto, hífen ou underline.",
+      };
+    }
+
+    if (findUserByEmail(normEmail)) {
+      return { ok: false, error: "Este e-mail já está cadastrado." };
+    }
+
+    if (findUserByUsername(normUsername)) {
+      return { ok: false, error: "Este nome de usuário já está em uso." };
+    }
+
+    const user = createUser({
+      name: trimmedName,
+      email: normEmail,
+      username: normUsername,
+      password: pwd,
+    });
+
+    return { ok: true, user };
+  }
+
+  function seedDemoUser() {
+    const state = loadState();
+    const demoEmail = "mariana@ficabem.app";
+    const exists = state.users.some((u) => normalizeEmail(u.email) === demoEmail);
+    if (!exists) {
+      state.users.push({
+        id: "user-demo-mariana",
+        name: "Mariana",
+        username: "mariana",
+        email: demoEmail,
+        password: "demo123",
+        avatar: "",
+        interests: [],
+        safeHours: ["18h – 22h", "Fins de semana"],
+        avoidedCategories: ["Ruas desertas", "Pouca iluminação"],
+        reviewsCount: 0,
+        savedCount: 0,
+        routesCount: 0,
+        favoritePlaceIds: [],
+        createdAt: new Date().toISOString(),
+      });
+      saveState(state);
+    }
+    return findUserByEmail(demoEmail);
   }
 
   function getFavoritePlaceIds() {
@@ -482,6 +584,12 @@ const FicaBemDB = (function () {
     createUser,
     updateUser,
     findUserByEmail,
+    findUserByUsername,
+    findUserByIdentifier,
+    registerUser,
+    seedDemoUser,
+    normalizeEmail,
+    normalizeUsername,
     loginWithEmail,
     loginWithCredentials,
     getFavoritePlaceIds,

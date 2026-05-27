@@ -340,6 +340,102 @@ input.peer:checked + div .icon-check {
   overflow-x: hidden;
 }
 
+/* Auth — abas entrar / cadastro */
+.auth-tabs {
+  display: flex;
+  gap: 0.5rem;
+  padding: 4px;
+  border-radius: 9999px;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.auth-tabs__btn {
+  flex: 1;
+  height: 2.5rem;
+  border: none;
+  border-radius: 9999px;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: var(--font-sans);
+  color: rgba(255, 255, 255, 0.75);
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.auth-tabs__btn.is-active {
+  background: #fff;
+  color: #2f6759;
+  font-weight: 600;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.auth-panel.hidden {
+  display: none;
+}
+
+/* Página de login / autenticação */
+body[data-page="login"] .phone-screen,
+body[data-page="login"] .phone-screen-inner {
+  background-color: #809587;
+}
+
+body[data-page="login"] .auth-page,
+body[data-page="login"] #auth-welcome.auth-page {
+  background-color: #809587;
+}
+
+body[data-page="login"] .auth-tabs__btn.is-active {
+  color: #5a6b60;
+}
+
+/* Campo de senha com ícone dentro do input */
+.password-field {
+  position: relative;
+  width: 100%;
+  height: 3rem;
+}
+
+.password-field__input {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding: 0 2.75rem 0 1rem;
+  border-radius: 14px;
+  border: none;
+}
+
+.password-field__toggle {
+  position: absolute;
+  right: 0.625rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 2rem;
+  height: 2rem;
+  margin: 0;
+  padding: 0 !important;
+  min-height: 0 !important;
+  border: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.65);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.password-field__toggle:hover {
+  color: #fff;
+}
+
+.phone-screen-inner #auth-welcome .content button.password-field__toggle {
+  padding: 0 !important;
+  min-height: unset;
+}
+
 /* Feed — locais em carrossel */
 #trending-places-list.horizontal-scroll > .place-card {
   width: 280px;

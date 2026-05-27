@@ -105,7 +105,9 @@
       return;
     }
 
-    const email = `${username}@ficabem.app`;
+    const email =
+      document.getElementById("email")?.value?.trim() ||
+      `${username}@ficabem.app`;
 
     if (current) {
       FicaBemDB.updateUser(current.id, { name, username, password, email });
@@ -114,8 +116,9 @@
       return;
     }
 
-    if (FicaBemDB.findUserByEmail(email)) {
-      alert("Este usuário já está cadastrado.");
+    const registerResult = FicaBemDB.registerUser({ name, email, username, password });
+    if (!registerResult.ok) {
+      alert(registerResult.error);
       return;
     }
 
@@ -123,7 +126,9 @@
       document.querySelectorAll(".interest-pill input:checked")
     ).map((i) => i.value);
 
-    FicaBemDB.createUser({ name, username, email, password, interests });
+    if (interests.length) {
+      FicaBemDB.updateUser(registerResult.user.id, { interests });
+    }
 
     const inviteCode = FicaBemDB.getPendingInviteCode();
     if (inviteCode) {
