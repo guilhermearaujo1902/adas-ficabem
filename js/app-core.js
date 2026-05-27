@@ -207,6 +207,34 @@ const FicaBemApp = (function () {
     overlay.setAttribute("aria-hidden", "true");
   }
 
+  /**
+   * Olho aberto = senha visível; olho riscado = senha oculta.
+   */
+  function syncPasswordToggleIcon(btn, visible) {
+    btn.innerHTML = visible
+      ? '<i class="fa-regular fa-eye text-[18px]"></i>'
+      : '<i class="fa-regular fa-eye-slash text-[18px]"></i>';
+    btn.setAttribute("aria-label", visible ? "Ocultar senha" : "Mostrar senha");
+  }
+
+  function bindPasswordToggles(root = document) {
+    root.querySelectorAll(".password-field__toggle, .auth-toggle-password").forEach((btn) => {
+      const input = document.getElementById(btn.dataset.target);
+      if (!input) return;
+
+      syncPasswordToggleIcon(btn, input.type === "text");
+
+      if (btn.dataset.boundPassword) return;
+      btn.dataset.boundPassword = "1";
+
+      btn.addEventListener("click", () => {
+        const willShow = input.type === "password";
+        input.type = willShow ? "text" : "password";
+        syncPasswordToggleIcon(btn, input.type === "text");
+      });
+    });
+  }
+
   function showToast(message) {
     let toast = document.getElementById("ficabem-toast");
     if (!toast) {
@@ -234,6 +262,8 @@ const FicaBemApp = (function () {
     setSavedFilter,
     setActiveChip,
     bindPlaceNavigation,
+    bindPasswordToggles,
+    syncPasswordToggleIcon,
     syncPlacesFromDom,
     showToast,
     openBottomSheet,

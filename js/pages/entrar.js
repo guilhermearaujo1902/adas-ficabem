@@ -51,18 +51,7 @@
   }
 
   function bindPasswordToggles() {
-    document.querySelectorAll(".auth-toggle-password").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const input = document.getElementById(btn.dataset.target);
-        if (!input) return;
-        const show = input.type === "password";
-        input.type = show ? "text" : "password";
-        btn.innerHTML = show
-          ? '<i class="fa-regular fa-eye-slash text-[18px]"></i>'
-          : '<i class="fa-regular fa-eye text-[18px]"></i>';
-        btn.setAttribute("aria-label", show ? "Ocultar senha" : "Mostrar senha");
-      });
-    });
+    FicaBemApp.bindPasswordToggles();
   }
 
   function bindLoginForm() {
