@@ -62,12 +62,6 @@
                       </p>
                   </div>
                   
-                  <!-- Pagination Dots (Decorative for onboarding feel) -->
-                  <div class="flex gap-2 mt-8">
-                      <div class="w-6 h-1.5 rounded-full bg-white"></div>
-                      <div class="w-1.5 h-1.5 rounded-full bg-white/30"></div>
-                      <div class="w-1.5 h-1.5 rounded-full bg-white/30"></div>
-                  </div>
               </section>
       
               <footer id="welcome-actions" class="w-full flex flex-col gap-3 pb-6 mt-auto">
@@ -84,6 +78,29 @@
               </footer>
               </div>
       
+          <!-- Login sheet -->
+          <div id="login-sheet" class="modal-overlay flex items-end justify-center bg-[#14532d]/80 backdrop-blur-sm" aria-hidden="true">
+              <div class="modal-content w-full max-w-[375px] bg-[#2f6759] rounded-t-[32px] p-6 flex flex-col shadow-2xl border-t border-white/10">
+                  <div class="w-10 h-1 bg-white/20 rounded-full mx-auto mb-6"></div>
+                  <h2 class="text-[20px] font-bold text-white mb-2">Entrar na conta</h2>
+                  <p class="text-[14px] text-white/70 mb-6">Use seu e-mail e senha ou continue com a conta demo.</p>
+                  <form id="login-form" class="space-y-4 mb-4">
+                      <div>
+                          <label for="login-email" class="text-[13px] text-white/90 ml-1">E-mail ou usuário</label>
+                          <input type="text" id="login-email" placeholder="mariana ou mariana@ficabem.app" class="w-full h-12 px-4 mt-1 rounded-[14px] glass-panel text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-brand-500 text-[15px]" autocomplete="username">
+                      </div>
+                      <div>
+                          <label for="login-password" class="text-[13px] text-white/90 ml-1">Senha</label>
+                          <input type="password" id="login-password" placeholder="Sua senha" class="w-full h-12 px-4 mt-1 rounded-[14px] glass-panel text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-brand-500 text-[15px]" autocomplete="current-password">
+                      </div>
+                      <button type="submit" class="w-full h-[52px] bg-white text-brand-600 rounded-[14px] font-semibold text-[16px]">Entrar</button>
+                  </form>
+                  <button type="button" id="login-demo-btn" class="w-full h-[48px] glass-panel text-white font-medium text-[15px] rounded-[14px] mb-2">Continuar como visitante (demo)</button>
+                  <button type="button" id="login-sheet-cancel" class="w-full py-3 text-[14px] text-white/60 font-medium hover:text-white">Cancelar</button>
+                  <p class="text-[11px] text-white/40 text-center mt-2">Demo: mariana@ficabem.app / demo123</p>
+              </div>
+          </div>
+
           </main>
       </div>
     </div>

@@ -3,15 +3,15 @@
  */
 (function initAvaliacao1() {
   document.addEventListener("DOMContentLoaded", () => {
-    AvaliacaoFlow.bindCancel();
+    AvaliacaoFlow.bindBack(1);
     AvaliacaoFlow.bindSkip(1);
     AvaliacaoFlow.bindListRowSelection();
+    AvaliacaoFlow.updatePlaceNameInTitles();
 
     const draft = FicaBemDB.getDraftReview();
     if (draft.placeId) highlightPlace(draft.placeName);
 
     AvaliacaoFlow.bindNext("avaliacao2", () => {
-      const data = AvaliacaoFlow.collectFormData();
       const draftNow = FicaBemDB.getDraftReview();
       if (!draftNow.placeId) {
         const first = document.querySelector(".list-row.ring-2, .list-row");
@@ -21,7 +21,7 @@
         const place = FicaBemDB.ensurePlace({ name });
         FicaBemDB.updateDraftReview({ placeId: place.id, placeName: place.name });
       }
-      FicaBemDB.updateDraftReview({ step1: data });
+      FicaBemDB.updateDraftReview({ step1: AvaliacaoFlow.collectFormData() });
     });
   });
 

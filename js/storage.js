@@ -203,6 +203,7 @@ const FicaBemDB = (function () {
       reviewsCount: 0,
       savedCount: 0,
       routesCount: 0,
+      favoritePlaceIds: userData.favoritePlaceIds || [],
       createdAt: new Date().toISOString(),
     };
     state.users.push(user);
@@ -234,6 +235,44 @@ const FicaBemDB = (function () {
       return user;
     }
     return null;
+  }
+
+  function loginWithCredentials(email, password) {
+    const user = findUserByEmail(email);
+    if (!user) return { ok: false, error: "Usuário não encontrado." };
+    if (user.password !== password) return { ok: false, error: "Senha incorreta." };
+    setCurrentUser(user.id);
+    return { ok: true, user };
+  }
+
+  function getFavoritePlaceIds() {
+    const user = getCurrentUser();
+    return user?.favoritePlaceIds || [];
+  }
+
+  function isFavoritePlace(placeId) {
+    return getFavoritePlaceIds().includes(placeId);
+  }
+
+  function toggleFavoritePlace(placeId) {
+    const user = getCurrentUser();
+    if (!user) return false;
+    const ids = getFavoritePlaceIds();
+    const idx = ids.indexOf(placeId);
+    if (idx >= 0) {
+      ids.splice(idx, 1);
+      updateUser(user.id, {
+        favoritePlaceIds: ids,
+        savedCount: Math.max(0, (user.savedCount || 0) - 1),
+      });
+      return false;
+    }
+    ids.push(placeId);
+    updateUser(user.id, {
+      favoritePlaceIds: ids,
+      savedCount: (user.savedCount || 0) + 1,
+    });
+    return true;
   }
 
   function validateInvite(code) {
@@ -444,6 +483,10 @@ const FicaBemDB = (function () {
     updateUser,
     findUserByEmail,
     loginWithEmail,
+    loginWithCredentials,
+    getFavoritePlaceIds,
+    isFavoritePlace,
+    toggleFavoritePlace,
     validateInvite,
     consumeInvite,
     createInvite,

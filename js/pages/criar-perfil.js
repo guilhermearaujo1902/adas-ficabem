@@ -5,13 +5,61 @@
   document.addEventListener("DOMContentLoaded", () => {
     bindBack();
     bindInterestPills();
+    bindUsernamePrefix();
+    bindPasswordToggle();
     bindForm();
+    prefillFromCurrentUser();
   });
 
   function bindBack() {
     document
       .querySelector("#step-header button")
       ?.addEventListener("click", () => FicaBemNav.go("convite"));
+  }
+
+  function bindUsernamePrefix() {
+    const input = document.getElementById("username");
+    if (!input) return;
+
+    input.addEventListener("input", () => {
+      input.value = input.value.replace(/^@+/, "").replace(/\s/g, "");
+    });
+
+    input.addEventListener("blur", () => {
+      if (input.value && !input.value.startsWith("@")) {
+        /* prefixo visual via span no HTML; valor sem @ */
+      }
+    });
+  }
+
+  function bindPasswordToggle() {
+    const input = document.getElementById("password");
+    const btn = input?.parentElement?.querySelector("button[type='button']");
+    if (!input || !btn) return;
+
+    btn.setAttribute("aria-label", "Mostrar senha");
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      const show = input.type === "password";
+      input.type = show ? "text" : "password";
+      btn.innerHTML = show
+        ? '<i class="fa-regular fa-eye-slash text-[18px]"></i>'
+        : '<i class="fa-regular fa-eye text-[18px]"></i>';
+      btn.setAttribute("aria-label", show ? "Ocultar senha" : "Mostrar senha");
+    });
+
+    if (!btn.querySelector(".fa-eye")) {
+      btn.innerHTML = '<i class="fa-regular fa-eye text-[18px]"></i>';
+    }
+  }
+
+  function prefillFromCurrentUser() {
+    const user = FicaBemDB.getCurrentUser();
+    if (!user) return;
+    const name = document.getElementById("name");
+    const username = document.getElementById("username");
+    if (name && user.name) name.value = user.name;
+    if (username && user.username) username.value = user.username.replace(/^@/, "");
   }
 
   function bindInterestPills() {
@@ -30,7 +78,7 @@
 
   function bindForm() {
     const form = document.getElementById("create-account-form");
-    const btn = FicaBemApp.findButton(["criar conta"]);
+    const btn = FicaBemApp.findButton(["criar conta", "salvar"]);
 
     const submit = (e) => {
       e?.preventDefault();
@@ -43,8 +91,9 @@
 
   function handleCreateAccount() {
     const name = document.getElementById("name")?.value?.trim();
-    const username = document.getElementById("username")?.value?.trim();
+    const username = document.getElementById("username")?.value?.trim().replace(/^@/, "");
     const password = document.getElementById("password")?.value;
+    const current = FicaBemDB.getCurrentUser();
 
     if (!name || !username || !password) {
       alert("Preencha nome, usuário e senha.");
@@ -56,7 +105,14 @@
       return;
     }
 
-    const email = `${username.replace(/^@/, "")}@ficabem.app`;
+    const email = `${username}@ficabem.app`;
+
+    if (current) {
+      FicaBemDB.updateUser(current.id, { name, username, password, email });
+      FicaBemApp.showToast("Perfil atualizado!");
+      setTimeout(() => FicaBemNav.go("perfil"), 600);
+      return;
+    }
 
     if (FicaBemDB.findUserByEmail(email)) {
       alert("Este usuário já está cadastrado.");

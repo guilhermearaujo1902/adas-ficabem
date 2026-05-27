@@ -18,16 +18,16 @@
       <!-- Main Container (Mobile Constrained) -->
           <main id="auth-welcome" class="auth-welcome--bleed rota-screen flex flex-col bg-[#2f6759]">
 
-              <header id="rota-header" class="w-full pt-12 pb-4 z-30 shrink-0 flex items-center justify-between pointer-events-none">
-                  <button class="w-10 h-10 rounded-full glass-panel flex items-center justify-center hover:bg-white/20 transition-colors shadow-lg pointer-events-auto" aria-label="Voltar">
+              <header id="rota-header" class="w-full pt-12 pb-4 z-30 shrink-0 flex items-center justify-between">
+                  <button type="button" class="w-10 h-10 rounded-full glass-panel flex items-center justify-center hover:bg-white/20 transition-colors shadow-lg" aria-label="Voltar">
                       <i class="fa-solid fa-chevron-left text-[16px] text-white"></i>
                   </button>
-                  <div class="glass-panel px-4 py-2 rounded-full flex items-center gap-2 pointer-events-auto shadow-lg">
+                  <div class="glass-panel px-4 py-2 rounded-full flex items-center gap-2 shadow-lg">
                       <div class="w-2 h-2 rounded-full bg-brand-300 animate-pulse"></div>
                       <span class="text-[12px] font-semibold text-white tracking-wide">Compartilhando</span>
                   </div>
-                  <button class="w-10 h-10 rounded-full glass-panel flex items-center justify-center hover:bg-white/20 transition-colors shadow-lg pointer-events-auto" aria-label="Opções">
-                      <i class="fa-solid fa-ellipsis-vertical text-[16px] text-white"></i>
+                  <button type="button" id="rota-header-end" class="h-10 px-3 rounded-full glass-panel flex items-center justify-center hover:bg-white/20 transition-colors shadow-lg text-[11px] font-semibold text-white whitespace-nowrap" aria-label="Encerrar rota">
+                      Encerrar
                   </button>
               </header>
 
@@ -122,7 +122,7 @@
                       <div class="space-y-3">
                           <div class="flex items-center justify-between">
                               <h3 class="text-[14px] font-medium text-white/90">Compartilhando com</h3>
-                              <button class="text-[12px] text-brand-300 font-medium" onclick="document.getElementById('share-modal').classList.add('active')">Adicionar</button>
+                              <button type="button" class="text-[12px] text-brand-300 font-medium" id="btn-rota-adicionar-contato">Adicionar</button>
                           </div>
                           
                           <div class="flex gap-3 overflow-x-auto hide-scrollbar pb-1">
@@ -150,7 +150,7 @@
                               </div>
                               
                               <!-- Share Link CTA -->
-                              <div class="flex flex-col items-center gap-1.5 shrink-0" onclick="document.getElementById('share-modal').classList.add('active')">
+                              <div class="flex flex-col items-center gap-1.5 shrink-0 cursor-pointer" id="btn-rota-adicionar-link">
                                   <div class="w-12 h-12 rounded-full border border-dashed border-white/30 bg-white/5 flex items-center justify-center text-white/70 hover:bg-white/10 hover:border-white/50 transition-colors cursor-pointer">
                                       <i class="fa-solid fa-link text-[16px]"></i>
                                   </div>

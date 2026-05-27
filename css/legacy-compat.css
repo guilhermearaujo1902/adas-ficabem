@@ -283,3 +283,161 @@
             z-index: -1;
             animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
         }
+
+/* --- Fluxo de avaliação (peer / chips / sliders) --- */
+.range-track-wrap {
+  position: relative;
+  padding-top: 0.5rem;
+  padding-bottom: 0.25rem;
+}
+
+.range-track-wrap .range-fill {
+  position: absolute;
+  left: 0;
+  top: 14px;
+  height: 4px;
+  background-color: #86efac;
+  border-radius: 9999px 0 0 9999px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.range-track-wrap input[type="range"] {
+  position: relative;
+  z-index: 2;
+}
+
+.tag-checkbox:checked + div,
+.radio-custom:checked + div {
+  background: rgba(134, 239, 172, 0.15);
+  border-color: #86efac !important;
+  color: #86efac;
+}
+
+.checkbox-custom:checked + div {
+  background-color: #86efac;
+  border-color: #86efac;
+}
+
+.checkbox-custom:checked + div .icon-check {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.peer-checked\:bg-brand-300.peer-checked\:border-brand-300,
+input.peer:checked + div.peer-checked\:bg-brand-300 {
+  background-color: #86efac;
+  border-color: #86efac;
+}
+
+input.peer:checked + div .icon-check {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Login — sem barra lateral */
+#auth-welcome.auth-welcome--no-nav > .content {
+  overflow-x: hidden;
+}
+
+/* Feed — locais em carrossel */
+#trending-places-list.horizontal-scroll > .place-card {
+  width: 280px;
+  flex-shrink: 0;
+}
+
+.place-card__fav.is-favorite i {
+  color: #86efac;
+}
+
+.place-card__fav.is-favorite i.fa-regular::before {
+  font-weight: 900;
+}
+
+/* Explorar — mapa simulado */
+#explorar-map-view {
+  flex: 1;
+  min-height: 280px;
+  margin: 0 calc(-1 * var(--phone-content-padding-x));
+  padding: 1rem var(--phone-content-padding-x);
+  background: linear-gradient(180deg, #1a3c33 0%, #2f6759 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+#explorar-map-view .explorar-map__canvas {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+#explorar-map-pins {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+#explorar-map-pins .explorar-map__pin {
+  pointer-events: auto;
+}
+
+#explorar-map-view .explorar-map__canvas img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.85;
+}
+
+.explorar-map__pin {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #86efac;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2f6759;
+  font-size: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* Rota — overlay mapa expandido */
+#rota-map-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  background: #1a3c33;
+  display: none;
+  flex-direction: column;
+}
+
+#rota-map-overlay.is-visible {
+  display: flex;
+}
+
+#rota-map-overlay .rota-map-overlay__header {
+  flex-shrink: 0;
+  padding: 3rem var(--phone-content-padding-x) 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 10;
+}
+
+#rota-map-overlay .rota-map-overlay__body {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+#rota-map-overlay .fab-emergency--overlay {
+  position: absolute;
+  top: 3.5rem;
+  right: 1.5rem;
+  bottom: auto;
+}

@@ -3,7 +3,7 @@
  */
 (function initAvaliacao7() {
   document.addEventListener("DOMContentLoaded", () => {
-    AvaliacaoFlow.bindCancel();
+    AvaliacaoFlow.bindBack(7);
     renderSummary();
     bindPublish();
   });
@@ -23,16 +23,19 @@
 
     const sentiments = (draft.step2?.sentiments || []).join(", ") || "—";
     const photos = (draft.step5?.photos || []).length;
+    const tags = (draft.step6?.environmentTags || []).join(", ") || "—";
 
     box.innerHTML = `
       <h3 class="font-semibold text-white mb-3">Resumo da avaliação</h3>
       <ul class="text-sm text-white/80 space-y-1.5">
         <li><strong>Local:</strong> ${draft.placeName || "—"}</li>
+        <li><strong>Nota:</strong> ${draft.step2?.overallStars || "—"} estrelas</li>
         <li><strong>Sentimentos:</strong> ${sentiments}</li>
         <li><strong>Comentário:</strong> ${draft.step4?.comment || "—"}</li>
         <li><strong>Publicação:</strong> ${
           draft.step4?.visibility === "anonymous" ? "Anônima" : "Pública"
         }</li>
+        <li><strong>Tags:</strong> ${tags}</li>
         <li><strong>Fotos:</strong> ${photos} anexada(s)</li>
         <li><strong>Recomenda:</strong> ${
           draft.step6?.recommend === true

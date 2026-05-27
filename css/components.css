@@ -417,6 +417,25 @@
   box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.3);
   transform: translateY(0);
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  max-height: 50vh;
+}
+
+#auth-welcome.rota-screen #route-bottom-sheet > div:last-child {
+  padding-bottom: calc(var(--phone-content-padding-bottom) + 0.5rem);
+  max-height: calc(50vh - 2rem);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+#auth-welcome.rota-screen #rota-header {
+  pointer-events: auto;
+}
+
+#auth-welcome.rota-screen .rota-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  pointer-events: auto;
 }
 
 #auth-welcome.rota-screen .bottom-sheet.collapsed {

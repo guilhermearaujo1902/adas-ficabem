@@ -1,40 +1,30 @@
 /**
- * avaliacao-6.html — Recomendação → revisão
+ * avaliacao-6.html — Tags e contexto → revisão
  */
 (function initAvaliacao6() {
   document.addEventListener("DOMContentLoaded", () => {
-    AvaliacaoFlow.bindCancel();
+    AvaliacaoFlow.bindBack(6);
     AvaliacaoFlow.bindSkip(6);
-    bindRecommend();
+    AvaliacaoFlow.bindTagAndProfileChecks();
+    AvaliacaoFlow.updatePlaceNameInTitles();
 
     AvaliacaoFlow.bindNext("avaliacao7", () => {
+      const recommendYes = document.querySelector('input[name="recommend"][value], input[name="recommend"]:checked');
+      let recommend = null;
+      if (recommendYes) {
+        const label = recommendYes.closest("label")?.textContent?.toLowerCase() || "";
+        recommend = label.includes("não") || label.includes("nao") ? false : true;
+      }
+
       FicaBemDB.updateDraftReview({
         step6: {
-          ...AvaliacaoFlow.collectFormData(),
-          recommend: getRecommendValue(),
+          environmentTags: AvaliacaoFlow.collectChipSelections(".tag-checkbox"),
+          profiles: AvaliacaoFlow.collectChipSelections(
+            '#avaliar-content input.checkbox-custom:not(.tag-checkbox)'
+          ),
+          recommend,
         },
       });
     });
   });
-
-  function bindRecommend() {
-    document.querySelectorAll("button").forEach((btn) => {
-      const t = (btn.textContent || "").toLowerCase();
-      if (t === "sim" || t === "não" || t === "nao") {
-        btn.addEventListener("click", () => {
-          document
-            .querySelectorAll("[data-recommend]")
-            .forEach((b) => b.classList.remove("ring-2", "ring-brand-300"));
-          btn.classList.add("ring-2", "ring-brand-300");
-          btn.dataset.recommend = t.includes("sim") ? "yes" : "no";
-        });
-      }
-    });
-  }
-
-  function getRecommendValue() {
-    const selected = document.querySelector("[data-recommend='yes'], [data-recommend='no']");
-    if (!selected) return null;
-    return selected.dataset.recommend === "yes";
-  }
 })();

@@ -1,5 +1,5 @@
 /**
- * detalhe.html — Detalhes, Iniciar Rota, Avaliar
+ * detalhe.html — Detalhes, Iniciar Rota, Avaliar (passo 2)
  */
 (function initDetalhePage() {
   document.addEventListener("DOMContentLoaded", () => {
@@ -8,6 +8,7 @@
 
     if (place) {
       FicaBemDB.startReviewForPlace(place.id);
+      FicaBemDB.updateDraftReview({ entrySource: "detalhe" });
       renderPlace(place);
       renderReviews(place.id);
     }
@@ -62,7 +63,8 @@
           FicaBemNav.go("rota", { place: place.id });
         } else if (text.includes("avaliar")) {
           e.preventDefault();
-          FicaBemNav.go("avaliacao1");
+          FicaBemDB.updateDraftReview({ entrySource: "detalhe" });
+          FicaBemNav.go("avaliacao2");
         }
       });
     });

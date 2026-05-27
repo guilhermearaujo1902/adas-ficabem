@@ -3,9 +3,9 @@
  */
 (function initAvaliacao4() {
   document.addEventListener("DOMContentLoaded", () => {
-    AvaliacaoFlow.bindCancel();
+    AvaliacaoFlow.bindBack(4);
     AvaliacaoFlow.bindSkip(4);
-    bindVisibilityToggles();
+    AvaliacaoFlow.updatePlaceNameInTitles();
 
     AvaliacaoFlow.bindNext("avaliacao5", () => {
       const textarea = document.querySelector("textarea");
@@ -17,17 +17,4 @@
       });
     });
   });
-
-  function bindVisibilityToggles() {
-    document.querySelectorAll("button, [data-visibility]").forEach((el) => {
-      const t = (el.textContent || el.dataset.visibility || "").toLowerCase();
-      if (!t.includes("públic") && !t.includes("anôn")) return;
-      el.addEventListener("click", () => {
-        document
-          .querySelectorAll("[data-visibility-group] button, .ring-2")
-          .forEach((b) => b.classList.remove("ring-2", "ring-brand-300"));
-        el.classList.add("ring-2", "ring-brand-300");
-      });
-    });
-  }
 })();

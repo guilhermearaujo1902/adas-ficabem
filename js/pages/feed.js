@@ -50,7 +50,12 @@
   }
 
   function bindRotaCta() {
-    document.getElementById("quick-actions-cta")?.addEventListener("click", () => {
+    document.getElementById("quick-actions-cta")?.addEventListener("click", (e) => {
+      if (e.target.closest("[data-favorite], [data-rate]")) return;
+      FicaBemNav.go("rota");
+    });
+    document.querySelector("#quick-actions-cta button")?.addEventListener("click", (e) => {
+      e.stopPropagation();
       FicaBemNav.go("rota");
     });
   }
@@ -97,15 +102,52 @@
     return CATEGORY_LABELS[category] || category || "Local";
   }
 
+  function bindPlaceCardActions(card, placeId) {
+    const favBtn = card.querySelector("[data-favorite]");
+    if (favBtn) {
+      const isFav = FicaBemDB.isFavoritePlace(placeId);
+      favBtn.classList.toggle("is-favorite", isFav);
+      const icon = favBtn.querySelector("i");
+      if (icon) {
+        icon.classList.toggle("fa-solid", isFav);
+        icon.classList.toggle("fa-regular", !isFav);
+      }
+      favBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        if (!FicaBemDB.getCurrentUser()) {
+          FicaBemApp.showToast("Entre na conta para salvar favoritos.");
+          return;
+        }
+        const nowFav = FicaBemDB.toggleFavoritePlace(placeId);
+        favBtn.classList.toggle("is-favorite", nowFav);
+        if (icon) {
+          icon.classList.toggle("fa-solid", nowFav);
+          icon.classList.toggle("fa-regular", !nowFav);
+        }
+        FicaBemApp.showToast(nowFav ? "Adicionado aos favoritos" : "Removido dos favoritos");
+      });
+    }
+
+    const rateBtn = card.querySelector("[data-rate]");
+    rateBtn?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      FicaBemDB.startReviewForPlace(placeId);
+      FicaBemNav.go("avaliacao2");
+    });
+  }
+
   function renderPlaces(category) {
     const container = document.getElementById("trending-places-list");
     if (!container) return;
+
+    container.classList.add("horizontal-scroll", "horizontal-scroll--bleed", "pb-2");
+    container.classList.remove("flex-col", "gap-4");
 
     const places = FicaBemDB.getPlaces(category);
 
     if (!places.length) {
       container.innerHTML =
-        '<p class="font-sans text-sm text-white/60 py-4">Nenhum local encontrado para este filtro.</p>';
+        '<p class="font-sans text-sm text-white/60 py-4 w-full">Nenhum local encontrado para este filtro.</p>';
       return;
     }
 
@@ -124,6 +166,7 @@
         const imgSrc =
           p.image ||
           "https://storage.googleapis.com/uxpilot-auth.appspot.com/01f2bd413b-5de1466befb3b2a2e26f.png";
+        const isFav = FicaBemDB.isFavoritePlace(p.id);
 
         return `
       <article class="place-card w-full bg-white/5 border border-white/10 rounded-2xl p-4 flex gap-4 items-center cursor-pointer" data-place-id="${p.id}">
@@ -133,9 +176,17 @@
         <div class="flex-1 min-w-0">
           <div class="flex justify-between items-start gap-2">
             <h3 class="font-serif text-base font-semibold truncate">${p.name}</h3>
-            <div class="flex items-center gap-1 bg-white/10 px-2 py-1 rounded-md shrink-0">
-              <i class="fa-solid fa-shield-halved text-brand-accent text-[10px]"></i>
-              <span class="font-sans text-xs font-bold">${p.rating}</span>
+            <div class="flex items-center gap-1 shrink-0">
+              <button type="button" class="place-card__fav w-8 h-8 rounded-full bg-white/10 flex items-center justify-center ${isFav ? "is-favorite" : ""}" data-favorite aria-label="Favoritar">
+                <i class="${isFav ? "fa-solid" : "fa-regular"} fa-bookmark text-[12px] text-white"></i>
+              </button>
+              <button type="button" class="w-8 h-8 rounded-full bg-brand-300/20 flex items-center justify-center" data-rate aria-label="Avaliar local">
+                <i class="fa-solid fa-star text-[12px] text-brand-300"></i>
+              </button>
+              <div class="flex items-center gap-1 bg-white/10 px-2 py-1 rounded-md">
+                <i class="fa-solid fa-shield-halved text-brand-accent text-[10px]"></i>
+                <span class="font-sans text-xs font-bold">${p.rating}</span>
+              </div>
             </div>
           </div>
           <p class="font-sans text-xs text-white/60 mt-1">${p.neighborhood} • ${formatCategory(p.category)}</p>
@@ -146,9 +197,11 @@
       .join("");
 
     container.querySelectorAll("[data-place-id]").forEach((card) => {
+      const placeId = card.dataset.placeId;
+      bindPlaceCardActions(card, placeId);
       card.addEventListener("click", () => {
-        FicaBemDB.startReviewForPlace(card.dataset.placeId);
-        FicaBemNav.go("detalhe", { place: card.dataset.placeId });
+        FicaBemDB.startReviewForPlace(placeId);
+        FicaBemNav.go("detalhe", { place: placeId });
       });
     });
   }

@@ -1,11 +1,19 @@
 /**
- * perfil.html — Dados, estatísticas, Convidar Amigas
+ * perfil.html — Dados, estatísticas, Editar perfil, Convidar
  */
 (function initPerfilPage() {
   document.addEventListener("DOMContentLoaded", () => {
     renderProfile();
     bindConvidar();
+    bindEditProfile();
+    bindBack();
   });
+
+  function bindBack() {
+    document
+      .querySelector("#route-header button")
+      ?.addEventListener("click", () => FicaBemNav.go("feed"));
+  }
 
   function renderProfile() {
     const user = FicaBemDB.getCurrentUser();
@@ -24,7 +32,7 @@
     const stats = document.querySelectorAll("#contribution-stats .font-serif.text-2xl");
     if (stats[0]) stats[0].textContent = user.reviewsCount || 0;
     if (stats[1]) stats[1].textContent = user.routesCount || 0;
-    if (stats[2]) stats[2].textContent = user.savedCount || 0;
+    if (stats[2]) stats[2].textContent = user.savedCount || (user.favoritePlaceIds?.length || 0);
 
     const hours = document.querySelector(
       "#security-preferences .fa-clock"
@@ -39,6 +47,12 @@
     if (cats && user.avoidedCategories?.length) {
       cats.textContent = user.avoidedCategories.join(", ");
     }
+  }
+
+  function bindEditProfile() {
+    document
+      .querySelector("#profile-header button.glass-effect")
+      ?.addEventListener("click", () => FicaBemNav.go("criarPerfil"));
   }
 
   function bindConvidar() {
